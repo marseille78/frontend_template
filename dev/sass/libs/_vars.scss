@@ -1,0 +1,60 @@
+// Misc.
+$misc: (
+	z-index-base:		10000
+);
+
+
+
+// Duration.
+$duration: (
+	transition:			0.2s
+);
+
+
+
+// Size.
+$size: (
+	width-content: 		1000px,
+	btn-bd-radius: 		4px
+);
+
+
+
+// Font.
+$font: (
+	family:				('Open Sans', sans-serif),
+	size: 				16px,
+	weight-normal: 		400,
+	weight-bold: 		700,
+	btn-size: 			1em,
+	line-height: 		1.4
+);
+
+
+
+// Palette.
+$palette: (
+	bg:					#fff,
+	color-font: 		#ccc,
+	btn-color: 			#fff,
+	btn-color-hover:	#fff,
+	btn-bg: 			#ccc,
+	btn-bg-hover:		#ccc,
+	btn-bg-active:		#ccc,
+	link-color: 		#ccc,
+	link-color-hover: 	#ccc
+);
+
+
+
+
+// Breakpoints for media
+$breakpoints: (
+   xlarge: 				'(max-width: 1680px)',
+   large: 				'(max-width: 1280px)',
+   medium: 				'(max-width: 980px)',
+   small: 				'(max-width: 736px)',
+   xsmall: 				'(max-width: 480px)',
+   xlarge-to-max: 		'(min-width: 1681px)',
+   small-to-xlarge: 	'(min-width: 481px) and (max-width: 1680px)'
+);

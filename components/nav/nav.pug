@@ -1,0 +1,6 @@
+- var list_nav = [['link-1', '#'], ['link-2', '#'], ['link-3', '#'], ['link-4', '#']]
+nav.navigation
+    ul
+        each itemMenu in list_nav
+            li
+                a(href=""+itemMenu[1])= itemMenu[0]
