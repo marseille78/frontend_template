@@ -58,3 +58,17 @@ $breakpoints: (
    xlarge-to-max: 		'(min-width: 1681px)',
    small-to-xlarge: 	'(min-width: 481px) and (max-width: 1680px)'
 );
+
+
+
+
+// Navigation
+$nav: (
+   font: 				(Arial, sans-serif),
+   font-size: 			18px,
+   color: 				#fff,
+   bg-color: 			#444,
+   bg-color-hover:		#222,
+   item-padding: 		10px,
+   width-gamburger: 	32px 
+);

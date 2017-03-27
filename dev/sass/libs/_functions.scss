@@ -40,6 +40,13 @@
 	@return val($breakpoints, $keys...);
 }
 
+/// Gets a breakpoints value.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function _nav($keys...) {
+	@return val($nav, $keys...);
+}
+
 
 //---------------------------------------------
 /// Gets a value from a map.

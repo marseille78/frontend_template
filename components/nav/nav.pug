@@ -1,6 +1,17 @@
-- var list_nav = [['link-1', '#'], ['link-2', '#'], ['link-3', '#'], ['link-4', '#']]
-nav.navigation
-    ul
-        each itemMenu in list_nav
-            li
-                a(href=""+itemMenu[1])= itemMenu[0]
+- var listMenu = [['Home', '#'], ['About', '#'], ['Works', '#', [['Work-1', '#'], ['Work-1', '#'], ['Work-1', '#']]], ['Info', '#'], ['Contacts', '#']]
+nav.menu#AdaptiveMenu
+	.menu__gamburger#iconAdaptiveMenu
+		- for (var i = 0; i < 3; i++)
+			span
+	ul
+		each menuItem in listMenu
+			if menuItem[2]
+				li.multylevel= menuItem[0]
+					ul
+						each subMenuItem in menuItem[2]
+							li
+								a(href=""+subMenuItem[1])= subMenuItem[0]
+
+			else
+				li
+					a(href=""+menuItem[1])= menuItem[0]
