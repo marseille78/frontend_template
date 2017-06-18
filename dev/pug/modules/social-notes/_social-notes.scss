@@ -1,0 +1,25 @@
+.social-notes {
+	li {
+		display: inline-block;
+		vertical-align: top;
+		height: 20px;
+		width: 20px;
+	}
+
+	&__item {
+		display: block;
+		height: 100%;
+
+		&--vk {
+			background: url(../img/sprite/vk.png) no-repeat;
+		}
+
+		&--fb {
+			background: url(../img/sprite/fb.png) no-repeat;
+		}
+
+		&--inst {
+			background: url(../img/sprite/inst.png) no-repeat;
+		}
+	}
+}

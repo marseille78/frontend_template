@@ -14,61 +14,50 @@ $duration: (
 
 // Size.
 $size: (
-	width-content: 		1000px,
-	btn-bd-radius: 		4px
+	/* Layout */
+    h-header:              300px,
+    h-footer:              100px,
+    w-content:             1000px,
+    w-l-sidebar:           300px,
+    w-r-sidebar:           300px,
+    offset-sect:           30px,
+    offset-subset:         15px,
+    offset-col:            15px
 );
 
 
 
 // Font.
 $font: (
-	family:				('Open Sans', sans-serif),
-	size: 				16px,
+	/* Layout */
+	family:				    ('Open Sans', sans-serif),
+	size: 				    14px,
+	weight-light: 		300,
 	weight-normal: 		400,
-	weight-bold: 		700,
-	btn-size: 			1em,
-	line-height: 		1.4
+	weight-bold: 		  700,
+	line-height: 		  1.4
 );
 
 
 
 // Palette.
 $palette: (
-	bg:					#fff,
-	color-font: 		#ccc,
-	btn-color: 			#fff,
-	btn-color-hover:	#fff,
-	btn-bg: 			#ccc,
-	btn-bg-hover:		#ccc,
-	btn-bg-active:		#ccc,
-	link-color: 		#ccc,
-	link-color-hover: 	#ccc
+	/* Layout */
+	bg:					    #fff,
+	bg-content: 		#fff,
+
+	/* Fonts */
+	font-color: 		#000,
+	font-link: 			#00f
 );
 
 
 
 
 // Breakpoints for media
-$breakpoints: (
-   xlarge: 				'(max-width: 1680px)',
-   large: 				'(max-width: 1280px)',
-   medium: 				'(max-width: 980px)',
-   small: 				'(max-width: 736px)',
-   xsmall: 				'(max-width: 480px)',
-   xlarge-to-max: 		'(min-width: 1681px)',
-   small-to-xlarge: 	'(min-width: 481px) and (max-width: 1680px)'
-);
-
-
-
-
-// Navigation
-$nav: (
-   font: 				(Arial, sans-serif),
-   font-size: 			18px,
-   color: 				#fff,
-   bg-color: 			#444,
-   bg-color-hover:		#222,
-   item-padding: 		10px,
-   width-gamburger: 	32px 
+$points: (
+    sm:             500px,
+    md:             768px,
+    lg:             1025px,
+    xl:             1260px
 );

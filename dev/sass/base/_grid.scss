@@ -1,0 +1,13 @@
+@mixin grid {
+    .col-1 {
+        position: relative;
+        float: left;
+        box-sizing: border-box;
+    }
+    
+    @for $i from 2 through 12 {
+        .col-#{$i} {
+            @extend .col-1;
+        }
+    }
+}
