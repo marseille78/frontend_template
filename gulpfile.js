@@ -1,167 +1,140 @@
-var gulp 			= require('gulp'), 					// Подключение Gulp
-    pug 			= require('gulp-pug'),				// Для работы с html-препроцессором PUG
-	sass 			= require('gulp-sass'), 			// для работы с SASS
-	browserSync 	= require('browser-sync'), 			// Локальный сервер и live-reload
-	concat 			= require('gulp-concat'), 			// Слияние файлов
-	uglifyjs		= require('gulp-uglifyjs'), 		// Минификация JS-файлов
-	del				= require('del'),					// Очистка директории
-	cssnano			= require('gulp-cssnano'), 			// Минификация CSS-файлов
-	imagemin		= require('gulp-imagemin'),			// Оптимизация изображений
-	pngquant		= require('imagemin-pngquant'),		// Оптимизация изображений
-	cache			= require('gulp-cache'),			// Кеширование при оптимизации изображений
-	plumber 		= require("gulp-plumber"),
-	notify 			= require("gulp-notify"),			// Уведомления
-	autoprefixer 	= require('gulp-autoprefixer');		// Для автоматической установки префиксов
+"use strict";
+
+var gulp = require('gulp'),
+	pug = require('gulp-pug'),
+	sass = require('gulp-sass'),
+	concat = require('gulp-concat'),
+	plumber = require('gulp-plumber'),
+	prefix = require('gulp-autoprefixer'),
+	imagemin = require('gulp-imagemin'),
+	browserSync = require('browser-sync').create();
+
+var useref = require('gulp-useref'),
+	gulpif = require('gulp-if'),
+	cssmin = require('gulp-clean-css'),
+	uglify = require('gulp-uglify'),
+	rimraf = require('rimraf'),
+	notify = require('gulp-notify'),
+	ftp = require('vinyl-ftp');
+
+var paths = {
+			blocks: 'blocks/',
+			devDir: 'app/',
+			outputDir: 'build/'
+		};
 
 
+/*********************************
+		Developer tasks
+*********************************/
 
-// Подключение скриптов библиотек
+//pug compile
+gulp.task('pug', function() {
+	return gulp.src([paths.blocks + '*.pug', '!' + paths.blocks + 'template.pug' ])// Собирает все файлы .pug из папки /blocks/, кроме файла /blocks/template.pug
+		.pipe(plumber())// чтобы при какой-ниибудь ошибке ничего не вылетало
+		.pipe(pug({pretty: true}))// компилирует pug => html
+		.pipe(gulp.dest(paths.devDir))// помещает результат в папку app/
+		.pipe(browserSync.stream())// обновление локального сервера
+});
+
+//sass compile
+gulp.task('sass', function() {
+	return gulp.src(paths.blocks + '*.sass')// собирает все scss-файлы
+		.pipe(plumber())
+		.pipe(sass().on('error', sass.logError))
+		.pipe(prefix({// простановка css-префиксов
+			browsers: ['last 10 versions'],
+			cascade: true
+		}))
+		.pipe(gulp.dest(paths.devDir + 'css/'))// помещает результат в папку app/css
+		.pipe(browserSync.stream());
+});
+
+//js compile
 gulp.task('scripts', function() {
 	return gulp.src([
-			// Библиотеки
-			'dev/libs/jquery/dist/jquery.min.js',
-			'dev/libs/magnific-popup/dist/jquery.magnific-popup.min.js'
+			paths.blocks + '**/*.js',// собираем все js-файлы в папке blocks/
+			'!' + paths.blocks + '_assets/**/*.js'// кроме тех, что находятся в папке blocks/_assets (т.к. они будут отдельно подключаться и сжиматься)
 		])
-		.pipe(concat('libs.min.js'))
-		.pipe(uglifyjs())
-		.pipe(gulp.dest('dev/js'))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
+		.pipe(concat('main.js'))// Склеивается в один файл
+		.pipe(gulp.dest(paths.devDir + 'js/'))// помещает результат в папку js/
+		.pipe(browserSync.stream());
 });
 
-
-
-// Подключение стилей библиотек
-gulp.task('styles', function() {
-	return gulp.src([
-			// Стили библиотек
-			'dev/libs/magnific-popup/dist/magnific-popup.css'
-		])
-		.pipe(concat('libs.min.css'))
-		.pipe(cssnano())
-		.pipe(gulp.dest('dev/css'));
+//watch
+gulp.task('watch', function() {// прослушивание на счет изменений в файлах с указанными ниже путями и запуск соответствующей задачи
+	gulp.watch(paths.blocks + '**/*.pug', ['pug']);
+	gulp.watch(paths.blocks + '**/*.sass', ['sass']);
+	gulp.watch(paths.blocks + '**/*.js', ['scripts']);
 });
 
-
-
-// Работа с Pug
-gulp.task('pug', function() {
-    return gulp.src('dev/pug/pages/*.pug')
-        .pipe(plumber())
-        .pipe(pug({
-            pretty: true
-        }))
-        .on("error", notify.onError(function(error) {
-            return "Message to the notifier: " + error.message;
-        }))
-        .pipe(gulp.dest('dev'));
-});
-
-
-
-// Работа с SCSS
-gulp.task('sass', function() {
-	return gulp.src('dev/sass/**/*.scss')
-		.pipe(sass())
-		.pipe(autoprefixer(['last 2 version']))
-		.pipe(gulp.dest('dev/css/'))
-		.pipe(browserSync.reload({stream: true}));
-});
-
-
-
-// Локальный сервер с live-reload
-gulp.task('browser-sync', function() {
-	browserSync({
+//server
+gulp.task('browser-sync', function() {// установка локального сервера на порту 3000
+	browserSync.init({
+		port: 3000,
 		server: {
-			baseDir: 'dev'
-		},
-		notify: false
-	})
+			baseDir: paths.devDir// устанавливаем корневой папкой локального сервера директорию app/
+		}
+	});
 });
 
 
+/*********************************
+		Production tasks
+*********************************/
 
-// Очистка папки сборки
-gulp.task('clean', function() {
-	return del.sync('app');
+//clean
+gulp.task('clean', function(cb) {// очищает production-директорию build/
+	rimraf(paths.outputDir, cb);
+});
+
+//css + js
+gulp.task('build', ['clean'], function () {// компиляция production-версии
+	return gulp.src(paths.devDir + '*.html')// собирает все html-файлы в директории app/
+		.pipe( useref() )// производит поиск файлов по соответствущим комментариям и объединяет их между собой (в комментариях также указано в какой файл переименовать результат и в какую директорию его поместить)
+		.pipe( gulpif('*.js', uglify()) )// если находяться js-файлы, то они минифицируются
+		.pipe( gulpif('*.css', cssmin()) )// если находятся css-файлы, то они минифицируются
+		.pipe( gulp.dest(paths.outputDir) );// результат помещается в production-директорию build/
+});
+
+//copy images to outputDir
+gulp.task('imgBuild', ['clean'], function() {
+	return gulp.src(paths.devDir + 'img/**/*.*')
+		.pipe(imagemin())
+		.pipe(gulp.dest(paths.outputDir + 'img/'));
+});
+
+//copy fonts to outputDir
+gulp.task('fontsBuild', ['clean'], function() {
+	return gulp.src(paths.devDir + '/fonts/*')
+		.pipe(gulp.dest(paths.outputDir + 'fonts/'));
+});
+
+//ftp
+gulp.task('send', function() {// Плагин для заливки данных на сервер по FTP
+	var conn = ftp.create({
+		host:     '',// Указываем хостинг
+		user:     '',// Указываем логин
+		password: '',// Указываем пароль
+		parallel: 5
+	});
+
+	/* list all files you wish to ftp in the glob variable */
+	var globs = [
+		'build/**/*',
+		'!node_modules/**' // if you wish to exclude directories, start the item with an !
+	];
+
+	return gulp.src( globs, { base: '.', buffer: false } )
+		.pipe( conn.newer( '/' ) ) // only upload newer files
+		.pipe( conn.dest( '/' ) )// Указываются пути к папке на хостинге
+		.pipe(notify("Dev site updated!"));
+
 });
 
 
+//default
+gulp.task('default', ['browser-sync', 'watch', 'pug', 'sass', 'scripts']);
 
-// Оптимизация изображений
-gulp.task('img', function() {
-	return gulp.src(['dev/img/**/*', '!dev/img/sprite/*'])
-		.pipe(cache(imagemin({
-				interlaced: true,
-				progressive: true,
-				svgoPlugins: [{removeViewBox: false}],
-				use: [pngquant()]
-			})))
-		.pipe(gulp.dest('app/img'));
-});
-
-
-
-// Прослушивание
-gulp.task('watch', ['browser-sync', 'sass', 'pug', 'scripts', 'styles'], function() {
-	gulp.watch('dev/sass/**/*.scss', ['sass']);
-    gulp.watch('dev/pug/**/*.pug', ['pug']);
-	gulp.watch('dev/**/*.html', browserSync.reload);
-	gulp.watch(['dev/js/**/*.js', '!dev/js/libs.min.js', '!dev/static/js/jquery.js'], browserSync.reload);
-});
-
-
-
-// Сборка в продакшн
-gulp.task('build', ['clean', 'img', 'sass', 'scripts', 'styles'], function() {
-	var buildCss = gulp.src('dev/css/**/*.css')
-		.pipe(gulp.dest('app/css'));
-
-	var buildFonts = gulp.src('dev/fonts/**/*')
-		.pipe(gulp.dest('app/fonts'));
-
-	var buildJs = gulp.src('dev/js/**/*.js')
-		.pipe(gulp.dest('app/js'));
-
-	var buildHtml = gulp.src('dev/*.html')
-		.pipe(gulp.dest('app'));
-
-    var buildImg = gulp.src('dev/img/sprite/sprite.png')
-        .pipe(imagemin({
-            progressive: true,
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('app/img/sprite/'));
-});
-
-
-
-// Очистка кеша
-gulp.task('clearCache', function() {
-	return cache.clearAll();
-});
-
-
-
-// Дефолтный таск
-gulp.task('default', ['watch']);
-
-/*
-Вопросы
--------------------------
-1. Сборка спрайтов *.png
-*/
-
-/*
-Плагины
-----------
-1. Animate.css 					// https://daneden.github.io/animate.css/ (CSS-анимация)
-2. bxSlider 					// http://bxslider.com/ (Слайдер)
-3. Magnific Popup 				// http://dimsemenov.com/plugins/magnific-popup/ (Попап)
-4. Masked input plugin 			// http://digitalbush.com/projects/masked-input-plugin/ (Маска для ввода в форму)
-5. Normalize.css 				// https://necolas.github.io/normalize.css/ (Сброс стилей)
-6. slick 						// http://kenwheeler.github.io/slick/ (Карусель)
-7. jQuery Validation Plugin 	// https://jqueryvalidation.org/ (Валидация форм)
-*/
+//production
+gulp.task('prod', ['build', 'imgBuild', 'fontsBuild']);

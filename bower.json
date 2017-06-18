@@ -1,9 +1,10 @@
+
 {
-  "name": "test_template",
-  "description": "",
+  "name": "right_start",
+  "description": "gulp_pug_sass_bem_boilerplate",
   "main": "index.js",
   "authors": [
-    "marseille78 <boyko.ruslan78@gmail.com>"
+    "Ruslan Boiko <boyko.ruslan78@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",
@@ -11,8 +12,10 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "dev/libs",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "mdi": "^1.9.33"
+  }
 }
