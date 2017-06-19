@@ -39,7 +39,7 @@ gulp.task('pug', function() {
 
 //sass compile
 gulp.task('sass', function() {
-	return gulp.src(paths.blocks + '*.sass')// собирает все scss-файлы
+	return gulp.src(paths.blocks + '*.scss')// собирает все scss-файлы
 		.pipe(plumber())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(prefix({// простановка css-префиксов
@@ -64,7 +64,7 @@ gulp.task('scripts', function() {
 //watch
 gulp.task('watch', function() {// прослушивание на счет изменений в файлах с указанными ниже путями и запуск соответствующей задачи
 	gulp.watch(paths.blocks + '**/*.pug', ['pug']);
-	gulp.watch(paths.blocks + '**/*.sass', ['sass']);
+	gulp.watch(paths.blocks + '**/*.scss', ['sass']);
 	gulp.watch(paths.blocks + '**/*.js', ['scripts']);
 });
 

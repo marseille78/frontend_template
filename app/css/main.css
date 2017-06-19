@@ -34,7 +34,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
+  content: "";
   content: none; }
 
 table {
@@ -111,7 +111,7 @@ a {
   outline: none;
   cursor: pointer; }
   .btn::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 10%;
@@ -120,8 +120,8 @@ a {
     -webkit-box-shadow: 0 6px 23px 0 rgba(248, 116, 143, 0.51);
             box-shadow: 0 6px 23px 0 rgba(248, 116, 143, 0.51);
     z-index: -1;
-    -webkit-transition: all .3s;
-    transition: all .3s; }
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
   .btn:active::after {
     -webkit-box-shadow: 0 3px 9px 0 rgba(248, 116, 143, 0.51);
             box-shadow: 0 3px 9px 0 rgba(248, 116, 143, 0.51); }
@@ -133,8 +133,8 @@ a {
     line-height: 40px;
     color: #4a4a4a;
     display: inline-block;
-    -webkit-transition: all .3s;
-    transition: all .3s; }
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
     .btn--header::after {
       opacity: 0; }
     .btn--header:hover {
@@ -211,7 +211,7 @@ a {
   background-image: linear-gradient(to top, #9b23ea, #5f72bd);
   z-index: 1; }
   .intro::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -220,7 +220,7 @@ a {
     background-image: url("../img/intro.jpg");
     background-size: cover;
     z-index: -1;
-    opacity: .41;
+    opacity: 0.41;
     mix-blend-mode: overlay; }
   .intro__container {
     -webkit-box-pack: justify;
@@ -258,7 +258,7 @@ a {
   text-transform: uppercase; }
 
 .title::before {
-  content: '';
+  content: "";
   display: block;
   height: 10px;
   width: 60px;
