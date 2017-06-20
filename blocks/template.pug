@@ -3,6 +3,7 @@ include _assets/bemto/bemto
 
 include head/head
 include header/header
+include head-line/head-line
 
 doctype html
 html(lang="ru")
@@ -15,9 +16,11 @@ html(lang="ru")
 				"description": "Workshop"
 			})
 			
+	block body
 		body
 
 			block header
+				+head-line()
 				+header()
 					
 			block content

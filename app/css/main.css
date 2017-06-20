@@ -57,3 +57,34 @@ a {
   src: url("../fonts/Lato/Lato-Heavy.ttf");
   font-style: normal;
   font-weight: 900; }
+
+.head-line__container {
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media (min-width: 320px) {
+    .head-line__container {
+      width: 100%;
+      padding: 0 15px; } }
+  @media (min-width: 767px) {
+    .head-line__container {
+      width: 750px; } }
+  @media (min-width: 1024px) {
+    .head-line__container {
+      width: 970px; } }
+  @media (min-width: 1200px) {
+    .head-line__container {
+      width: 1170px; } }
+
+.head-line__container {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
