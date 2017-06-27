@@ -1,21 +1,24 @@
-#Boilerplate
-It's easy Gulp+Pug+SASS boilerplate
+# Шаблон верстки (Pug + SCSS + Gulp)
 
-##Quick start
+## Плагины Gulp
 
-* Install dev-dependencies `npm i`
-* Install dependencies `bower i`
-* Launch `gulp` to run watchers, server and compilers
-* Launch `gulp production` to minify files for production
+* [gulp-concat-css](https://www.npmjs.com/package/gulp-concat-css) - Для склеивания _CSS-файлов_ подключаемых библиотек
+* [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - Минификация файлов стилей для продакшена
+* [gulp-notify](https://www.npmjs.com/package/gulp-notify/) - Плагин для уведомлений
+* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer/) - Для автоматической подстановки _CSS-префиксов_
+* [gulp-connect](https://www.npmjs.com/package/gulp-connect/) - Локальный сервер вместе с `live-reload`
+* [gulp-sass](https://www.npmjs.com/package/gulp-sass/) - Для работы с `SASS/SCSS`
+* [gulp-pug](https://www.npmjs.com/package/gulp-pug) - Для работы с `Pug/Jade`
+* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - Чтобы всякий раз не вылетал, при возникновении ошибки
+* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - Для минификации _JS-файлов_
+* [gulp-sftp](https://www.npmjs.com/package/gulp-sftp) - Для отправки по `FTP` на сервер
+* [gulp-clean](https://www.npmjs.com/package/gulp-clean) - Для удаления файлов
 
-##Directory Layout
+**Неиспользуемые плагины :**
 
-	interact                    # Project root
-	├── /blocks/                # Source files
-	├── /app/                   # Compiled files for developing
-	├── /build/                   # Minified files for production
-	├── bower.json              # List of 3rd party libraries and utilities
-	├── package.json            # Dependencies for node.js
-	├── gulpfile.js             # gulp.js config
-	├── LICENSE                 # License file
-	├── README.md               # File you read
+* [gulp-rename](https://www.npmjs.com/package/gulp-rename/) - Для переимееновывания получаемых файлов
+* [gulp-uncss](https://www.npmjs.com/package/gulp-uncss/) - Удаление неиспользуемых _CSS-стилей_
+* [gulp-less](https://www.npmjs.com/package/gulp-less/) - Работа с `LESS`
+* [gulp-rev-append](https://www.npmjs.com/package/gulp-rev-append/) - Плагин для кэширования
+* [gulp-useref](https://www.npmjs.com/package/gulp-useref) - Для подготовки проекта к отправке в продакшн
+* [gulp-if](https://www.npmjs.com/package/gulp-if) - Фильтрует подключенные к `index.html` файлы

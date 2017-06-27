@@ -1,140 +1,123 @@
 "use strict";
 
-var gulp = require('gulp'),
-		pug = require('gulp-pug'),
-		sass = require('gulp-sass'),
-		concat = require('gulp-concat'),
-		plumber = require('gulp-plumber'),
-		prefix = require('gulp-autoprefixer'),
-		imagemin = require('gulp-imagemin'),
-		browserSync = require('browser-sync').create();
+/*********************************************
+ * 		Variables
+ *********************************************/
 
-var useref = require('gulp-useref'),
-		gulpif = require('gulp-if'),
-		cssmin = require('gulp-clean-css'),
-		uglify = require('gulp-uglify'),
-		rimraf = require('rimraf'),
-		notify = require('gulp-notify'),
-		ftp = require('vinyl-ftp');
+var gulp = require('gulp'),
+	concatCSS = require('gulp-concat-css'),
+	cleanCSS = require('gulp-clean-css'),
+	notify = require('gulp-notify'),
+	autoprefixer = require('gulp-autoprefixer'),
+	connect = require('gulp-connect'),
+	sass = require('gulp-sass'),
+	uncss = require('gulp-uncss'),
+	pug = require('gulp-pug'),
+	uglify = require('gulp-uglify'),
+	plumber = require('gulp-plumber');
+
+// var useref = require('gulp-useref'),
+// 	gulpif = require('gulp-if');
+
+var clean = require('gulp-clean'),
+	sftp = require('gulp-sftp');
 
 var paths = {
-			blocks: 'blocks/',
-			devDir: 'app/',
-			outputDir: 'build/'
-		};
+	dirApp: 'app/',
+	dirLib: 'app/libs/',
+	appCSS: 'app/css',
+	appJS: 'app/js',
+	dirBlocks: 'dev/blocks/',
+	dirBuild: 'build/'
+};
+
+var libsCSS = [];
 
 
-/*********************************
-		Developer tasks
-*********************************/
 
-//pug compile
-gulp.task('pug', function() {
-	return gulp.src([paths.blocks + '*.pug', '!' + paths.blocks + 'template.pug' ])
+/**********************************************
+ * 		Development
+ *********************************************/
+
+// HTML
+gulp.task('html', function() {
+	return gulp.src([paths.dirBlocks + '*.pug', '!' + paths.dirBlocks + 'template.pug'])
 		.pipe(plumber())
 		.pipe(pug({pretty: true}))
-		.pipe(gulp.dest(paths.devDir))
-		.pipe(browserSync.stream())
+		.pipe(gulp.dest(paths.dirApp))
+		.pipe(connect.reload());
 });
 
-//sass compile
-gulp.task('sass', function() {
-	return gulp.src(paths.blocks + '*.scss')
+// CSS
+gulp.task('css', function() {
+	return gulp.src(paths.dirBlocks + '**/*.scss')
 		.pipe(plumber())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(prefix({
-			browsers: ['last 10 versions'],
-			cascade: true
-		}))
-		.pipe(gulp.dest(paths.devDir + 'css/'))
-		.pipe(browserSync.stream());
+		.pipe(autoprefixer({
+            browsers: ['last 15 versions'],
+            cascade: false
+        }))
+    	.pipe(gulp.dest(paths.appCSS))
+    	.pipe(connect.reload());
 });
 
-//js compile
-gulp.task('scripts', function() {
-	return gulp.src([
-			paths.blocks + '**/*.js',
-			'!' + paths.blocks + '_assets/**/*.js'
-		])
-		.pipe(concat('main.js'))
-		.pipe(gulp.dest(paths.devDir + 'js/'))
-		.pipe(browserSync.stream());
+// Concatination CSS-files from libraries
+gulp.task('concatLibCSS', function() {
+	return gulp.src(libsCSS)
+		.pipe(plumber())
+		.pipe(concatCSS('lib.min.css'))
+		.pipe(autoprefixer({
+            browsers: ['last 15 versions'],
+            cascade: false
+        }))
+		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(gulp.dest(paths.appCSS));
 });
 
-//watch
-gulp.task('watch', function() {
-	gulp.watch(paths.blocks + '**/*.pug', ['pug']);
-	gulp.watch(paths.blocks + '**/*.scss', ['sass']);
-	gulp.watch(paths.blocks + '**/*.js', ['scripts']);
-});
-
-//server
-gulp.task('browser-sync', function() {
-	browserSync.init({
-		port: 3000,
-		server: {
-			baseDir: paths.devDir
-		}
+// Server connect
+gulp.task('connect', function() {
+	connect.server({
+		root: 'app',
+		livereload: true
 	});
 });
 
+// Watcher
+ gulp.task('watch', function() {
+ 	gulp.watch(paths.dirBlocks + '**/*.pug', ['html']);
+ 	gulp.watch(paths.dirBlocks + '**/*.scss', ['css']);
+ });
 
-/*********************************
-		Production tasks
-*********************************/
-
-//clean
-gulp.task('clean', function(cb) {
-	rimraf(paths.outputDir, cb);
-});
-
-//css + js
-gulp.task('build', ['clean'], function () {
-	return gulp.src(paths.devDir + '*.html')
-		.pipe( useref() )
-		.pipe( gulpif('*.js', uglify()) )
-		.pipe( gulpif('*.css', cssmin()) )
-		.pipe( gulp.dest(paths.outputDir) );
-});
-
-//copy images to outputDir
-gulp.task('imgBuild', ['clean'], function() {
-	return gulp.src(paths.devDir + 'img/**/*.*')
-		.pipe(imagemin())
-		.pipe(gulp.dest(paths.outputDir + 'img/'));
-});
-
-//copy fonts to outputDir
-gulp.task('fontsBuild', ['clean'], function() {
-	return gulp.src(paths.devDir + '/fonts/*')
-		.pipe(gulp.dest(paths.outputDir + 'fonts/'));
-});
-
-//ftp
-gulp.task('send', function() {
-	var conn = ftp.create({
-		host:     '',
-		user:     '',
-		password: '',
-		parallel: 5
-	});
-
-	/* list all files you wish to ftp in the glob variable */
-	var globs = [
-		'build/**/*',
-		'!node_modules/**' // if you wish to exclude directories, start the item with an !
-	];
-
-	return gulp.src( globs, { base: '.', buffer: false } )
-		.pipe( conn.newer( '/' ) ) // only upload newer files
-		.pipe( conn.dest( '/' ) )
-		.pipe(notify("Dev site updated!"));
-
-});
+// Default task
+gulp.task('default', ['concatLibCSS', 'connect', 'html', 'css', 'watch']);
 
 
-//default
-gulp.task('default', ['browser-sync', 'watch', 'pug', 'sass', 'scripts']);
 
-//production
-gulp.task('prod', ['build', 'imgBuild', 'fontsBuild']);
+/**********************************************
+ * 		Build production
+ *********************************************/
+
+ // gulp.task('buildHTML', function() {
+ // 	return gulp.src(paths.dirApp + '*.html')
+ // 		.pipe(gulpif('*.js', uglify()))
+ // 		.pipe(gulpif('*.css', cleanCSS()))
+ // 		.pipe(useref())
+ // 		.pipe(gulp.dest('build'));
+ // });
+
+ gulp.task('clean', function() {
+ 	return gulp.src(paths.dirBuild, {read: false})
+ 		.pipe(clean());
+ });
+
+ gulp.task('build', ['clean'], function() {});
+
+ gulp.task('sftp', function() {
+ 	return gulp.src(paths.dirBuild + '**/*')
+ 		.pipe(sftp({
+ 			host: '',
+ 			user: '',
+ 			pass: '',
+ 			remotePath: ''
+ 		}));
+ });
