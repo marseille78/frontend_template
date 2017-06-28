@@ -1,0 +1,56 @@
+// @include btn-xs();
+// @include btn-sm();
+// @include btn-md();
+// @include btn-lg();
+// @include btn-xl();
+// @include btn-dev();
+// @include btn-mob();
+// @include btn-xso();
+// @include btn-smo();
+// @include btn-mdo();
+// @include btn-lgo();
+
+@mixin btn-xs(){
+/** btn xs */
+    .btn{}
+}
+@mixin btn-sm(){
+/** btn sm */
+    .btn{}
+}
+@mixin btn-md(){
+/** btn md */
+    .btn{}
+}
+@mixin btn-lg(){
+/** btn lg */
+    .btn{}
+}
+@mixin btn-xl(){
+/** btn xl */
+    .btn{}
+}
+@mixin btn-dev(){
+    /** btn dev */
+    .btn{}
+}
+@mixin btn-mob(){
+/** btn mob */
+    .btn{}
+}
+@mixin btn-xso(){
+    /** btn xso */
+    .btn{}
+}
+@mixin btn-smo(){
+/** btn smo */
+    .btn{}
+}
+@mixin btn-mdo(){
+/** btn mdo */
+    .btn{}
+}
+@mixin btn-lgo(){
+/** btn lgo */
+    .btn{}
+}

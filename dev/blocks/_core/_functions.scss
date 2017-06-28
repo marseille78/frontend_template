@@ -1,0 +1,39 @@
+@function _f($var) {
+	@return map_get($g_Font, $var);
+}
+
+@function _c($var) {
+	@return map_get($g_Color, $var);
+}
+
+@function _bg($var) {
+	@return map_get($g_Bg, $var);
+}
+
+@function _h($var) {
+	@return map_get($g_Height, $var);
+}
+
+@function _w($var) {
+	@return map_get($g_Width, $var);
+}
+
+@function _s($var) {
+	@return map_get($g_Size, $var);
+}
+
+@function _i($var) {
+	@return map_get($g_Int, $var);
+}
+
+@function _bp($var) {
+	@return map_get($g_Points, $var);
+}
+
+
+
+// $width_col = 100%
+
+// @function grid($num, $gutter:0) {
+// 	@return $num * $width_col + ($num - 1) * $gutter;
+// }

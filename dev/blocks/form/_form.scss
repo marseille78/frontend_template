@@ -1,0 +1,56 @@
+// @include form-xs();
+// @include form-sm();
+// @include form-md();
+// @include form-lg();
+// @include form-xl();
+// @include form-dev();
+// @include form-mob();
+// @include form-xso();
+// @include form-smo();
+// @include form-mdo();
+// @include form-lgo();
+
+@mixin form-xs(){
+/** form xs */
+    .form{}
+}
+@mixin form-sm(){
+/** form sm */
+    .form{}
+}
+@mixin form-md(){
+/** form md */
+    .form{}
+}
+@mixin form-lg(){
+/** form lg */
+    .form{}
+}
+@mixin form-xl(){
+/** form xl */
+    .form{}
+}
+@mixin form-dev(){
+    /** form dev */
+    .form{}
+}
+@mixin form-mob(){
+/** form mob */
+    .form{}
+}
+@mixin form-xso(){
+    /** form xso */
+    .form{}
+}
+@mixin form-smo(){
+/** form smo */
+    .form{}
+}
+@mixin form-mdo(){
+/** form mdo */
+    .form{}
+}
+@mixin form-lgo(){
+/** form lgo */
+    .form{}
+}

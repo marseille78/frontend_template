@@ -1,0 +1,56 @@
+// @include nav-xs();
+// @include nav-sm();
+// @include nav-md();
+// @include nav-lg();
+// @include nav-xl();
+// @include nav-dev();
+// @include nav-mob();
+// @include nav-xso();
+// @include nav-smo();
+// @include nav-mdo();
+// @include nav-lgo();
+
+@mixin nav-xs(){
+/** nav xs */
+    .nav{}
+}
+@mixin nav-sm(){
+/** nav sm */
+    .nav{}
+}
+@mixin nav-md(){
+/** nav md */
+    .nav{}
+}
+@mixin nav-lg(){
+/** nav lg */
+    .nav{}
+}
+@mixin nav-xl(){
+/** nav xl */
+    .nav{}
+}
+@mixin nav-dev(){
+    /** nav dev */
+    .nav{}
+}
+@mixin nav-mob(){
+/** nav mob */
+    .nav{}
+}
+@mixin nav-xso(){
+    /** nav xso */
+    .nav{}
+}
+@mixin nav-smo(){
+/** nav smo */
+    .nav{}
+}
+@mixin nav-mdo(){
+/** nav mdo */
+    .nav{}
+}
+@mixin nav-lgo(){
+/** nav lgo */
+    .nav{}
+}

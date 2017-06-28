@@ -1,7 +1,7 @@
-include ../_assets/bemto/bemto
+include _assets/bemto/bemto
 - set_bemto_settings({ modifier: "--" })
 
-include head/head
+include _base/head
 
 doctype html
 html(lang="ru")
@@ -14,12 +14,23 @@ html(lang="ru")
 				"description": "Workshop"
 			})
 
+	block body
 		body
-			block content
-				div content
+			block header
+				header.page-header Header
+
+			.page-center
+				block l-sidebar
+					aside.page-left Left
+
+				block r-sidebar
+					aside.page-right Right
+
+				block content
+					main.page-content Content
 
 			block footer
-				footer footer
+				footer.page-footer Footer
 				
 			block vendors
 				// build:js js/vendor.js
