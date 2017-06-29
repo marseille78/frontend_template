@@ -11,77 +11,13 @@
 // @include table-lgo();
 
 
-// type_striped: false, 'even', 'odd'
+
 $e_tbl:(
-    type_striped: false,
-    type_bordered: false,
-    type_hover: false,
-    bd_thead: 2px solid _c(bd),
-    bd_td: 1px solid _c(bd),
-    w: 100%,
-    pad_thead: 8px,
-    pad_td: 8px,
-    al_thead: left,
-    al: left,
-    va_thead: bottom,
-    va: top,
-    bg_row_striped: #ddd,
-    bg_row_hover: #ddd,
-    bg_row_checked: #ddd
+    bd: 1px solid _c(tbl_bd), // Бордер
+    bg_striped: #eee, // Колір фону парної/непарної строки
+    bg_hover: #eee, // Колір фону при наведенні
+    bg_checked: #eee, // Колір фону деякої обраної за якоюсь ознакою стрки
 );
-
-// $type[base, striped, bordered, hover, checked]
-@mixin tbl() {
-    table {
-        width: _tbl(w);
-        border-collapse: collapse;
-    }
-    thead {
-        th {
-            vertical-align: _tbl(va_thead);
-            padding: _tbl(pad_thead);
-            text-align: _tbl(al_thead);
-
-            @if _tbl(type_bordered) {
-                border: _tbl(bd_td);
-            }
-
-            border-bottom: _tbl(bd_thead);
-        }
-    }
-    tbody {
-        td,
-        th {
-            vertical-align: _tbl(va);
-            padding: _tbl(pad_td);
-            text-align: _tbl(al_h);
-
-            @if _tbl(type_bordered) {
-                border: _tbl(bd_td);
-            } @else {
-                border-top: _tbl(bd_td);                
-            }
-        }
-
-        tr {
-            @if _tbl(type_hover) {
-                &:hover {
-                    background-color: _tbl(bg_row_hover);
-                }
-            }
-
-            @if _tbl(type_striped) == 'even' {
-                &:nth-child(even) {
-                    background-color: _tbl(bg_row_striped);
-                }
-            } @else if _tbl(type_striped) == 'odd' {
-                &:nth-child(odd) {
-                    background-color: _tbl(bg_row_striped);
-                }
-            }
-        }
-    }    
-}
 
 @function _tbl($var) {
     @return map_get($e_tbl, $var);
@@ -89,7 +25,14 @@ $e_tbl:(
 
 @mixin table-xs(){
 // table xs
-    @include tbl();
+    table {
+        width: 100%;
+    }
+    .table {
+        overflow-y: hidden;
+        overflow-x: auto;
+        width: 100%;
+    }
 }
 @mixin table-sm(){
 // table sm

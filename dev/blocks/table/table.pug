@@ -1,0 +1,12 @@
+mixin table(data)
+	.table
+		table
+			thead
+				tr
+					each th in data.thead
+						th= th
+			tbody
+				each tr in data.tbody
+					tr
+						each td in tr
+							td= td

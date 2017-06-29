@@ -10,47 +10,135 @@
 // @include form-mdo();
 // @include form-lgo();
 
+$e_form:(
+    bg: _bg(form_bg),
+    w: _w(form_w),
+    pad: _i(form_pad),
+    pad_item: _i(form_pad_item),
+    bd: 1px solid _c(form_bd),
+    bdrs: _s(form_bdrs),
+    fz: _f(fz),
+    lh: _f(lh),
+    ta_h: _h(form_ta_h),
+);
+
+@function _form($var) {
+    @return map_get($e_form, $var);
+}
+
 @mixin form-xs(){
-/** form xs */
-    .form{}
+// form xs
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="search"],
+    select,
+    textarea {
+        width: _form(w);
+        padding: _form(pad);
+        background-color: _form(bg);
+        border: _form(bd);
+        border-radius: _form(bdrs);
+        font-size: _form(fz);
+        line-height: _form(lh);
+    }
+    textarea {
+        resize: none;
+        height: _form(ta_h);
+    }
+    select {
+        appearance: none;
+    }
+    .form{
+        &__item {
+            padding: _form(pad_item);
+        }
+        &__select {
+            position: relative;
+            @include form_sel();
+        }
+        &__checkbox {
+            position: relative;
+
+            input[type="checkbox"] {
+                @include form_checkbox();
+            }
+        }
+        &__radio {
+            position: relative;
+
+            input[type="radio"] {
+                @include form_radio();
+            }
+        }
+    }
 }
 @mixin form-sm(){
-/** form sm */
+// form sm
     .form{}
 }
 @mixin form-md(){
-/** form md */
+// form md
     .form{}
 }
 @mixin form-lg(){
-/** form lg */
+// form lg
     .form{}
 }
 @mixin form-xl(){
-/** form xl */
+// form xl
     .form{}
 }
 @mixin form-dev(){
-    /** form dev */
+// form dev
     .form{}
 }
 @mixin form-mob(){
-/** form mob */
+// form mob
     .form{}
 }
 @mixin form-xso(){
-    /** form xso */
+// form xso
     .form{}
 }
 @mixin form-smo(){
-/** form smo */
+// form smo
     .form{}
 }
 @mixin form-mdo(){
-/** form mdo */
+// form mdo
     .form{}
 }
 @mixin form-lgo(){
-/** form lgo */
+// form lgo
     .form{}
 }
+
+// Mixins:
+
+// form_sel($width:8px, $height:6px, $right:15px, $color:#000) - стилізація селектів
+// $width - Довжина каретки
+// $height - Висота каретки
+// $right - Відступ зправа
+
+// form_checkbox($width:16px, $bdc:#000, $bg:#fff, $bdrs:0, $bd_weight:1px, $in_bg:#000, $in_width:10px) - Стилізація checkbox
+// $width - Довжина checkbox
+// $bdc - Колір бордера checkbox
+// $bg - Фоновий колір checkbox
+// $bdrs - Скруглення бордеру
+// $bd_weight - Вага бордеру
+// $in_bg - Колір активної частини
+// $in_width - довжина активної частини
+
+// form_radio($width:16px, $bdc:#000, $bg:#fff, $bd_weight:1px, $in_bg:#000, $in_width:10px) - Стилізація input[type="radio"]
+// $width - Довжина
+// $bdc - Колір бордеру
+// $bg - Фоновий колір
+// $bd_weight - Вага коліру
+// $in_bg - Колір активної частини
+// $in_width - Довжина активної частини
+
+// form_plh($color:#ddd, $fs:italic, $fz:14px) - Стилізація placeholder
+// $color - Колір тексту
+// $fs - Стиль тексту
+// $fz - Розмір тексту

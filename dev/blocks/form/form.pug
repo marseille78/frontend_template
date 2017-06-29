@@ -1,0 +1,40 @@
+mixin form()
+	+b.form
+		form
+			+e.DIV.item
+				input(type="text" placeholder="Введіть email")
+				label Email
+			+e.DIV.item
+				input(type="password" placeholder="Password")
+				label Пароль
+			+e.DIV.item
+				textarea
+			+e.DIV.item
+				+e.DIV.checkbox
+					input(type="checkbox" id="checkbox_1")
+					label(for="checkbox_1")
+				label(for="checkbox_1") Checkbox 1
+			+e.DIV.item
+				+e.DIV.checkbox
+					input(type="checkbox" id="checkbox_2")
+					label(for="checkbox_2")
+				label(for="checkbox_2") Checkbox 2
+			+e.DIV.item
+				+e.DIV.radio
+					input(type="radio" name="radio" id="radio_1")
+					label(for="radio_1")
+				label(for="radio_1") Radio 1
+			+e.DIV.item
+				+e.DIV.radio
+					input(type="radio" name="radio" id="radio_2")
+					label(for="radio_2")
+				label(for="radio_2") Radio 2
+			+e.DIV.item
+				+e.DIV.select
+					select
+						option option-1
+						option option-2
+						option option-3
+						option option-4
+						option option-5
+
