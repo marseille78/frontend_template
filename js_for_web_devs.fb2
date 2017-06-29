@@ -1,0 +1,3957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0" xmlns:l="http://www.w3.org/1999/xlink">
+  <description>
+    <title-info>
+      <author>
+        <first-name>Николас</first-name>
+        <middle-name/>
+        <last-name>Закас</last-name>
+      </author>
+      <book-title>JavaScript для профессиональных веб-разработчиков</book-title>
+      <annotation>
+        <p>Если вы хотите полностью реализовать потенциал JavaScript, то крайне важно понять саму природу этого языка, его фундаментальные возможности и ограничения. Перед вами - обновленный вариант бестселлера, написанного гуру JavaScript Николасом Закасом. Автор показывает, как применять этот мощный инструмент для решения конкретных задач по созданию динамических пользовательских интерфейсов, которые стирают грань между настольными и веб-приложениями. Книга удачно сочетает в себе лучшие качества понятного учебного пособия, адресованного разработчикам, и всеобъемлющего руководства, которой всегда должно быть под рукой даже у профессионала.</p>
+      </annotation>
+    </title-info>
+    <document-info>
+      <program-used>fb2edit 0.0.8</program-used>
+      <date value="2017-06-30 00:29:30">30 июн 2017</date>
+    </document-info>
+  </description>
+  <body>
+    <title>
+      <p>JavaScript для профессиональных веб-разработчиков</p>
+    </title>
+    <section>
+      <title>
+        <p>Оглавление</p>
+      </title>
+      <p>Об авторе</p>
+      <p>О научном редакторе</p>
+      <p><strong>Предисловие</strong></p>
+      <p><strong>Введение</strong></p>
+      <p>Целевая аудитория</p>
+      <p>Темы, рассматриваемые в книге.</p>
+      <p>Структура книги</p>
+      <p>Что нужно для эффективной работы с книгой</p>
+      <p><strong>Глава 1. Что такое JavaScript?</strong></p>
+      <p>Краткая история JavaScript</p>
+      <p>Реализации JаvаSсriрt</p>
+      <p><style class="Apple-tab-span"/> ECMAScript</p>
+      <p> Объектная модель документа</p>
+      <p> Объектная модель браузера</p>
+      <p>Bepcии JavaScript</p>
+      <p>Резюме</p>
+      <p><strong>Глава 2. JavaScript в HTML</strong></p>
+      <p>Элемент <code>&lt;script&gt;</code></p>
+      <p>Расположение тегов</p>
+      <p>Отложенные сценарии</p>
+      <p>Асинхронные сценарии</p>
+      <p>Изменения в XHTML</p>
+      <p>Устаревший синтаксис</p>
+      <p>Встроенный код или внешние файлы?</p>
+      <p>Режимы документа</p>
+      <p>Элемент <code>&lt;noscript&gt;</code></p>
+      <p>Резюме</p>
+      <p><strong>Глава 3. Основы языка</strong></p>
+      <p>Синтаксис</p>
+      <p>Чувствительность к регистру</p>
+      <p>Идентификаторы</p>
+      <p>Комментарии</p>
+      <p>Строгий режим</p>
+      <p>Инструкции</p>
+      <p>Ключевые и зарезервированные слова</p>
+      <p>Переменные</p>
+      <p>Типы данных</p>
+      <p>Оператор <code>typeof</code></p>
+      <p>Тип <code>Undefined</code></p>
+      <p>Тип <code>Null</code></p>
+      <p>Тип <code>boolean</code></p>
+      <p>Тип <code>number</code></p>
+      <p>Тип <code>string</code></p>
+      <p>Тип <code>Object</code></p>
+      <p>Операторы</p>
+      <p>Унарные операторы</p>
+      <p>Поразрядные операторы</p>
+      <p>Логические операторы</p>
+      <p>Мультипликативные операторы</p>
+      <p>Операторы сложения и вычитания</p>
+      <p>Операторы отношений</p>
+      <p>Операторы экви валентности</p>
+      <p>Условный оператор</p>
+      <p>Операторы присваивания</p>
+      <p>Оператор &quot;запятая&quot;</p>
+      <p>Инструкции</p>
+      <p>Инструкция <code>if</code></p>
+      <p>Инструкция <code>do-while</code></p>
+      <p>Инструкция <code>while</code></p>
+      <p>Инструкция <code>for</code></p>
+      <p>Инструкция <code>for-in</code></p>
+      <p>Метки инструкций</p>
+      <p>Инструкции <code>break</code> и <code>continue</code></p>
+      <p>Инструкция <code>with</code></p>
+      <p>Инструкция <code>switch</code></p>
+      <p>Функции</p>
+      <p>Аргументы функций</p>
+      <p>Никакой перегрузки</p>
+      <p>Резюме</p>
+      <p><strong>Глава 4. Переменные, область видимости и память</strong></p>
+      <p>Примитивные и ссылочные значения</p>
+      <p>Динамические свойства</p>
+      <p>Копирование значений</p>
+      <p>Передача аргументов</p>
+      <p>Проверка типа</p>
+      <p>Контекст вы полнения и область видимости</p>
+      <p>Приращение цепочки областей видимости</p>
+      <p>Отсутствие блочных областей видимости</p>
+      <p>Сборка мусора</p>
+      <p>Отслеживание и очистка</p>
+      <p>Подсчет ссылок</p>
+      <p>Производительность</p>
+      <p>Управление памятью</p>
+      <p>Резюме</p>
+      <p><strong>Глава 5. Ссылочные типы</strong></p>
+      <p>Тип <code>Object</code></p>
+      <p>Тип <code>Array</code></p>
+      <p>Идентификация массивов</p>
+      <p>Методы преобразования массивов</p>
+      <p>Методы для работы с массивом как со стеком</p>
+      <p>Методы для работы с массивом как с очередью</p>
+      <p>Методы изменения порядка следования элементов</p>
+      <p>Методы манипулирования элементами</p>
+      <p>Методы поиска элементов</p>
+      <p>Методы перебора элементов</p>
+      <p>Методы редукции массивов</p>
+      <p>Тип <code>Date</code></p>
+      <p>Унаследованные методы</p>
+      <p>Методы форматирования дат</p>
+      <p>Методы для работы с компонентами даты/времени</p>
+      <p>Тип <code>RegExp</code></p>
+      <p>Свойства экземпляра <code>RegExp</code></p>
+      <p>Методы экземпляра <code>RegExp</code></p>
+      <p>Свойства конструктора <code>RegExp</code></p>
+      <p>Ограничения шаблонов</p>
+      <p>Тип <code>Function</code></p>
+      <p>Никакой перегрузки (новый взгляд)</p>
+      <p>Объявления функций и функции-выражения</p>
+      <p>Функции как значения</p>
+      <p>Внутри функций</p>
+      <p>Свойства и методы функций</p>
+      <p>Оболочки примитивных типов</p>
+      <p>Тип <code>Boolean</code></p>
+      <p>Тип <code>Number</code></p>
+      <p>Тип <code>String</code></p>
+      <p>Встроенные одиночные объекты</p>
+      <p>Объект <code>Global</code></p>
+      <p>Объект <code>Math</code></p>
+      <p>Резюме</p>
+      <p><strong>Глава 6. Объектно-ориентированное программирование</strong></p>
+      <p>Общие сведения об объектах</p>
+      <p>Типы свойств</p>
+      <p>Определение нескольких свойств</p>
+      <p>Чтение атрибутов свойств</p>
+      <p>Создание объектов</p>
+      <p>Паттерн <emphasis>Фабрика</emphasis></p>
+      <p>Паттерн <emphasis>Конструктор</emphasis></p>
+      <p>Паттерн <emphasis>Прототип</emphasis></p>
+      <p>Объединение паттернов <emphasis>Конструктор и Прототип</emphasis></p>
+      <p>Паттерн <emphasis>Динамический прототип</emphasis></p>
+      <p>Паттерн <emphasis>Паразитный конструктор</emphasis></p>
+      <p>Паттерн <emphasis>Защищенный конструктор</emphasis></p>
+      <p>Наследование</p>
+      <p>Цепочки прототипов</p>
+      <p>Кража конструктора</p>
+      <p>Комбинированное наследование</p>
+      <p>Прототипное наследование</p>
+      <p>Паразитное наследование</p>
+      <p>Паразитное комбинированное наследование</p>
+      <p>Резюме</p>
+      <p><strong>Глава 7. Функции-выражения</strong></p>
+      <p>Рекурсия</p>
+      <p>Замыкания</p>
+      <p>Замыкания и переменные</p>
+      <p>Объект <code>this</code></p>
+      <p>Утечки памяти</p>
+      <p>Закрытые переменные</p>
+      <p>Статические закрытые переменные</p>
+      <p>Паттерн <emphasis>Модуль</emphasis></p>
+      <p>Расширенный паттерн Модуль</p>
+      <p>Резюме</p>
+      <p><strong>Глава 8. Объектная модель браузера</strong></p>
+      <p>Объект window</p>
+      <p>Глобальная область видимости</p>
+      <p>Отношения окон и фреймов</p>
+      <p>Расположение окна</p>
+      <p>Размеры окна</p>
+      <p>Открытие окон и навигация</p>
+      <p>Интервалы и тайм-ауты</p>
+      <p>Системные диалоговые окна</p>
+      <p>Объект location</p>
+      <p>Аргументы строки запроса</p>
+      <p>Работа с объектом location</p>
+      <p>Объект navigator</p>
+      <p>Обнаружение подключаемых модулей</p>
+      <p>Регистрация обработчиков</p>
+      <p>Объект scгeen</p>
+      <p>Объект history</p>
+      <p>Резюме</p>
+      <p><strong>Глава 9. Распознавание клиента</strong></p>
+      <p>Распознавание возможностей</p>
+      <p>Надежное распознавание возможностей</p>
+      <p>Распознавание возможностей - не распознавание браузера</p>
+      <p>Распознавание особенностей</p>
+      <p>Распознавание пользовательского агента</p>
+      <p>История</p>
+      <p>Идентификация пользовательского агента</p>
+      <p>Полный сценарий</p>
+      <p>Использование сценария</p>
+      <p>Резюме</p>
+      <p><strong>Глава 10. Объектная модель документа</strong></p>
+      <p>Иерархия узлов</p>
+      <p>Тип Node</p>
+      <p>Тип Document</p>
+      <p>Тип Element</p>
+      <p>Тип Text</p>
+      <p>Тип Comment</p>
+      <p>Тип CDATASection</p>
+      <p>Тип DocumentType</p>
+      <p>Тип DocumentFragment</p>
+      <p>Тип Attr</p>
+      <p>Работа с DOM</p>
+      <p>Динамические сценарии</p>
+      <p>Динамические стили</p>
+      <p>Работа с таблицами</p>
+      <p>Использование объектов NodeList</p>
+      <p>Резюме</p>
+      <p><strong>Глава 11. Расширения DOM</strong></p>
+      <p>Selectors</p>
+      <p>Метод querySelector()</p>
+      <p>Метод querySelectorAll()</p>
+      <p>Метод matchesSelector()</p>
+      <p>Element Traversal</p>
+      <p>HTML5</p>
+      <p>Новые средства работы с классами</p>
+      <p>Управление фокусом</p>
+      <p>Изменения типа HTMLDocument</p>
+      <p>Свойства кодировки</p>
+      <p>Пользовательские атрибуты данных</p>
+      <p>Вставка разметки</p>
+      <p>Метод scrolllntoView()</p>
+      <p>Фирменные расширения</p>
+      <p>Режим документа</p>
+      <p>Свойство children</p>
+      <p>Метод contains()</p>
+      <p>Вставка разметки</p>
+      <p>Прокрутка</p>
+      <p>Резюме</p>
+      <p><strong>Глава 12. DOM Level 2 и 3</strong></p>
+      <p>Изменения DOM</p>
+      <p>ХМL-пространства имен</p>
+      <p>Другие изменения</p>
+      <p>Стили</p>
+      <p>Доступ к стилям элементов</p>
+      <p>Работа с таблицами стилей</p>
+      <p>Размеры элементов</p>
+      <p>Обход</p>
+      <p>Тип NodeIterator</p>
+      <p>Тип TreeWalker</p>
+      <p>Диапазоны</p>
+      <p>Диапазоны в DOM</p>
+      <p>Диапазоны в Internet Explorer 8 и более ранних версий</p>
+      <p>Резюме</p>
+      <p><strong>Глава 13. События</strong></p>
+      <p>Распространение событий</p>
+      <p>Всплытие событий</p>
+      <p>Перехват событий</p>
+      <p>Распространение DОМ-событий</p>
+      <p>Обработчики событий</p>
+      <p>НТМL-обработчики событий</p>
+      <p>Обработчики событий DOM Level 0</p>
+      <p>Обработчики событий DOМ Level 2</p>
+      <p>Обработчики событий в Internet Explorer</p>
+      <p>Кроссбраузерные обработчики событий</p>
+      <p>Объект event</p>
+      <p>Объект event в DOM</p>
+      <p>Объект event в Internet Explorer</p>
+      <p>Кроссбраузерный объект event</p>
+      <p>Типы событий</p>
+      <p>События пользовательского интерфейса</p>
+      <p>События изменения фокуса</p>
+      <p>События мыши и колесика мыши</p>
+      <p>События клавиатуры и редактирования текста</p>
+      <p>События композиции</p>
+      <p>События изменения DOМ-структуры</p>
+      <p>События HTML5</p>
+      <p>События устройств</p>
+      <p>События касаний и жестов</p>
+      <p>Память и быстродействие</p>
+      <p>Делегирование событий</p>
+      <p>Удаление обработчиков событий</p>
+      <p>Имитация событий</p>
+      <p>Имитация DOМ-событий</p>
+      <p>Имитация событий в Internet Explorer</p>
+      <p>Резюме</p>
+      <p><strong>Глава 14. Работа с формами</strong></p>
+      <p>Общие сведения о формах</p>
+      <p>Отправка данных формы</p>
+      <p>Сброс формы</p>
+      <p>Поля форм</p>
+      <p>Работа с текстовыми полями</p>
+      <p>Выделение текста</p>
+      <p>Фильтрация ввода</p>
+      <p>Автоматический переход по нажатию клавиши табуляции</p>
+      <p>API проверки ограничений в HTML5</p>
+      <p>Работа со списками</p>
+      <p>Выбор элементов списка</p>
+      <p>Добавление элементов в список</p>
+      <p>Удаление элементов списка</p>
+      <p>Перемещение и переупорядочение элементов списка</p>
+      <p>Сериализация форм</p>
+      <p>Редактирование форматированного текста</p>
+      <p>Атрибут contenteditable</p>
+      <p>Работа с форматированным текстом</p>
+      <p>Выделение форматированного текста</p>
+      <p>Форматированный текст в формах</p>
+      <p>Резюме</p>
+      <p><strong>Глава 15. Рисование на холсте</strong></p>
+      <p>Основы работы с элементом &lt;canvas&gt;</p>
+      <p>Двухмерный контекст</p>
+      <p>Заливка и рисование контура</p>
+      <p>Рисование прямоугольников</p>
+      <p>Рисование путей</p>
+      <p>Рисование текста</p>
+      <p>Преобразования</p>
+      <p>Рисование изображений</p>
+      <p>Тени</p>
+      <p>Градиенты</p>
+      <p>Узоры</p>
+      <p>Работа с данными изображений</p>
+      <p>Композиция изображений</p>
+      <p>WebGL</p>
+      <p>Типизированные массивы</p>
+      <p>Контекст WebGL</p>
+      <p>Поддержка</p>
+      <p>Резюме</p>
+      <p><strong>Глава 16. HTML5</strong></p>
+      <p>Передача сообщений между документами</p>
+      <p>Встроенная поддержка перетаскивания</p>
+      <p>События перетаскивания</p>
+      <p>Пользовательские целевые элементы для данных</p>
+      <p>Объект data Transfer</p>
+      <p>Свойства dropEffect и effectAllowed</p>
+      <p>Возможность перетаскивания</p>
+      <p>Дополнительные члены</p>
+      <p>Элементы для медиафайлов</p>
+      <p>Свойства</p>
+      <p>События</p>
+      <p>Пользовательские плееры</p>
+      <p>Распознавание кодеков</p>
+      <p>Тип Audio</p>
+      <p>Управление состоянием журнала</p>
+      <p>Резюме</p>
+      <p><strong>Глава 17. Обработка ошибок и отладка</strong></p>
+      <p>Уведомления об ошибках</p>
+      <p>Internet Explorer</p>
+      <p>Firefox</p>
+      <p>Safari</p>
+      <p>Opera</p>
+      <p>Chrome</p>
+      <p>Обработка ошибок</p>
+      <p>Инструкция try-catch</p>
+      <p>Генерирование ошибок</p>
+      <p>Событие error</p>
+      <p>Стратегии обработки ошибок</p>
+      <p>Идентификация потенциальных источников ошибок</p>
+      <p>Различение критичных и некритичных ошибок</p>
+      <p>Протоколирование ошибок на сервере</p>
+      <p>Приемы отладки</p>
+      <p>Вывод сообщений на консоль</p>
+      <p>Вывод сообщений на страницу</p>
+      <p>Генерирование ошибок</p>
+      <p>Частые ошибки Internet Explorer</p>
+      <p>Операция прервана</p>
+      <p>Недопустимый символ</p>
+      <p>Член группы не найден</p>
+      <p>Неизвестная ошибка выполнения</p>
+      <p>Синтаксическая ошибка</p>
+      <p>Не удается найти указанный ресурс</p>
+      <p>Резюме</p>
+      <p><strong>Глава 18. XML в JavaScript</strong></p>
+      <p>Поддержка XML DOM в браузерах</p>
+      <p>DOM Level 2 Core</p>
+      <p>Тип DOMParser</p>
+      <p>Тип XMLSerializer</p>
+      <p>XML в Internet Explorer 8 и более ранних версий</p>
+      <p>Кроссбраузерная обработка XML</p>
+      <p>Поддержка XPath в браузерах</p>
+      <p>DOM Level 3 XPath</p>
+      <p>XPath в Internet Explorer</p>
+      <p>Кроссбраузерная обработка XPath</p>
+      <p>Поддержка XSLT в браузерах</p>
+      <p>XSLT в Internet Explorer</p>
+      <p>Тип XSLTProcessor</p>
+      <p>Кроссбраузерные ХSLТ-преобразования</p>
+      <p>Резюме</p>
+      <p><strong>Глава 19. ECMAScript для XML</strong></p>
+      <p>Типы Е4Х</p>
+      <p>Тип XML</p>
+      <p>Тип XMLList</p>
+      <p>Тип Namespace</p>
+      <p>Тип QName</p>
+      <p>Общие принципы использования</p>
+      <p>Доступ к атрибутам</p>
+      <p>Другие типы узлов</p>
+      <p>Запросы</p>
+      <p>Конструирование и выполнение ХМL-кода</p>
+      <p>Параметры синтаксического анализа и сериализации</p>
+      <p>Пространства имен</p>
+      <p>Другие изменения</p>
+      <p>Полная поддержка Е4Х</p>
+      <p>Резюме</p>
+      <p><strong>Глава 20. JSON</strong></p>
+      <p>Синтаксис</p>
+      <p>Простые значения</p>
+      <p>Объекты</p>
+      <p>Массивы</p>
+      <p>Синтаксический анализ и сериализация</p>
+      <p>Объект JSON</p>
+      <p>Параметры сериализации</p>
+      <p>Параметры синтаксического анализа</p>
+      <p>Резюме</p>
+      <p><strong>Глава 21. Ajax и Comet</strong></p>
+      <p>Объект XMLHttpRequest</p>
+      <p>Использование объекта XHR</p>
+      <p>Заголовки НТТР</p>
+      <p>Запросы GET</p>
+      <p>Запросы POST</p>
+      <p>XMLHttpRequest LEVEL 2</p>
+      <p>Тип Form Data</p>
+      <p>Тайм-ауты</p>
+      <p>Метод overrideMimeType()</p>
+      <p>События хода обмена данными</p>
+      <p>Событие load</p>
+      <p>Событие progress</p>
+      <p>Обмен ресурсами с запросом происхождения</p>
+      <p>CORS в Internet Explorer</p>
+      <p>CORS в других браузерах</p>
+      <p>Предварительные запросы</p>
+      <p>Запросы с учетными данными</p>
+      <p>Кроссбраузерный CORS</p>
+      <p>Альтернативные методики кроссдоменноrо взаимодействия</p>
+      <p>Проверка связи с помощью изображения</p>
+      <p>JSONP</p>
+      <p>Comet</p>
+      <p>События, посылаемые сервером</p>
+      <p>Веб-сокеты</p>
+      <p>SSE или веб-сокеты?</p>
+      <p>Безопасность</p>
+      <p>Резюме</p>
+      <p><strong>Глава 22. Более сложные приемы</strong></p>
+      <p>Расширенное применение функций</p>
+      <p>Безопасное распознавание типов</p>
+      <p>Безопасные для областей видимости конструкторы</p>
+      <p>Отложенная загрузка функций</p>
+      <p>Связывание функций</p>
+      <p>Каррирование функций</p>
+      <p>Защищенные от изменений объекты</p>
+      <p>Нерасширяемые объекты</p>
+      <p>Запечатанные объекты</p>
+      <p>Замороженные объекты</p>
+      <p>Расширенные возможности работы с таймерами</p>
+      <p>Повторяющиеся таймеры</p>
+      <p>Управление процессами</p>
+      <p>Регулирование функций</p>
+      <p>Пользовательские события</p>
+      <p>Перетаскивание</p>
+      <p>Исправленное перетаскивание</p>
+      <p>Добавление пользовательских событий</p>
+      <p>Резюме</p>
+      <p><strong>Глава 23. Автономный режим и клиентское хранилище</strong></p>
+      <p>Распознавание автономного режима</p>
+      <p>Кэш приложений</p>
+      <p>Хранилище данных</p>
+      <p>Сооkiе-файлы</p>
+      <p>Пользовательские данные в Internet Explorer</p>
+      <p>Веб-хранилище</p>
+      <p>IndexedDB</p>
+      <p>Резюме</p>
+      <p><strong>Глава 24. Наилучшие методики</strong></p>
+      <p>Удобство сопровождения кода</p>
+      <p>Какой код удобно сопровождать?</p>
+      <p>Конвенции кодирования</p>
+      <p>Слабая связанность</p>
+      <p>Принципы программирования</p>
+      <p>Быстродействие</p>
+      <p>Область видимости</p>
+      <p>Выбор оптимального подхода</p>
+      <p>Сокращение количества инструкций</p>
+      <p>Оптимизация взаимодействия с DOM</p>
+      <p>Развертывание</p>
+      <p>Процесс сборки</p>
+      <p>Проверка кода</p>
+      <p>Сжатие</p>
+      <p>Резюме</p>
+      <p><strong>Глава 25. Перспективные API</strong></p>
+      <p>requestAnimationFrame()</p>
+      <p>Ранние способы создания анимаций</p>
+      <p>Проблемы с интервалами</p>
+      <p>mozRequestAnimationFrame</p>
+      <p>webkitRequestAnimationFrame и msRequestAnimationFrame</p>
+      <p>Page VisiЬility API</p>
+      <p>Geolocation API</p>
+      <p>File API</p>
+      <p>Тип FileReader</p>
+      <p>Частичное чтение</p>
+      <p>URL-aдpeca объектов</p>
+      <p>Чтение файлов и перетаскивание</p>
+      <p>Отправка файлов с помощью объекта XHR</p>
+      <p>Web Timing API</p>
+      <p>Рабочие веб-потоки</p>
+      <p>Использование рабочего веб-потока</p>
+      <p>Глобальная область видимости рабочего веб-потока</p>
+      <p>Подключение других сценариев</p>
+      <p>Будущее рабочих веб-потоков</p>
+      <p>Резюме</p>
+      <p><strong>Приложение А. ECMAScript Harmony</strong></p>
+      <p>Общие изменения</p>
+      <p>Константы</p>
+      <p>Блочная и другие области видимости</p>
+      <p>Функции</p>
+      <p>Прочие и распределенные аргументы</p>
+      <p>Предлагаемые по умолчанию значения аргументов</p>
+      <p>Генераторы</p>
+      <p>Массивы и другие структуры</p>
+      <p>Итераторы</p>
+      <p>Абстракции массивов</p>
+      <p>Присваивание с деструктуризацией</p>
+      <p>Новые типы объектов</p>
+      <p>Прокси-объекты</p>
+      <p>Функции-прокси</p>
+      <p>Типы Мар и Set</p>
+      <p>Тип WeakMap</p>
+      <p>Тип StructType</p>
+      <p>Тип ArrayType</p>
+      <p>Классы</p>
+      <p>Закрытые члены</p>
+      <p>Методы чтения и записи свойств</p>
+      <p>Наследование</p>
+      <p>Модули</p>
+      <p>Внешние модули</p>
+      <p><strong>Приложение Б. Строгий режим</strong></p>
+      <p>Включение строгого режима</p>
+      <p>Переменные</p>
+      <p>Объекты</p>
+      <p>Функции</p>
+      <p>Функция eval()</p>
+      <p>Идентификаторы eval и argumets</p>
+      <p>Преобразование значения this</p>
+      <p>Другие изменения</p>
+      <p><strong>Приложение В. JаvаSсriрt-библиотеки</strong></p>
+      <p>Библиотеки общего назначения</p>
+      <p>YUI</p>
+      <p>Prototype</p>
+      <p>Dojo Toolkit</p>
+      <p>MooTools</p>
+      <p>jQuery</p>
+      <p>MochiKit</p>
+      <p>Underscore.js</p>
+      <p>Библиотеки для интернет-приложений</p>
+      <p>Backbone.js</p>
+      <p>Rico</p>
+      <p>qooxdoo</p>
+      <p>Библиотеки для анимации и эффектов</p>
+      <p>script.aculo.us</p>
+      <p>moo.fx</p>
+      <p>Lightbox</p>
+      <p>Библиотеки для криптографии</p>
+      <p>JavaScript MD5</p>
+      <p>JavaScrypt</p>
+      <p><strong>Приложение Г. JаvаSсriрt-инструменты</strong></p>
+      <p>Средства проверки кода</p>
+      <p>JSLint</p>
+      <p>JSHint</p>
+      <p>JavaScript Lint</p>
+      <p>Средства сокращения объема кода</p>
+      <p>JSMin</p>
+      <p>Dojo ShrinkSafe</p>
+      <p>YUI Compressor</p>
+      <p>Средства модульного тестирования</p>
+      <p>JsUnit</p>
+      <p>YUI Test</p>
+      <p>Dojo Object Harness (DOH)</p>
+      <p>qUnit</p>
+      <p>Генераторы документации</p>
+      <p>JsDoc Toolkit</p>
+      <p>YUI Doc</p>
+      <p>AjaxDoc</p>
+      <p>Среды безопасного выполнения кода</p>
+      <p>ADsafe</p>
+      <p>Caja</p>
+    </section>
+    <section>
+      <title>
+        <p>Об авторе</p>
+      </title>
+      <empty-line/>
+    </section>
+    <section>
+      <title>
+        <p>О научном редакторе</p>
+      </title>
+      <empty-line/>
+    </section>
+    <section>
+      <title>
+        <p>Предисловие</p>
+      </title>
+      <empty-line/>
+    </section>
+    <section>
+      <title>
+        <p>Введение</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Целевая аудитория</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Темы, рассматриваемые в книге.</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Структура книги</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Что нужно для эффективной работы с книгой</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 1. Что такое JavaScript?</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Краткая история JavaScript</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Реализации JаvаSсriрt</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>ECMAScript</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объектная модель документа</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объектная модель браузера</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Bepcии JavaScript</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 2. JavaScript в HTML</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Элемент &lt;script&gt;</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Расположение тегов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Отложенные сценарии</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Асинхронные сценарии</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Изменения в XHTML</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Устаревший синтаксис</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Встроенный код или внешние файлы?</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Режимы документа</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Элемент &lt;noscript&gt;</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 3. Основы языка</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Синтаксис</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Чувствительность к регистру</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Идентификаторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Комментарии</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Строгий режим</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкции</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Ключевые и зарезервированные слова</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Переменные</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Типы данных</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Оператор typeof</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Undefined</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Null</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип boolean</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип number</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип string</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Object</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Операторы</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Унарные операторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Поразрядные операторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Логические операторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Мультипликативные операторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Операторы сложения и вычитания</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Операторы отношений</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Операторы эквивалентности</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Условный оператор</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Операторы присваивания</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Оператор &quot;запятая&quot;</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Инструкции</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Инструкция if</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция do-while</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция while</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция for</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция for-in</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метки инструкций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкции break и continue</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция with</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Инструкция switch</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Функции</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Аргументы функций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Никакой перегрузки</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 4. Переменные, область видимости и память</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Примитивные и ссылочные значения</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Динамические свойства</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Копирование значений</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Передача аргументов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Проверка типа</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Контекст вы полнения и область видимости</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Приращение цепочки областей видимости</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Отсутствие блочных областей видимости</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Сборка мусора</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Отслеживание и очистка</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Подсчет ссылок</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Производительность</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Управление памятью</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 5. Ссылочные типы</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Тип Object</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Тип Array</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Идентификация массивов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы преобразования массивов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы для работы с массивом как со стеком</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы для работы с массивом как с очередью</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы изменения порядка следования элементов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы манипулирования элементами</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы поиска элементов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы перебора элементов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы редукции массивов</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Тип Date</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Унаследованные методы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы форматирования дат</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы для работы с компонентами даты/времени</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Тип RegExp</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Свойства экземпляра RegExp</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы экземпляра RegExp</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Свойства конструктора RegExp</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Ограничения шаблонов</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Тип Function</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Никакой перегрузки (новый взгляд)</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объявления функций и функции-выражения</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Функции как значения</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Внутри функций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Свойства и методы функций</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Оболочки примитивных типов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип Boolean</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Number</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип String</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Встроенные одиночные объекты</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Объект Global</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объект Math</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 6. Объектно-ориентированное программирование</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Общие сведения об объектах</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Типы свойств</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Определение нескольких свойств</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Чтение атрибутов свойств</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Создание объектов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Паттерн Фабрика</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Конструктор</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Прототип</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объединение паттернов Конструктор и Прототип</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Динамический прототип</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Паразитный конструктор</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Защищенный конструктор</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Наследование</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Цепочки прототипов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кража конструктора</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Комбинированное наследование</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Прототипное наследование</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паразитное наследование</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паразитное комбинированное наследование</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 7. Функции-выражения</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Рекурсия</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Замыкания</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Замыкания и переменные</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объект this</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Утечки памяти</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Закрытые переменные</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Статические закрытые переменные</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Паттерн Модуль</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Расширенный паттерн Модуль</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 8. Объектная модель брауэера</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Объект window</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Глобальная область видимости</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Отношения окон и фреймов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Расположение окна</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Размеры окна</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Открытие окон и навигация</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Интервалы и тайм-ауты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Системные диалоговые окна</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Объект location</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Аргументы строки запроса</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Работа с объектом location</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Объект navigator</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Обнаружение подключаемых модулей</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Регистрация обработчиков</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Объект scгeen</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Объект history</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 9. Распознавание клиента</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Распознавание возможностей</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Надежное распознавание возможностей</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Распознавание возможностей - не распознавание браузера</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Распознавание особенностей</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Распознавание пользовательского агента</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>История</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Идентификация пользовательского агента</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Полный сценарий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Использование сценария</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 10. Объектная модель документа</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Иерархия узлов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип Node</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Document</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Element</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Text</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Comment</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип CDATASection</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип DocumentType</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип DocumentFragment</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Attr</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Работа с DOM</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Динамические сценарии</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Динамические стили</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Работа с таблицами</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Использование объектов NodeList</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 11. Расширения DOM</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Selectors</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Метод querySelector()</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метод querySelectorAll()</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метод matchesSelector()</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Element Traversal</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>HTML5</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Новые средства работы с классами</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Управление фокусом</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Изменения типа HTMLDocument</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Свойства кодировки</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Пользовательские атрибуты данных</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Вставка разметки</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метод scrollIntoView()</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Фирменные расширения</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Режим документа</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Свойство children</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метод contains()</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Вставка разметки</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Прокрутка</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 12. DOM Level 2 и 3</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Изменения DOM</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>ХМL-пространства имен</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Другие изменения</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Стили</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Доступ к стилям элементов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Работа с таблицами стилей</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Размеры элементов</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Обход</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип NodeIterator</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип TreeWalker</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Диапазоны</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Диапазоны в DOM</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Диапазоны в Internet Explorer 8 и более ранних версий</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 13. События</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Распространение событий</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Всплытие событий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Перехват событий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Распространение DОМ-событий</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Обработчики событий</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>НТМL-обработчики событий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Обработчики событий DOM Level 0</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Обработчики событий DOМ Level 2</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Обработчики событий в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерные обработчики событий</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Объект event</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Объект event в DOM</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объект event в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерный объект event</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Типы событий</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>События пользовательского интерфейса</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События изменения фокуса</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События мыши и колесика мыши</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События клавиатуры и редактирования текста</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События композиции</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События изменения DOМ-структуры</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События HTML5</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События устройств</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События касаний и жестов</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Память и быстродействие</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Делегирование событий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Удаление обработчиков событий</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Имитация событий</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Имитация DOМ-событий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Имитация событий в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 14. Работа с формами</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Общие сведения о формах</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Отправка данных формы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Сброс формы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Поля форм</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Работа с текстовыми полями</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Выделение текста</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Фильтрация ввода</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Автоматический переход по нажатию клавиши табуляции</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>API проверки ограничений в HTML5</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Работа со списками</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Выбор элементов списка</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Добавление элементов в список</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Удаление элементов списка</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Перемещение и переупорядочение элементов списка</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Сериализация форм</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Редактирование форматированного текста</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Атрибут contenteditable</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Работа с форматированным текстом</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Выделение форматированного текста</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Форматированный текст в формах</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 15. Рисование на холсте</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Основы работы с элементом &lt;canvas&gt;</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Двухмерный контекст</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Заливка и рисование контура</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Рисование прямоугольников</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Рисование путей</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Рисование текста</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Преобразования</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Рисование изображений</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тени</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Градиенты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Узоры</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Работа с данными изображений</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Композиция изображений</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>WebGL</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Типизированные массивы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Контекст WebGL</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Поддержка</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 16. HTML5</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Передача сообщений между документами</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Встроенная поддержка перетаскивания</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>События перетаскивания</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Пользовательские целевые элементы для данных</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объект dataTransfer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Свойства dropEffect и effectAllowed</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Возможность перетаскивания</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Дополнительные члены</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Элементы для медиафайлов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Свойства</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Пользовательские плееры</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Распознавание кодеков</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Audio</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Управление состоянием журнала</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 17. Обработка ошибок и отладка</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Уведомления об ошибках</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Firefox</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Safari</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Opera</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Chrome</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Обработка ошибок</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Инструкция try-catch</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Генерирование ошибок</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Событие error</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Стратегии обработки ошибок</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Идентификация потенциальных источников ошибок</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Различение критичных и некритичных ошибок</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Протоколирование ошибок на сервере</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Приемы отладки</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Вывод сообщений на консоль</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Вывод сообщений на страницу</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Генерирование ошибок</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Частые ошибки Internet Explorer</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Операция прервана</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Недопустимый символ</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Член группы не найден</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Неизвестная ошибка выполнения</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Синтаксическая ошибка</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Не удается найти указанный ресурс</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 18. XML в JavaScript</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Поддержка XML DOM в браузерах</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>DOM Level 2 Core</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип DOMParser</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип XMLSerializer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>XML в Internet Explorer 8 и более ранних версий</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерная обработка XML</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Поддержка XPath в браузерах</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>DOM Level 3 XPath</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>XPath в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерная обработка XPath</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Поддержка XSLT в браузерах</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>XSLT в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип XSLTProcessor</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерные ХSLТ-преобразования</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 19. ECMAScript для XML</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Типы Е4Х</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип XML</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип XMLList</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип Namespace</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип QName</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Общие принципы использования</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Доступ к атрибутам</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Другие типы узлов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Запросы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Конструирование и выполнение ХМL-кода</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Параметры синтаксического анализа и сериализации</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Пространства имен</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Другие изменения</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Полная поддержка Е4Х</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 20. JSON</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Синтаксис</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Простые значения</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Объекты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Массивы</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Синтаксический анализ и сериализация</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Объект JSON</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Параметры сериализации</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Параметры синтаксического анализа</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 21. Ajax и Comet</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Объект XMLHttpRequest</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Использование объекта XHR</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Заголовки НТТР</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Запросы GET</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Запросы POST</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>XMLHttpRequest LEVEL 2</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип FormData</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тайм-ауты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Метод overrideMimeType()</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>События хода обмена данными</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Событие load</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Событие progress</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Обмен ресурсами с запросом происхождения</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>CORS в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>CORS в других браузерах</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Предварительные запросы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Запросы с учетными данными</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Кроссбраузерный CORS</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Альтернативные методики кроссдоменноrо взаимодействия</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Проверка связи с помощью изображения</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>JSONP</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Comet</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>События, посылаемые сервером</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Веб-сокеты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>SSE или веб-сокеты?</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Безопасность</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 22. Более сложные приемы</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Расширенное применение функций</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Безопасное распознавание типов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Безопасные для областей видимости конструкторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Отложенная загрузка функций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Связывание функций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Каррирование функций</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Защищенные от изменений объекты</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Нерасширяемые объекты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Запечатанные объекты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Замороженные объекты</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Расширенные возможности работы с таймерами</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Повторяющиеся таймеры</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Управление процессами</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Регулирование функций</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Пользовательские события</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Перетаскивание</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Исправленное перетаскивание</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Добавление пользовательских событий</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 23. Автономный режим и клиентское хранилище</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Распознавание автономного режима</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Кэш приложений</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Хранилище данных</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Сооkiе-файлы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Пользовательские данные в Internet Explorer</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Веб-хранилище</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>IndexedDB</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 24. Наилучшие методики</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Удобство сопровождения кода</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Какой код удобно сопровождать?</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Конвенции кодирования</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Слабая связанность</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Принципы программирования</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Быстродействие</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Область видимости</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Выбор оптимального подхода</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Сокращение количества инструкций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Оптимизация взаимодействия с DOM</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Развертывание</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Процесс сборки</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Проверка кода</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Сжатие</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Глава 25. Перспективные API</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>requestAnimationFrame()</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Ранние способы создания анимаций</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Проблемы с интервалами</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>mozRequestAnimationFrame</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>webkitRequestAnimationFrame и msRequestAnimationFrame</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Page Visibility API</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Geolocation API</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>File API</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Тип FileReader</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Частичное чтение</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>URL-aдpeca объектов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Чтение файлов и перетаскивание</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Отправка файлов с помощью объекта XHR</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Web Timing API</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Рабочие веб-потоки</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Использование рабочего веб-потока</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Глобальная область видимости рабочего веб-потока</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Подключение других сценариев</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Будущее рабочих веб-потоков</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Резюме</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Приложение А. ECMAScript Harmony</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Общие изменения</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Константы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Блочная и другие области видимости</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Функции</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Прочие и распределенные аргументы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Предлагаемые по умолчанию значения аргументов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Генераторы</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Массивы и другие структуры</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Итераторы</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Абстракции массивов</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Присваивание с деструктуризацией</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Новые типы объектов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Прокси-объекты</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Функции-прокси</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Типы Мар и Set</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип WeakMap</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип StructType</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Тип ArrayType</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Классы</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Закрытые члены</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Методы чтения и записи свойств</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Наследование</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Модули</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Внешние модули</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Приложение Б. Строгий режим</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Включение строгого режима</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Переменные</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Объекты</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Функции</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Функция eval()</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Идентификаторы eval и argumets</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Преобразование значения this</p>
+        </title>
+        <empty-line/>
+      </section>
+      <section>
+        <title>
+          <p>Другие изменения</p>
+        </title>
+        <empty-line/>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Приложение В. JаvаSсriрt-библиотеки</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Библиотеки общего назначения</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>YUI</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Prototype</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Dojo Toolkit</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>MooTools</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>jQuery</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>MochiKit</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Underscore.js</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Библиотеки для интернет-приложений</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>Backbone.js</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Rico</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>qooxdoo</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Библиотеки для анимации и эффектов</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>script.aculo.us</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>moo.fx</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Lightbox</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Библиотеки для криптографии</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>JavaScript MD5</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>JavaScrypt</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>
+        <p>Приложение Г. JаvаSсriрt-инструменты</p>
+      </title>
+      <empty-line/>
+      <section>
+        <title>
+          <p>Средства проверки кода</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>JSLint</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>JSHint</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>JavaScript Lint</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Средства сокращения объема кода</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>JSMin</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Dojo ShrinkSafe</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>YUI Compressor</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Средства модульного тестирования</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>JsUnit</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>YUI Test</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Dojo Object Harness (DOH)</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>qUnit</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Генераторы документации</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>JsDoc Toolkit</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>YUI Doc</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>AjaxDoc</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+      <section>
+        <title>
+          <p>Среды безопасного выполнения кода</p>
+        </title>
+        <empty-line/>
+        <section>
+          <title>
+            <p>ADsafe</p>
+          </title>
+          <empty-line/>
+        </section>
+        <section>
+          <title>
+            <p>Caja</p>
+          </title>
+          <empty-line/>
+        </section>
+      </section>
+    </section>
+  </body>
+</FictionBook>
