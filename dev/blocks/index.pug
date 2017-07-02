@@ -1,4 +1,28 @@
 extends template
 
 block content
-	h1 Hello, World
+	h1 Форми
+	+form({
+		class_form: "form--inline",
+		item: [
+			{
+				type: "email",
+				plh: "Введіть Email"
+			},
+			{
+				type: "password",
+				plh: "Password"
+			},
+			{
+				type: "checkbox",
+				label: "Запам'ятати мене",
+				pos_label: 2,
+				id: "id_check"
+			},
+			{
+				type: "submit",
+				value: "Війти",
+				class: "btn"
+			}
+		]
+	})

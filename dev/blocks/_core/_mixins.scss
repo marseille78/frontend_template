@@ -1,16 +1,18 @@
 /****************************************
  * 	Helpers
  ***************************************/
- @mixin clearfix {
- 	&:after {
-		content: ".";
-		display: block;
-		height: 0;
-		clear: both;
-		visibility: hidden;
+// Блокування флоатів
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
 	}
-	* html & { height: 1px }
+	&:after {
+		clear: both;
+	}
 }
+
 
 
 
@@ -39,12 +41,12 @@
 /****************************************
  * 	Forms
  ***************************************/
- // Стилізація каретки селекту
- // $width - Довжина коретки
- // $height - Висота каретки
- // $right - Відступ каретки зправа
- // $color - колір каретки
- @mixin form_sel($width:8px, $height:6px, $right:15px, $color:#000) {
+// Стилізація каретки селекту
+// $width - Довжина коретки
+// $height - Висота каретки
+// $right - Відступ каретки зправа
+// $color - колір каретки
+@mixin form_sel($width:8px, $height:6px, $right:15px, $color:#000) {
  	&:after {
  		content: '';
  		position: absolute;
@@ -56,7 +58,7 @@
  		border-left: #{$width/2} solid transparent;
  		border-right: #{$width/2} solid transparent;
  	}
- }
+}
 
 // Стилізація checkbox (Застосовується для input[type="checkbox"], коли поуч є label)
 // $width - Довжина
@@ -168,7 +170,7 @@
 		font-style: $fs;
 		font-size: $fz;
 		}/* Firefox 18- */
-	&:-ms-input-placeholder      {
+	&:-ms-input-placeholder {
 		color:$color;
 		font-style: $fs;
 		font-size: $fz;

@@ -11,15 +11,15 @@
 // @include form-lgo();
 
 $e_form:(
-    bg: _bg(form_bg),
-    w: _w(form_w),
-    pad: _i(form_pad),
-    pad_item: _i(form_pad_item),
-    bd: 1px solid _c(form_bd),
-    bdrs: _s(form_bdrs),
-    fz: _f(fz),
-    lh: _f(lh),
-    ta_h: _h(form_ta_h),
+    bg: _bg(form_bg),// Фоновий колір поля вводу
+    w: _w(form_w),// Довжина поля вводу
+    pad: _i(form_pad),// padding поля вводу
+    pad_item: _i(form_pad_item),// padding огортувача поля вводу
+    bd: 1px solid _c(form_bd),// бордер поля вводу форми
+    bdrs: _s(form_bdrs),// Зкруглення кутів поля вводу
+    fz: _f(fz),// Розмір шрифту елементів форми
+    lh: _f(lh),// Розмір кеглю шрифту елементів форми
+    ta_h: _h(form_ta_h),// Висота textarea
 );
 
 @function _form($var) {
@@ -31,7 +31,14 @@ $e_form:(
     input[type="text"],
     input[type="password"],
     input[type="email"],
+    input[type="url"],
+    input[type="date"],
+    input[type="time"],
+    input[type="month"],
+    input[type="week"],
+    input[type="number"],
     input[type="search"],
+    input[type="tel"],
     select,
     textarea {
         width: _form(w);
@@ -41,6 +48,11 @@ $e_form:(
         border-radius: _form(bdrs);
         font-size: _form(fz);
         line-height: _form(lh);
+        box-sizing: border-box;
+        display: inline-block;
+    }
+    input[type="range"] {
+        width: 100%;
     }
     textarea {
         resize: none;
@@ -48,6 +60,9 @@ $e_form:(
     }
     select {
         appearance: none;
+    }
+    label {
+        display: inline-block;
     }
     .form{
         &__item {
