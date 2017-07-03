@@ -10,9 +10,40 @@
 // @include btn-mdo();
 // @include btn-lgo();
 
+$e_btn:(
+    text: #000,// Колір тексту
+    text_hover: gray,// Колір тексту при наведенні
+    bg: #fff,// Колір фону
+    bg_hover: #f00,// Колір фону при наведенні
+    bd: 1px solid gray,// Бордер
+    pad: 5px,// Внутрішній відступ
+    lh: 1.5,// Кегль тексту
+    w: 100px,// Довжина кнопки
+    bdrs: 4px,// Радіус кутів кнопок
+);
+
+@function _btn($var) {
+    @return map_get($e_btn, $var);
+}
+
 @mixin btn-xs(){
 /** btn xs */
-    .btn{}
+    .btn{
+        display: inline-block;
+        border: _btn(bd);
+        padding: _btn(pad);
+        line-height: _btn(lh);
+        color: _btn(text);
+        text-decoration: none;
+        background-color: _btn(bg);
+        border-radius: _btn(bdrs);
+        min-width: _btn(w);
+        text-align: center;
+
+        &:hover {
+            background-color: _btn(bg_hover);
+        }
+    }
 }
 @mixin btn-sm(){
 /** btn sm */

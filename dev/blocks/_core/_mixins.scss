@@ -13,166 +13,52 @@
 	}
 }
 
-
-
-
-/****************************************
- * 	Tables
- ***************************************/
- // Окраска парних/непарних строк
- // $type - Вказівка парних/непарних строк
- // 	odd - непарні (default)
- // 	even - парні
- @mixin tbl_striped($type:odd) {
-    &:nth-child(#{$type}) {
-        background-color: _tbl(bg_striped);
-    }
+// Довжина колонок
+@mixin col($num) {
+	width: 100% / (12 / $num);
 }
 
-// Окраска строк при наведенні
-@mixin tbl_hover() {
-    &:hover {
-        background-color: _tbl(bg_hover);
-    }
+// Генерація колонок внутрі одиночного елементу
+// $width - Оптимальна довжина колонок
+// $count - Кількість колонок
+// $gap - Відступ між колонками
+@mixin content_cols($width, $count, $gap) {
+	-webkit-column-width: $width;
+	-moz-column-width: $width;
+	column-width: $width;
+	-webkit-column-count: $count;
+	-moz-column-count: $count;
+	column-count: $count;
+	-webkit-column-gap: $gap;
+	-moz-column-gap: $gap;
+	column-gap: $gap;
 }
 
-
-
-/****************************************
- * 	Forms
- ***************************************/
-// Стилізація каретки селекту
-// $width - Довжина коретки
-// $height - Висота каретки
-// $right - Відступ каретки зправа
-// $color - колір каретки
-@mixin form_sel($width:8px, $height:6px, $right:15px, $color:#000) {
- 	&:after {
- 		content: '';
- 		position: absolute;
- 		top: 50%;
- 		right: $right;
- 		margin-top: -($height/2);
- 		background-color: transparent;
- 		border-top: #{$height} solid $color;
- 		border-left: #{$width/2} solid transparent;
- 		border-right: #{$width/2} solid transparent;
- 	}
+// Горизонтальне центрування блоків
+@mixin center_block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-// Стилізація checkbox (Застосовується для input[type="checkbox"], коли поуч є label)
-// $width - Довжина
-// $bdc - Колір бордеру
-// $bg - Фоновий колір
-// $bdrs - Скруглення бордеру
-// $bd_weight - Вага бордеру
-// $in_bg - Фоновий колір активної частини
-// $in_width - Довжина активної частини
-@mixin form_checkbox($width:16px, $bdc:#000, $bg:#fff, $bdrs:0, $bd_weight:1px, $in_bg:#000, $in_width:10px) {
-	& {
-		visibility: hidden;
-	}
-
-	& ~ label {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: $width;
-		height: $width;
-		border: $bd_weight solid $bdc;
-		display: block;
-		background-color: $bg;
-		border-radius: $bdrs;
-		box-sizing: border-box;
-		cursor: pointer;
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: $width/2 -$in_width/2-$bd_weight;
-			left: $width/2 -$in_width/2-$bd_weight;
-			width: $in_width;
-			height: $in_width;
-			background-color: $in_bg;
-			display: none;
-		}
-	}
-
-	&:checked ~ label {
-		&:before {			
-			display: block;
-		}
-	}
+// Завдання розмірів елементу
+// $w - Довжина елементу
+// $h - Висота елементу
+@mixin size($w, $h) {
+	width: $w;
+	height: $h;
 }
 
-// Стилізація radio (Застосовується для input[type="radio"], коли поуч є label)
-// $width - Довжина
-// $bdc - Колір бордеру
-// $bg - Фоновий колір
-// $bd_weight - Вага бордеру
-// $in_bg - Фоновий колір активної частини
-// $in_width - Довжина активної частини
-@mixin form_radio($width:16px, $bdc:#000, $bg:#fff, $bd_weight:1px, $in_bg:#000, $in_width:10px) {
-	& {
-		visibility: hidden;
-	}
-
-	& ~ label {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: $width;
-		height: $width;
-		border: $bd_weight solid $bdc;
-		display: block;
-		background-color: $bg;
-		border-radius: 100%;
-		box-sizing: border-box;
-		cursor: pointer;
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: $width/2 -$in_width/2-$bd_weight;
-			left: $width/2 -$in_width/2-$bd_weight;
-			width: $in_width;
-			height: $in_width;
-			background-color: $in_bg;
-			border-radius: 100%;
-			display: none;
-		}
-	}
-
-	&:checked ~ label {
-		&:before {			
-			display: block;
-		}
-	}
+// Завдання розмірів квадратного елементу
+// $w - Довжина і висота елементу
+@mixin square($w) {
+	width: $w;
+	height: $h;
 }
 
-// Стилізація placeholder
-// $color - Колір тексту
-// $fs - Стиль тексту
-// $fz - Розмір тексту
-@mixin form_plh($color:#ddd, $fs:italic, $fz:14px) {
-	&::-webkit-input-placeholder {
-		color:$color;
-		font-style: $fs;
-		font-size: $fz;
-	}
-	&::-moz-placeholder {
-		color:$color;
-		font-style: $fs;
-		font-size: $fz;
-		}/* Firefox 19+ */
-	&:-moz-placeholder {
-		color:$color;
-		font-style: $fs;
-		font-size: $fz;
-		}/* Firefox 18- */
-	&:-ms-input-placeholder {
-		color:$color;
-		font-style: $fs;
-		font-size: $fz;
-	}
+// Скороченнний текст (Скорочування тексту за допомогою "...")
+@mixin text_overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

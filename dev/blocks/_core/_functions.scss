@@ -29,11 +29,3 @@
 @function _bp($var) {
 	@return map_get($g_Points, $var);
 }
-
-
-
-// $width_col = 100%
-
-// @function grid($num, $gutter:0) {
-// 	@return $num * $width_col + ($num - 1) * $gutter;
-// }
