@@ -10,36 +10,245 @@
 // @include page-mdo();
 // @include page-lgo();
 
+// ***************************************
+//  Variables
+// ***************************************
+// Значення для шрифту
+$g_Font:(
+    ff: ('Helvetica Neue',Helvetica,Arial,sans-serif), // родина використовуємих шрифтів
+    fz: 14px, // Головних розмір шрифта тексту
+    fz_h1: 36px, // Розмір тексту тегу h1
+    fz_h2: 30px, // Розмір тексту тегу h2
+    fz_h3: 24px, // Розмір тексту тегу h3
+    fz_h4: 18px, // Розмір тексту тегу h4
+    fz_h5: 14px, // Розмір тексту тегу h5
+    fz_h6: 12px, // Розмір тексту тегу h6
+    fw: 400, // Вага базового тексту
+    fw_bold: 700, // Вага жирного тексту
+    fw_light: 300, // Вага легкого тексту
+    fs: normal, // Стиль базового тексту
+    lh: 1.5, // Значення кеглю шрифта
+);
+
+// Набор кольорів
+$g_Color:(
+    // Звичайний текст
+    text: black,// Головний колір тексту
+    bd: gray,// Головний колір бордеру
+    link: blue,// Головний колір текстового посилання
+);
+
+$g_Bg:(
+    // Базові
+    body: white, // Колір фону браузера
+    page: white, // Колір фону сайту
+);
+
+$g_Height:(
+    header: 100px,// Висота шапки сайту
+    header_tablet: 100px,// Висота шапки сайту
+    header_desktop: 100px,// Висота шапки сайту
+    footer: 100px,// Висота підвалу сайту
+    footer_tablet: 100px,// Висота підвалу сайту
+    footer_desktop: 100px,// Висота підвалу сайту
+    logo: 85px,// Висота логотіпу
+    logo_tablet: 85px,// Висота логотіпу
+    logo_desktop: 85px,// Висота логотіпу
+);
+
+$g_Width:(
+    // Структура
+    sidebar: 100px, // Довжина сайдбару
+    container: 1000px, // Довжина контенту
+    logo: 100px, // Довжина логотіпу
+);
+
+$g_Size:(
+    cols: 12,
+    gutter: 15px,   
+    bdrs: 4px,
+);
+
+$g_Int:(
+    sect_v: 15px,// Вертикальний секційний відступ
+    sect_sb_v: 15px,// Вертикальний секційний відступ в сайдбарі
+    sect_h: 15px,// Горизонтальний секційний відступ
+    sect_sb_h: 15px,// горизонтальний секційний відступ в сайдбарі
+);
+
+$g_Points:(
+    sm: 500px,
+    md: 768px,
+    lg: 1025px,
+    xl: 1260px
+);
+
+
+
+
+
+
+
+
+
+
+
+// ***************************************
+// Functions
+// ***************************************
+@function _f($var) {
+    @return map_get($g_Font, $var);
+}
+
+@function _c($var) {
+    @return map_get($g_Color, $var);
+}
+
+@function _bg($var) {
+    @return map_get($g_Bg, $var);
+}
+
+@function _h($var) {
+    @return map_get($g_Height, $var);
+}
+
+@function _w($var) {
+    @return map_get($g_Width, $var);
+}
+
+@function _s($var) {
+    @return map_get($g_Size, $var);
+}
+
+@function _i($var) {
+    @return map_get($g_Int, $var);
+}
+
+@function _bp($var) {
+    @return map_get($g_Points, $var);
+}
+
+
+
+
+
+
+
+
+
+
+// ***************************************
+// Mixins
+// ***************************************
+// Міксін для підкладання зображення макету для полегшення роботи
+// $img - Шлях до потрібного зображення
+// $width - Довжина фонового зображення
+@mixin bg_maket($img, $width) {
+    background: url(#{$img}) no-repeat 50% 0;
+    background-size: #{$width} auto;
+    min-height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+// ***************************************
+// Styles
+// ***************************************
+
 @mixin page-xs(){
-// page xs
+    // page xs
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: _bg(body);
+        font-size: _f(fz);
+        font-family: _f(ff);
+        color: _c(text);
+        line-height: _f(lh);
+        font-style: _f(fs);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: _f(fw_bold);
+    }
+    h1 {
+        font-size: _f(fz_h1);
+    }
+    h2 {
+        font-size: _f(fz_h2);
+    }
+    h3 {
+        font-size: _f(fz_h3);
+    }
+    h4 {
+        font-size: _f(fz_h4);
+    }
+    h5 {
+        font-size: _f(fz_h5);
+    }
+    h6 {
+        font-size: _f(fz_h6);
+    }
+    a {
+        color: _c(link);
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .page-header {
+        min-height: _h(header);
+
+        &__logo: {
+            height: _h(logo);
+        }
+    }
+
+    .page-container {
+        min-width: 320px;
+        margin: 0 auto;
+    }
 }
 @mixin page-sm(){
-// page sm
+    // page sm
 }
 @mixin page-md(){
-// page md
+    // page md
 }
 @mixin page-lg(){
-// page lg
+    // page lg
 }
 @mixin page-xl(){
-// page xl
+    // page xl
 }
 @mixin page-dev(){
-// page dev
+    // page dev
 }
 @mixin page-mob(){
-// page mob
+    // page mob
 }
 @mixin page-xso(){
-// page xso
+    // page xso
 }
 @mixin page-smo(){
-// page smo
+    // page smo
 }
 @mixin page-mdo(){
-// page mdo
+    // page mdo
 }
 @mixin page-lgo(){
-// page lgo
+    // page lgo
 }

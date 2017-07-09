@@ -11,9 +11,13 @@
 // @include text-lgo();
 
 @mixin text-xs(){
-// text xs
+    // text xs
     * {
         box-sizing: border-box;
+    }
+    html,
+    body {
+        height: 100%;
     }
     body {
         background-color: _bg(body);
@@ -21,6 +25,7 @@
         font-family: _f(ff);
         color: _c(text);
         line-height: _f(lh);
+        font-style: _f(fs);
     }
     h1,
     h2,
@@ -51,34 +56,38 @@
     a {
         color: _c(link);
     }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 @mixin text-sm(){
-// text sm
+    // text sm
 }
 @mixin text-md(){
-// text md
+    // text md
 }
 @mixin text-lg(){
-// text lg
+    // text lg
 }
 @mixin text-xl(){
-// text xl
+    // text xl
 }
 @mixin text-dev(){
-// text dev
+    // text dev
 }
 @mixin text-mob(){
-// text mob
+    // text mob
 }
 @mixin text-xso(){
-// text xso
+    // text xso
 }
 @mixin text-smo(){
-// text smo
+    // text smo
 }
 @mixin text-mdo(){
-// text mdo
+    // text mdo
 }
 @mixin text-lgo(){
-// text lgo
+    // text lgo
 }

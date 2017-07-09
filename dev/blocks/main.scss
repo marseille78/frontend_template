@@ -1,5 +1,4 @@
 //  Base Configure
-@import "_core/vars";
 @import "_core/functions";
 @import "_core/mixins";
 @import "_core/normalize";
@@ -8,7 +7,6 @@
 
 //  Structure and Text
 @import "_base/helpers";
-@import "_base/text";
 @import "_base/page";
 
 
@@ -18,76 +16,65 @@
 
 
 // CATEGORY START (-xs)
-@include text-xs();
 @include page-xs();
 // CATEGORY END
 
 @media only screen and (min-width: _bp(sm)) {
 // CATEGORY START (-sm)
-@include text-sm();
 @include page-sm();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) {
 // CATEGORY START (-md)
-@include text-md();
 @include page-md();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) {
 // CATEGORY START (-lg)
-@include text-lg();
 @include page-lg();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(xl)) {
 // CATEGORY START (-xl)
-@include text-xl();
 @include page-xl();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(dev)) {
 // CATEGORY START (-dev)
-@include text-dev();
 @include page-dev();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(md)-1) {
 // CATEGORY START (-mob)
-@include text-mob();
 @include page-mob();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(sm)-1) {
 // CATEGORY START (-xso)
-@include text-xso();
 @include page-xso();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(sm)) and (max-width: _bp(md)-1) {
 // CATEGORY START (-smo)
-@include text-smo();
 @include page-smo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) and (max-width: _bp(lg)-1) {
 // CATEGORY START (-mdo)
-@include text-mdo();
 @include page-mdo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) and (max-width: _bp(xl)-1) {
 // CATEGORY START (-lgo)
-@include text-lgo();
 @include page-lgo();
 // CATEGORY END
 }
