@@ -13,14 +13,15 @@
 	}
 }
 
-// Довжина колонок
+// Довжина стовбців
+// $num - кількість стовбців
 @mixin col($num) {
 	width: 100% / (12 / $num);
 }
 
-// Генерація колонок внутрі одиночного елементу
-// $width - Оптимальна довжина колонок
-// $count - Кількість колонок
+// Генерація стовбців внутрі одиночного елементу з текстом
+// $width - Оптимальна довжина стовбців
+// $count - Кількість стовбців
 // $gap - Відступ між колонками
 @mixin content_cols($width, $count, $gap) {
 	-webkit-column-width: $width;
@@ -32,13 +33,6 @@
 	-webkit-column-gap: $gap;
 	-moz-column-gap: $gap;
 	column-gap: $gap;
-}
-
-// Горизонтальне центрування блоків
-@mixin center_block() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 // Завдання розмірів елементу
@@ -53,7 +47,7 @@
 // $w - Довжина і висота елементу
 @mixin square($w) {
 	width: $w;
-	height: $h;
+	height: $w;
 }
 
 // Скороченнний текст (Скорочування тексту за допомогою "...")
@@ -61,4 +55,18 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+// Центрування блоку заданої довжини
+// $width - Довжина блоку
+@mixin container($width:_bp(lg)) {
+    max-width: $width;
+    margin: 0 auto;
+}
+
+// Перетворення блоків на inline-елементи
+// $va - вирівнювання по вертикалі
+@mixin inline_block($va:top) {
+	display: inline-block;
+	vertical-align: $va;
 }

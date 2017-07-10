@@ -1,3 +1,25 @@
 extends template
 
-block content
+block header
+	+b.HEADER.page-header
+		h1 HEADER
+		+nav({
+			'item': [
+				{
+					'title': 'Главная',
+					'href': '#'
+				},
+				{
+					'title': 'Портфолио',
+					'href': '#'
+				},
+				{
+					'title': 'О нас',
+					'href': '#'
+				},
+				{
+					'title': 'Контакты',
+					'href': '#'
+				}
+			]
+		})

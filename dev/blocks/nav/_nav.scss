@@ -40,46 +40,52 @@
 // Styles
 // ***************************************
 @mixin nav-xs(){
-/** nav xs */
-    .nav{}
+    /* nav xs */
+    .nav{
+        &__list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
 }
 @mixin nav-sm(){
-/** nav sm */
+    // nav sm
     .nav{}
 }
 @mixin nav-md(){
-/** nav md */
+    // nav md
     .nav{}
 }
 @mixin nav-lg(){
-/** nav lg */
+    // nav lg
     .nav{}
 }
 @mixin nav-xl(){
-/** nav xl */
+    // nav xl
     .nav{}
 }
 @mixin nav-dev(){
-    /** nav dev */
+    // nav dev
     .nav{}
 }
 @mixin nav-mob(){
-/** nav mob */
+    // nav mob
     .nav{}
 }
 @mixin nav-xso(){
-    /** nav xso */
+    // nav xso
     .nav{}
 }
 @mixin nav-smo(){
-/** nav smo */
+    // nav smo
     .nav{}
 }
 @mixin nav-mdo(){
-/** nav mdo */
+    // nav mdo
     .nav{}
 }
 @mixin nav-lgo(){
-/** nav lgo */
+    // nav lgo
     .nav{}
 }

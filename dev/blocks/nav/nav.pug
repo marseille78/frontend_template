@@ -1,0 +1,20 @@
+//- Для створення меню
+//- Викликається:
+
+//- +nav({
+//- 	item': [
+//- 		# Перелік пунктів меню
+//- 		{
+//- 			'title': 'Главная',
+//- 			'href': '#'
+//- 		}
+//- 	]
+//- })
+
+mixin nav(data)
+	+b.NAV.nav
+		+e.DIV.wrapper
+			+e.UL.list
+				each item in data.item
+					+e.LI.item
+						+e.A.link(href= item.href)= item.title
