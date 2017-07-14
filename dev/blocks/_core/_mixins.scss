@@ -64,9 +64,9 @@
     margin: 0 auto;
 }
 
-// Перетворення блоків на inline-елементи
+// Перетворення блоків на inline-елементи і відображення їх у вигляді карток (на відміну від флоатів не вириває блок з потоку)
 // $va - вирівнювання по вертикалі
-@mixin inline_block($va:top) {
+@mixin cards($va:top) {
 	display: inline-block;
 	vertical-align: $va;
 }

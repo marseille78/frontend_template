@@ -188,6 +188,7 @@ $g_Points:(
     }
     body {
         background-color: _bg(body);
+        min-width: _bp(xs);
         font-size: _f(fz);
         font-family: _f(ff);
         color: _c(text);

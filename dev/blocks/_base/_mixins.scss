@@ -1,6 +1,0 @@
-// Міксін для центрування блоків
-// $max_width - максимальна довжина блоку
-@mixin container($max_width) {
-	max-width: $max_width;
-	margin: 0 auto;
-}
