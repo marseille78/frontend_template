@@ -2,7 +2,6 @@ include _assets/bemto/bemto
 - set_bemto_settings({ modifier: "--" })
 
 include _base/head
-include nav/nav
 
 doctype html
 html(lang="ru")
@@ -18,7 +17,6 @@ html(lang="ru")
 	block body
 		body
 			block header
-				header.page-header Header
 
 			.page-center
 				block l-sidebar
@@ -26,10 +24,8 @@ html(lang="ru")
 				block r-sidebar
 
 				block content
-					main.page-content Content
 
 			block footer
-				footer.page-footer Footer
 				
 			block vendors
 				// build:js js/vendor.js

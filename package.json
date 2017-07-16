@@ -1,26 +1,21 @@
 {
-  "name": "frontend_template",
+  "name": "my_projects",
   "version": "1.0.0",
-  "description": "Frontend template SCSS + PUG + GULP",
+  "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marseille78/frontend_template.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/marseille78/frontend_template/issues"
-  },
-  "homepage": "https://github.com/marseille78/frontend_template#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^3.4.2",
+    "gulp-clean-css": "^3.7.0",
     "gulp-concat-css": "^2.3.0",
     "gulp-connect": "^5.0.0",
     "gulp-notify": "^3.0.0",
@@ -29,6 +24,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sftp": "^0.1.5",
     "gulp-uglify": "^3.0.0",
-    "gulp-uncss": "^1.0.6"
+    "gulp-uncss": "^1.0.6",
+    "gulp.spritesmith": "^6.5.1"
   }
 }
