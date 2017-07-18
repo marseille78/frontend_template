@@ -1,0 +1,35 @@
+//- Для створення меню
+//- Викликається: в тезі <nav> з класом "блока"
+
+//- +nav({
+//- 	'list_class': 'list', # Назва класу тегу <ul>. Буде додаватись в якості елементу до класу блоку, в якому буде викликатися міксін. Якщо буде модіфікатор клас буде у вигляді "list--modificator", якщо клас не потрібен, то встановлюється порожній рядок
+//- 	'item_class': 'item', # Назва класу тегу <li>. Буде додаватись в якості класу до елементу переліку. Особливі властивості, як для пункту "list_class". Для встановлення багаторівневого пункту
+//- 	'item_class_m': 'item--multylevel', # Назва класу тегу <li>. Буде додаватись якщо до цього пункту було додано вкладеного меню
+//- 	'item_class_a': 'item--active', # Назва класу тегу <li>. Буде додаватись якщо потрібно зозначити активний пункт меню
+//- 	'link_class': 'link', # Назва класу тегу <a>. Буде додаватись, коли посиланню потрібно додати клас
+//- 	'list_class_2': 'list-2', # Назва класу тегу <ul>. Буде додаватись до переліку, коли потрібно надати клас до меню другого рівня
+//- 	'item_class_2': 'item-2', # Назва класу тегу <li>. Буде додаватись до пункту переліку, коли потрібно надати клас до пункту меню другого рівня
+//- 	'link_class_2': 'link-2', # Назва класу тегу <a>. Буде додаватись до пункту посилання, коли потрібно надати клас до посилання в меню другого рівня
+//- 	'list': 'array', # Масив з переліком даних у вигляді об’єкта щодо кожної ітерації з полями (title - назва пункту меню 'єдиний обов’язковий єлемент', href - значення атрибуту 'href', multylevel - за наявністю вкладеного меню. містить в собі аналогічний вищєописаному масиву 'list')
+//- })
+
+
+mixin nav(data)
+	- var flag_active = data.item_class_a
+	+e.UL(class= data.list_class)
+		each item in data.list
+			if flag_active
+				+e.LI(class= data.item_class_a)
+					+e.A(class= data.link_class href= item.href)= item.title
+				- flag_active = ''
+			else
+				if item.multylevel
+					+e.LI(class= data.item_class_m)
+						+e.A(class= data.link_class href= item.href)= item.title
+						+e.UL(class= data.list_class_2)
+							each item_multy in item.multylevel.list
+								+e.LI(class= data.item_class_2)
+									+e.A(class= data.link_class_2 href= item_multy.href)= item_multy.title
+				else
+					+e.LI(class= data.item_class)
+						+e.A(class= data.link_class href= item.href)= item.title

@@ -6,6 +6,7 @@
 
 var gulp = require('gulp'),
 	concatCSS = require('gulp-concat-css'),
+	concat = require('gulp-concat'),
 	cleanCSS = require('gulp-clean-css'),
 	notify = require('gulp-notify'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -14,7 +15,8 @@ var gulp = require('gulp'),
 	uncss = require('gulp-uncss'),
 	pug = require('gulp-pug'),
 	uglify = require('gulp-uglify'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+	spritesmith = require('gulp.spritesmith');
 
 // var useref = require('gulp-useref'),
 // 	gulpif = require('gulp-if');
@@ -32,6 +34,8 @@ var paths = {
 };
 
 var libsCSS = [];
+
+var libsJS = [];
 
 
 
@@ -61,6 +65,15 @@ gulp.task('css', function() {
     	.pipe(connect.reload());
 });
 
+// JS
+gulp.task('js', function() {
+	return gulp.src(paths.dirBlocks + '**/*.js')
+		.pipe(plumber())
+		.pipe(concat('main.js'))
+		.pipe(gulp.dest(paths.appJS))
+		.pipe(connect.reload());
+});
+
 // Concatination CSS-files from libraries
 gulp.task('concatLibCSS', function() {
 	return gulp.src(libsCSS)
@@ -72,6 +85,25 @@ gulp.task('concatLibCSS', function() {
         }))
 		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(gulp.dest(paths.appCSS));
+});
+
+// Concatination JS-files from libraries
+gulp.task('concatLibJS', function() {
+	return gulp.src(libsJS)
+		.pipe(plumber())
+		.pipe(concat('lib.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.appJS));
+});
+
+// Create sprite
+gulp.task('sprite', function() {
+	var spriteData = gulp.src('dev/img/icons/*.png')
+		.pipe(spritesmith({
+		    imgName: 'sprite.png',
+		    cssName: '_sprite.scss'
+		}));
+	return spriteData.pipe(gulp.dest(paths.dirBlocks + '_base/'));
 });
 
 // Server connect
@@ -86,10 +118,11 @@ gulp.task('connect', function() {
  gulp.task('watch', function() {
  	gulp.watch(paths.dirBlocks + '**/*.pug', ['html']);
  	gulp.watch(paths.dirBlocks + '**/*.scss', ['css']);
+ 	gulp.watch(paths.dirBlocks + '**/*.js', ['js']);
  });
 
 // Default task
-gulp.task('default', ['concatLibCSS', 'connect', 'html', 'css', 'watch']);
+gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch']);
 
 
 

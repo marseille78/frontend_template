@@ -15,7 +15,7 @@
 // ***************************************
 // Значення для шрифту
 $g_Font:(
-    ff: ('Helvetica Neue',Helvetica,Arial,sans-serif), // родина використовуємих шрифтів
+    ff: ('Helvetica Neue',Helvetica,Arial,sans-serif), // базовий шрифт
     fz: 14px, // Головних розмір шрифта тексту
     fz_h1: 36px, // Розмір тексту тегу h1
     fz_h2: 30px, // Розмір тексту тегу h2
@@ -42,18 +42,20 @@ $g_Bg:(
     // Базові
     body: white, // Колір фону браузера
     page: white, // Колір фону сайту
+    body_overlay: rgba(0,0,0,.7), // Напівпрозорий фон під мобільне меню чи попап
 );
 
 $g_Height:(
     header: 100px,// Висота шапки сайту
-    header_tablet: 100px,// Висота шапки сайту
-    header_desktop: 100px,// Висота шапки сайту
+    header_tablet: 150px,// Висота шапки сайту
+    header_desktop: 200px,// Висота шапки сайту
     footer: 100px,// Висота підвалу сайту
-    footer_tablet: 100px,// Висота підвалу сайту
-    footer_desktop: 100px,// Висота підвалу сайту
+    footer_tablet: 150px,// Висота підвалу сайту
+    footer_desktop: 200px,// Висота підвалу сайту
     logo: 85px,// Висота логотіпу
     logo_tablet: 85px,// Висота логотіпу
     logo_desktop: 85px,// Висота логотіпу
+    sect_sb: 150px,// Мінімальна висота секції сайдбару
 );
 
 $g_Width:(
@@ -167,6 +169,22 @@ $g_Points:(
         box-sizing: border-box;
     }
 }
+// Міксін для створення напівпрозорого фону для допоміжних частин сайту (напр. мобільне меню, чи попап)
+@mixin bg_overlay() {
+    &.opened {
+        &:after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            background-color: _bg(body_overlay);
+        }
+    }
+}
 
 
 
@@ -186,7 +204,11 @@ $g_Points:(
     * {
         box-sizing: border-box;
     }
+    html {
+        height: 100%;
+    }
     body {
+        height: 100%;
         background-color: _bg(body);
         min-width: _bp(xs);
         font-size: _f(fz);
@@ -194,6 +216,8 @@ $g_Points:(
         color: _c(text);
         line-height: _f(lh);
         font-style: _f(fs);
+
+        @include bg_overlay();
     }
     h1,
     h2,
@@ -229,12 +253,48 @@ $g_Points:(
         height: auto;
     }
 
+    .page-wrapper {
+        min-height: 100%;
+        margin-bottom: -(_h(footer));
+    }
+
     .page-header {
+        @include make_block(red);
         min-height: _h(header);
 
         &__logo {
             height: _h(logo);
         }
+    }
+
+    .page-center {
+        @include make_block(orange);
+        padding-bottom: _h(footer);
+    }
+
+    .page-sidebar {
+        @include make_block(aqua);
+
+        &__item {
+            @include make_block(olive);
+
+            margin-bottom: _i(sect_sb_h);
+            min-height: _h(sect_sb);
+            padding: 0 _i(sect_sb_h);
+        }
+    }
+
+    .page-content {
+        @include make_block(lime);
+
+        &__item {
+            @include make_block(purple);
+        }
+    }
+
+    .page-footer {
+        @include make_block(blue);
+        min-height: _h(footer);
     }
 }
 @mixin page-sm(){
@@ -245,6 +305,15 @@ $g_Points:(
 }
 @mixin page-lg(){
     // page lg
+    .page-wrapper {
+        margin-bottom: -(_h(footer_desktop));
+    }
+    .page-header {
+        height: _h(header_desktop);
+    }
+    .page-footer {
+        height: _h(footer_desktop);
+    }
 }
 @mixin page-xl(){
     // page xl

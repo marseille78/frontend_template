@@ -13,6 +13,43 @@
 // ***************************************
 // Variables
 // ***************************************
+$e_nav: (
+    bd: 1px solid #aaa,// Бордери
+    
+    bg: #eee,// Фоновий колір навігації
+    bg_item: #eee,// Фоновий колір елементу навігації
+    bg_toggle: #333,// Фоновий колір кнопки для включення мобільної навігації
+
+    color: #333,// Колір тексту
+    color_toggle: #fff,// Колір тексту, або рисок гамбургеру для переключення меню
+    
+    fz: 14px,// Розмір шрифту
+    
+    h: 0,// Висота блоку навігації
+    h_gb: 50px,// Висота кнопки переключення мобільного меню
+    h_gb_item: 2px,// Висота елементу гамбургеру
+    h_item: 50px,// Висота елементу меню
+    h_desktop: 72px,// Висота блоку навігації (desktop)
+    
+    lh_item: 1.1em,// Висота кеглю елемента навігації
+    
+    mb_gb_item: 7px,// Нижній відступ в елементах гамбургеру
+    mt_gb_item_first: 10px,// Відхил першого елементу гамбургера після повороту
+    mt_gb_item_last: -10px,// Відхил останнього елементу гамбургера після повороту
+    
+    p_item: 0 20px,// Внутрішній відхил елементу меню
+    pt_gb: 15px,// Верхній відступ до першого елемента гамбургера
+    
+    rotate_gb_item_first: rotate(45deg),// Поворот першого елементу гамбургеру
+    rotate_gb_item_last: rotate(-45deg),// Поворот останнього елементу гамбургеру
+    
+    transition: all ease-out 0.2s,// Анімація
+    
+    w_gb: 70px,// довжина кнопкі переключення меню чи гамбургеру
+    w_gb_item: 36px,// Довжина елементів гамбургеру
+    
+    zin: 20,// Значення z-index    
+);
 
 
 
@@ -26,6 +63,9 @@
 // ***************************************
 // Functions
 // ***************************************
+@function _nav($var) {
+    @return map_get($e_nav, $var);
+}
 
 
 
@@ -42,10 +82,96 @@
 @mixin nav-xs(){
     /* nav xs */
     .nav{
+        height: _nav(h);
+        position: relative;
+        color: _nav(color);
+        font-family: _f(ff);
+        background-color: _nav(bg);
+
+        // Огортувач меню
+        &__wrapper {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            padding-left: _nav(w_gb);
+            width: 100%;
+            margin-left: -(_nav(w_gb));
+            z-index: _nav(zin);
+            transition: _nav(transition);
+
+            &.opened {
+                margin-left: 0;
+                left: 0;
+            }
+        }
+
+        // Перелік
         &__list {
-            margin: 0;
+            list-style-type: none;
             padding: 0;
-            list-style: none;
+            margin: 0;
+            background-color: _nav(bg_item);
+        }
+
+        // Елемент меню
+        &__item {
+            border-top: _nav(bd);
+            display: block;
+            font-size: _nav(fz);
+
+            &:first-child {
+                border-top: none;
+            }
+        }
+
+        // Посилання в меню
+        &__link {
+            height: _nav(h_item);
+            padding: _nav(p_item);
+            line-height: _nav(h_item);
+            color: _nav(color);
+            display: block;
+
+            span {
+                vertical-align: middle;
+            }
+        }
+
+        &__toggle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: _nav(h_gb);
+            width: _nav(w_gb);
+            cursor: pointer;
+            padding-top: _nav(pt_gb);
+            background-color: _nav(bg_toggle);
+
+            span {
+                display: block;
+                margin: 0 auto;
+                height: _nav(h_gb_item);
+                width: _nav(w_gb_item);
+                background-color: _nav(color_toggle);
+                margin-bottom: _nav(mb_gb_item);
+                transition: _nav(transition);
+
+                .opened & {
+                    display: none;
+
+                    &:first-child {
+                        display: block;
+                        transform: _nav(rotate_gb_item_first);
+                        margin-top: _nav(mt_gb_item_first);
+                    }
+
+                    &:last-child {
+                        display: block;
+                        transform: _nav(rotate_gb_item_last);
+                        margin-top: _nav(mt_gb_item_last);
+                    }
+                }
+            }
         }
     }
 }
@@ -59,7 +185,34 @@
 }
 @mixin nav-lg(){
     // nav lg
-    .nav{}
+    .nav{
+        min-height: _nav(h_desktop);
+
+        &__wrapper {
+            position: static;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        &__list {
+            font-size: 0;
+        }
+
+        &__item {
+            border-top: none;
+            display: inline-block;
+            border-left: _nav(bd);
+        }
+
+        &__link {
+            height: _nav(h_desktop);
+            line-height: _nav(h_desktop);
+        }
+
+        &__toggle {
+            display: none;
+        }
+    }
 }
 @mixin nav-xl(){
     // nav xl
