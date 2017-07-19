@@ -531,7 +531,10 @@ img {
     box-sizing: border-box; }
   .page-content__item {
     position: relative;
-    border: 2px solid purple; }
+    border: 2px solid purple;
+    margin-bottom: 15px;
+    min-height: 200px;
+    padding: 0 15px; }
     .page-content__item::after {
       content: '';
       position: absolute;
@@ -560,10 +563,65 @@ img {
     -webkit-box-sizing: border-box;
     box-sizing: border-box; }
 
+.flex-container {
+  position: relative;
+  border: 2px solid green;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .flex-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    opacity: .3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .flex-container div {
+    position: relative;
+    border: 2px solid blue;
+    padding: 10px; }
+    .flex-container div::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+      opacity: .3;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box; }
+
 @media only screen and (min-width: 1025px) {
   .page-wrapper {
     margin-bottom: -200px; }
   .page-header {
     height: 200px; }
+  .page-center {
+    padding-bottom: 200px; }
+  .page-sidebar ~ .page-content {
+    margin-left: 200px; }
+  .page-sidebar--right ~ .page-content {
+    margin-right: 200px; }
+  .page-sidebar {
+    float: left;
+    width: 200px; }
+    .page-sidebar--right {
+      float: right; }
   .page-footer {
     height: 200px; } }

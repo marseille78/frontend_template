@@ -2,6 +2,7 @@ include _assets/bemto/bemto
 - set_bemto_settings({ modifier: "--" })
 
 include _base/head
+include list/list
 
 doctype html
 html(lang="ru")
@@ -18,7 +19,12 @@ html(lang="ru")
 		body
 			.page-wrapper
 				block header
-					+b.HEADER.page-header HEADER
+					+b.HEADER.page-header
+						//- | HEADER
+						.flex-container
+							div 1
+							div 2
+							div 3
 
 				.page-center
 					block l-sidebar

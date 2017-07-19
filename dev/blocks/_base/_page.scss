@@ -55,12 +55,13 @@ $g_Height:(
     logo: 85px,// Висота логотіпу
     logo_tablet: 85px,// Висота логотіпу
     logo_desktop: 85px,// Висота логотіпу
+    sect: 200px,// Мінімальна висота секції
     sect_sb: 150px,// Мінімальна висота секції сайдбару
 );
 
 $g_Width:(
     // Структура
-    sidebar: 100px, // Довжина сайдбару
+    sidebar: 200px, // Довжина сайдбару
     container: 1000px, // Довжина контенту
     logo: 100px, // Довжина логотіпу
 );
@@ -289,12 +290,32 @@ $g_Points:(
 
         &__item {
             @include make_block(purple);
+            margin-bottom: _i(sect_v);
+            min-height: _h(sect);
+            padding: 0 _i(sect_h);
         }
     }
 
     .page-footer {
         @include make_block(blue);
         min-height: _h(footer);
+    }
+
+    .flex-container {
+        @include make_block(green);
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        // flex-direction: column;
+        // flex-direction: row-reverse;
+        // flex-direction: column-reverse;
+        // align-items: stretch;
+        align-items: flex-start;
+
+        div {
+            @include make_block(blue);
+            padding: 10px;
+        }
     }
 }
 @mixin page-sm(){
@@ -310,6 +331,25 @@ $g_Points:(
     }
     .page-header {
         height: _h(header_desktop);
+    }
+    .page-center {
+        padding-bottom: _h(footer_desktop);
+    }
+    .page-content {
+        .page-sidebar ~ & {
+            margin-left: _w(sidebar);
+        }
+        .page-sidebar--right ~ & {
+            margin-right: _w(sidebar);
+        }
+    }
+    .page-sidebar {
+        float: left;
+        width: _w(sidebar);
+
+        &--right {
+            float: right;
+        }
     }
     .page-footer {
         height: _h(footer_desktop);
