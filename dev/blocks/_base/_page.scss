@@ -269,7 +269,7 @@ $g_Points:(
     }
 
     .page-center {
-        @include make_block(orange);
+        // @include make_block(orange);
         padding-bottom: _h(footer);
     }
 
@@ -286,10 +286,10 @@ $g_Points:(
     }
 
     .page-content {
-        @include make_block(lime);
+        // @include make_block(lime);
 
         &__item {
-            @include make_block(purple);
+            // @include make_block(purple);
             margin-bottom: _i(sect_v);
             min-height: _h(sect);
             padding: 0 _i(sect_h);

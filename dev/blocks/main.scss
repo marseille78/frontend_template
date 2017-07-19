@@ -14,69 +14,81 @@
 
 
 //  Blocks
+@import "slider/slider";
 
 
 
 // CATEGORY START (-xs)
 @include page-xs();
+@include slider-xs();
 // CATEGORY END
 
 @media only screen and (min-width: _bp(sm)) {
 // CATEGORY START (-sm)
 @include page-sm();
+@include slider-sm();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) {
 // CATEGORY START (-md)
 @include page-md();
+@include slider-md();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) {
 // CATEGORY START (-lg)
 @include page-lg();
+@include slider-lg();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(xl)) {
 // CATEGORY START (-xl)
 @include page-xl();
+@include slider-xl();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(dev)) {
 // CATEGORY START (-dev)
 @include page-dev();
+@include slider-dev();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(md)-1) {
 // CATEGORY START (-mob)
 @include page-mob();
+@include slider-mob();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(sm)-1) {
 // CATEGORY START (-xso)
 @include page-xso();
+@include slider-xso();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(sm)) and (max-width: _bp(md)-1) {
 // CATEGORY START (-smo)
 @include page-smo();
+@include slider-smo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) and (max-width: _bp(lg)-1) {
 // CATEGORY START (-mdo)
 @include page-mdo();
+@include slider-mdo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) and (max-width: _bp(xl)-1) {
 // CATEGORY START (-lgo)
 @include page-lgo();
+@include slider-lgo();
 // CATEGORY END
 }

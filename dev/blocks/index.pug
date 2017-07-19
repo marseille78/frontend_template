@@ -1,1 +1,30 @@
 extends template
+
+block l-sidebar
+
+block r-sidebar
+
+block content
+	+b.DIV.slider-wrap
+		+slider({
+			'list': [
+				{
+					'src': 'img/slide-1.jpg',
+					'number_text': '1/3',
+					'text': 'Text',
+					'num': 1,
+				},
+				{
+					'src': 'img/slide-2.jpg',
+					'number_text': '2/3',
+					'text': 'Text',
+					'num': 2,
+				},
+				{
+					'src': 'img/slide-3.jpg',
+					'number_text': '3/3',
+					'text': 'Text',
+					'num': 3,
+				},
+			],
+		})

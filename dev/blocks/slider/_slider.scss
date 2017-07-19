@@ -1,0 +1,114 @@
+// @include slider-xs();
+// @include slider-sm();
+// @include slider-md();
+// @include slider-lg();
+// @include slider-xl();
+// @include slider-dev();
+// @include slider-mob();
+// @include slider-xso();
+// @include slider-smo();
+// @include slider-mdo();
+// @include slider-lgo();
+
+@mixin slider-xs(){
+/* slider xs */
+    .slider{
+    	max-width: 1000px;
+    	position: relative;
+    	margin: auto;
+
+    	&__item {
+    		.fade & {
+    			animation-name: fade;
+    			animation-direction: 1.5s;
+    		}
+    	}
+
+    	&__prev,
+    	&__next {
+    		cursor: pointer;
+    		position: absolute;
+    		top: 50%;
+    		width: auto;
+    		margin-top: -22px;
+    		padding: 16px;
+    		color: white;
+    		font-weight: bold;
+    		font-size: 18px;
+    		transition: all 0.6s ease;
+    		border-radius: 0 3px 3px 0;
+    	}
+    	&__next {
+    		right: 0;
+    		border-radius: 3px 0 0 3px;
+    	}
+
+    	&__text {
+    		color: #f2f2f2;
+    		font-size: 12px;
+    		padding: 8px 12px;
+    		position: absolute;
+    		top: 0;
+    	}
+    	&__dot {
+    		cursor: pointer;
+    		height: 13px;
+    		width: 13px;
+    		margin: 0 2px;
+    		background-color: #bbb;
+    		border-radius: 50%;
+    		display: inline-block;
+    		transition: background-color 0.6s ease;
+
+    		&.active,
+    		&:hover {
+    			background-color: #717171;
+    		}
+    	}
+    }
+
+    @keyframes fade {
+    	from { opacity: .4; }
+    	to { opacity: 1; }
+    }
+}
+@mixin slider-sm(){
+// slider sm
+    .slider{}
+}
+@mixin slider-md(){
+// slider md
+    .slider{}
+}
+@mixin slider-lg(){
+// slider lg
+    .slider{}
+}
+@mixin slider-xl(){
+// slider xl
+    .slider{}
+}
+@mixin slider-dev(){
+// slider dev
+    .slider{}
+}
+@mixin slider-mob(){
+// slider mob
+    .slider{}
+}
+@mixin slider-xso(){
+// slider xso
+    .slider{}
+}
+@mixin slider-smo(){
+// slider smo
+    .slider{}
+}
+@mixin slider-mdo(){
+// slider mdo
+    .slider{}
+}
+@mixin slider-lgo(){
+// slider lgo
+    .slider{}
+}
