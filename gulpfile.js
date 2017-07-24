@@ -56,7 +56,9 @@ gulp.task('html', function() {
 gulp.task('css', function() {
 	return gulp.src(paths.dirBlocks + '**/*.scss')
 		.pipe(plumber())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			outputStyle: 'expanded'
+		}).on('error', sass.logError))
 		.pipe(autoprefixer({
             browsers: ['last 15 versions'],
             cascade: false
