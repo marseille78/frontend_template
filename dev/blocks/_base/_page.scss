@@ -151,6 +151,8 @@ $g_Points:(
     background: url(#{$img}) no-repeat 50% 0;
     background-size: #{$width} auto;
     min-height: 100%;
+    max-width: $width;
+    margin: 0 auto;
 }
 // Міксін для візуалізації блоків при створенні
 // $color - колір залівки поточного блоку

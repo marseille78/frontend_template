@@ -16,9 +16,7 @@ var gulp = require('gulp'),
     pug = require('gulp-pug'),
     uglify = require('gulp-uglify'),
     plumber = require('gulp-plumber'),
-    spritesmith = require('gulp.spritesmith'),
-    postcss = require('gulp-postcss'),
-    mqpacker = require('css-mqpacker');
+	spritesmith = require('gulp.spritesmith');
 
 // var useref = require('gulp-useref'),
 // 	gulpif = require('gulp-if');
@@ -65,13 +63,8 @@ gulp.task('css', function() {
             browsers: ['last 15 versions'],
             cascade: false
         }))
-        .pipe(postcss([
-            mqpacker({
-                sort: true
-            })
-        ]))
         .pipe(gulp.dest(paths.appCSS))
-        .pipe(connect.reload());
+        .pipe(connect.reload({stream: true}));
 });
 
 // JS
@@ -119,6 +112,7 @@ gulp.task('sprite', function() {
 gulp.task('connect', function() {
     connect.server({
         root: 'app',
+        // port:3000,
         livereload: true
     });
 });
@@ -130,8 +124,12 @@ gulp.task('watch', function() {
     gulp.watch(paths.dirBlocks + '**/*.js', ['js']);
 });
 
+gulp.task('test', function () {
+    console.log('test');
+})
+
 // Default task
-gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch']);
+gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch', 'test']);
 
 
 
@@ -147,19 +145,19 @@ gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', '
 // 		.pipe(gulp.dest('build'));
 // });
 
-gulp.task('clean', function() {
-    return gulp.src(paths.dirBuild, {read: false})
-        .pipe(clean());
-});
-
-gulp.task('build', ['clean'], function() {});
-
-gulp.task('sftp', function() {
-    return gulp.src(paths.dirBuild + '**/*')
-        .pipe(sftp({
-            host: '',
-            user: '',
-            pass: '',
-            remotePath: ''
-        }));
-});
+// gulp.task('clean', function() {
+//     return gulp.src(paths.dirBuild, {read: false})
+//         .pipe(clean());
+// });
+//
+// gulp.task('build', ['clean'], function() {});
+//
+// gulp.task('sftp', function() {
+//     return gulp.src(paths.dirBuild + '**/*')
+//         .pipe(sftp({
+//             host: '',
+//             user: '',
+//             pass: '',
+//             remotePath: ''
+//         }));
+// });
