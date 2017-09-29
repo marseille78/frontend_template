@@ -4,8 +4,8 @@
  * 		Variables
  *********************************************/
 
-var gulp = require('gulp'),
-    concatCSS = require('gulp-concat-css'),
+var gulp = require('gulp'), // сам gulp
+    concatCSS = require('gulp-concat-css'), // объединение CSS-файлов
     concat = require('gulp-concat'),
     cleanCSS = require('gulp-clean-css'),
     notify = require('gulp-notify'),
