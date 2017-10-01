@@ -1,54 +1,26 @@
 include _assets/bemto/bemto
-- set_bemto_settings({ modifier: "--" })
+- set_bemto_settings({modifier: "--"})
 
 include _base/head
-include list/list
 
 doctype html
-html(lang="ru")
+html
 
-	block head
+	block html
 		head
 			+head({
-				"title": "Workshop",
-				"author": "Space Academy",
-				"description": "Workshop"
+				"title": "Template",
+				"description": "Description of site"
 			})
 
-	block body
 		body
-			.page-wrapper
-				block header
-					+b.HEADER.page-header HEADER
-
-				.page-center
-					block l-sidebar
-						+b.ASIDE.page-sidebar LEFT
-							+e.SECTION.item SIDEBAR-ITEM
-							+e.SECTION.item SIDEBAR-ITEM
-							+e.SECTION.item SIDEBAR-ITEM
-
-					block r-sidebar
-						+b.ASIDE.page-sidebar--right RIGHT
-							+e.SECTION.item SIDEBAR-ITEM
-							+e.SECTION.item SIDEBAR-ITEM
-							+e.SECTION.item SIDEBAR-ITEM
-
-					block content
-						+b.MAIN.page-content CONTENT
-							+e.SECTION.item CONTENT-ITEM
-							+e.SECTION.item CONTENT-ITEM
-							+e.SECTION.item CONTENT-ITEM
+			block content
+				div Content
 
 			block footer
-				+b.FOOTER.page-footer FOOTER
-				
+				footer Footer
+
 			block vendors
-				// build:js js/vendor.js
-				//- script( src="libs/jquery/dist/jquery.min.js")
-				// endbuild
 
 			block scripts
-				// build:js js/main.js
-				script( src="js/main.js")
-				// endbuild
+				script(src="js/main.js")
