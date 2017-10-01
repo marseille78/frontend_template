@@ -10,6 +10,12 @@
 // @include example-mdo();
 // @include example-lgo();
 
+$e_example: ();
+
+@function _example($var) {
+    @return map_get($e_example, $var);
+}
+
 @mixin example-xs(){
 // example xs
     .example{}

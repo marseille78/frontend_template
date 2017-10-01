@@ -20,12 +20,15 @@
         height: 100%;
     }
     body {
+        min-width: _bp(xs);
         background-color: _bg(body);
         font-size: _f(fz);
         font-family: _f(ff);
         color: _c(text);
         line-height: _f(lh);
         font-style: _f(fs);
+
+        @include bg_overlay();
     }
     h1,
     h2,
@@ -55,6 +58,11 @@
     }
     a {
         color: _c(link);
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
     img {
         max-width: 100%;

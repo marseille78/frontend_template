@@ -1,6 +1,7 @@
-//- data.title - содержимое тега <title>
-//- data.description - описание сайта
-//- data.favicon - путь к фавикону для сайта
+//- data.title - {string} содержимое тега <title>
+//- data.description - {string} описание сайта
+//- data.favicon - {string} путь к фавикону для сайта
+//- data.hasLibCss - {boolean} Проверка на наличие библиотек CSS
 mixin head(data)
 	meta(charset="utf-8")
 	meta(http-equiv="x-ua-compatible" content="ie=edge")
@@ -12,5 +13,9 @@ mixin head(data)
 
 	if data.favicon
 		link(rel="shortcut icon" href=data.favicon type="image/x-icon")
+
+	- var hasLibCss = data.hasLibCss
+	if (hasLibCss)
+		link(rel="stylesheet" href="css/lib.min.css")
 
 	link(rel="stylesheet" href="css/main.css")

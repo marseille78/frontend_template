@@ -1,7 +1,12 @@
 include _assets/bemto/bemto
 - set_bemto_settings({modifier: "--"})
 
+- var hasLibJs = false
+- var hasLibCss = false
+
 include _base/head
+include header/header
+include head_line/head_line
 
 doctype html
 html
@@ -10,17 +15,51 @@ html
 		head
 			+head({
 				"title": "Template",
-				"description": "Description of site"
+				"description": "Description of site",
+				"hasLibCss": hasLibCss
 			})
 
-		body
+		+b.BODY.page
 			block content
-				div Content
+				+b.DIV.page-wrapper
+					+b.DIV.page-inner
+						block header
+							+header()
+						+e.DIV.container Container
 
 			block footer
 				footer Footer
 
 			block vendors
+				if (hasLibJs)
+					script(src= "js/lib.min.js")
 
 			block scripts
-				script(src="js/main.js")
+				script(src=" js/main.js")
+
+//- подключить сетку
+//- typography.html с подключенными стилями и библиотеками (для отображения базовых элементов)
+//- **** базовый шрифт (для <body>) для текстовых участках сайта (если не удалось выбрать, рекомендуется поставить 16px, как наиболее распространенный)
+
+//- Переменную акцентного цвета и других явных цветов макета
+//- $btn: #14875A
+//- $accent: #ECB124
+//- $blue: #414E5B
+
+//- Переменные нужно комментировать
+
+//- Определить "inverse" для заголовков и цвета текста
+
+//- Фоновый цвет секции
+//- Темный цвет секции
+
+//- Определить межстрочный интервал (обычно 1.4 - 1.7)
+//- line-height: 1.6
+
+//- Определить кнопки
+//- Изначально определить самую большую кнопку, затем при помощи модификаторов ее изменять
+//- лучше их определить как display: inline-block
+
+//- Плагін для фотошопа CSS Hat 2
+
+//- Використовувати github.guist

@@ -1,4 +1,5 @@
 //  Base Configure
+@import "_core/variables";
 @import "_core/functions";
 @import "_core/mixins";
 @import "_core/normalize";
@@ -9,74 +10,110 @@
 //  Structure and Text
 @import "_base/helpers";
 // @import "_base/sprite";
+@import "_base/text";
 @import "_base/page";
 
 
 
 //  Blocks
+@import "header/header";
+@import "head_line/head_line";
 
 
 
 // CATEGORY START (-xs)
+@include text-xs();
 @include page-xs();
+@include header-xs();
+@include head_line-xs();
 // CATEGORY END
 
 @media only screen and (min-width: _bp(sm)) {
 // CATEGORY START (-sm)
+@include text-sm();
 @include page-sm();
+@include header-sm();
+@include head_line-sm();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) {
 // CATEGORY START (-md)
+@include text-md();
 @include page-md();
+@include header-md();
+@include head_line-md();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) {
 // CATEGORY START (-lg)
+@include text-lg();
 @include page-lg();
+@include header-lg();
+@include head_line-lg();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(xl)) {
 // CATEGORY START (-xl)
+@include text-xl();
 @include page-xl();
+@include header-xl();
+@include head_line-xl();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(dev)) {
 // CATEGORY START (-dev)
+@include text-dev();
 @include page-dev();
+@include header-dev();
+@include head_line-dev();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(md)-1) {
 // CATEGORY START (-mob)
+@include text-mob();
 @include page-mob();
+@include header-mob();
+@include head_line-mob();
 // CATEGORY END
 }
 
 @media only screen and (max-width: _bp(sm)-1) {
 // CATEGORY START (-xso)
+@include text-xso();
 @include page-xso();
+@include header-xso();
+@include head_line-xso();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(sm)) and (max-width: _bp(md)-1) {
 // CATEGORY START (-smo)
+@include text-smo();
 @include page-smo();
+@include header-smo();
+@include head_line-smo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(md)) and (max-width: _bp(lg)-1) {
 // CATEGORY START (-mdo)
+@include text-mdo();
 @include page-mdo();
+@include header-mdo();
+@include head_line-mdo();
 // CATEGORY END
 }
 
 @media only screen and (min-width: _bp(lg)) and (max-width: _bp(xl)-1) {
 // CATEGORY START (-lgo)
+@include text-lgo();
 @include page-lgo();
+@include header-lgo();
+@include head_line-lgo();
 // CATEGORY END
 }

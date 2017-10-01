@@ -124,12 +124,8 @@ gulp.task('watch', function() {
     gulp.watch(paths.dirBlocks + '**/*.js', ['js']);
 });
 
-gulp.task('test', function () {
-    console.log('test');
-})
-
 // Default task
-gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch', 'test']);
+gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch']);
 
 
 
