@@ -1,0 +1,34 @@
+include _assets/bemto/bemto
+- set_bemto_settings({modifier: "--"})
+
+- var hasLibJs = false
+- var hasLibCss = false
+
+include _base/head
+
+doctype html
+html
+
+    block html
+        head
+            +head({
+                "title": "Template",
+                "description": "Description of site",
+                "hasLibCss": hasLibCss
+            })
+
+        +b.BODY.page
+            block content
+                .page-wrapper
+                    header.page-header Header
+                    .page-center Center
+
+            block footer
+                footer Footer
+
+            block vendors
+                if (hasLibJs)
+                    script(src= "js/lib.min.js")
+
+            block scripts
+                script(src=" js/main.js")

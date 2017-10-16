@@ -88,26 +88,10 @@
     .page-header {
         @include make_block(red);
         min-height: _h(header);
-
-        &__logo {
-            height: _h(logo);
-        }
     }
 
     .page-center {
         padding-bottom: _h(footer);
-    }
-
-    .page-sidebar {
-        @include make_block(aqua);
-
-        &__item {
-            @include make_block(olive);
-
-            margin-bottom: _i(sect_sb_h);
-            min-height: _h(sect_sb);
-            padding: 0 _i(sect_sb_h);
-        }
     }
 
     .page-content {
