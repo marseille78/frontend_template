@@ -47,7 +47,9 @@ var libsJS = [];
 gulp.task('html', function() {
     return gulp.src([paths.dirBlocks + '*.pug',
         '!' + paths.dirBlocks + 'template.pug',
-        '!' + paths.dirBlocks + 'tpl_example.pug'])
+        '!' + paths.dirBlocks + 'tpl_example.pug',
+        '!' + paths.dirBlocks + 'tpl_1_col.pug',
+        '!' + paths.dirBlocks + 'tpl_banner_adaptive.pug'])
         .pipe(plumber())
         .pipe(pug({pretty: true}))
         .pipe(gulp.dest(paths.dirApp))

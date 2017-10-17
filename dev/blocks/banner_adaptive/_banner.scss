@@ -1,0 +1,277 @@
+// @include banner-xs();
+// @include banner-sm();
+// @include banner-md();
+// @include banner-lg();
+// @include banner-xl();
+// @include banner-dev();
+// @include banner-mob();
+// @include banner-xso();
+// @include banner-smo();
+// @include banner-mdo();
+// @include banner-lgo();
+
+$e_banner: (
+    h: 172px,
+    ff: ('Boogaloo', cursive),
+    ffSec: ('Permanent Marker', cursive),
+    lh: 1.3,
+    fzH1: 26px,
+    fzH1Small: 24px,
+    h1Mb: 5px,
+    h1MbSmall: 5px,
+    fzH2: 36px,
+    fzH2Small: 30px,
+    c: #fff,
+    cGold: #ffff69,
+    
+    bgI: 'bg.png',
+    bgIRepeat: repeat-x,
+    bg: #fff,
+    
+    hasBdTop: false,
+    bdTopH: 22px,
+    bdTopI: 'bg_top.png',
+    
+    hasBdBottom: false,
+    bdBottomH: 22px,
+    bdBottomI: 'bg_bottom.png',
+    
+    hasElL: true,
+    elLW: 329px,
+    elLWSmall: 150px,
+    elLH: 100%,
+    elLI: 'el_left.png',
+    elLT: 0,
+    elLL: 0,
+    elLBgPos: (0 100%),
+    elLBgSz: contain,
+    
+    hasElR: false,
+    elRW: 112px,
+    elRWSmall: 76px,
+    elRH: 100%,
+    elRI: 'el_right.png',
+    elRT: 0,
+    elRR: 0,
+    elRBgPos: (0 100%),
+    elRBgSz: contain
+);
+
+@function _banner($var) {
+    @return map_get($e_banner, $var);
+}
+
+%bd {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: _banner(bdTopH);
+    background-repeat: repeat-x;
+    z-index: 1;
+}
+
+%el {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    display: none;
+    z-index: 2;
+}
+
+@mixin banner-xs(){
+// banner xs
+    .banner{
+        height: _banner(h);
+        margin: 0;
+        position: relative;
+        
+        @if _banner(hasBdTop) {
+            &__top-bd {
+                @extend %bd;
+                
+                background-image: url(../img/#{_banner(bdTopI)});
+                top: 0;
+            }
+        }
+        
+        @if _banner(hasBdBottom) {
+            &__bottom-bd {
+                @extend %bd;
+                
+                background-image: url(../img/#{_banner(bdBottomI)});
+                bottom: 0;
+            }
+        }
+        
+        &__content {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0 15px;
+            font-family: _banner(ff);
+            text-align: center;
+            height: 100%;
+            position: relative;
+            background: _banner(bg) url(../img/#{_banner(bgI)}) _banner(bgIRepeat) 50% 0;
+            
+            @if _banner(hasElL) {
+                &:before {
+                    @extend %el;
+                    
+                    bottom: _banner(elLT);
+                    left: _banner(elLL);
+                    width: _banner(elLWSmall);
+                    height: _banner(elLH);
+                    background-image: url(../img/#{_banner(elLI)});
+                    background-position: _banner(elLBgPos);
+                    background-size: _banner(elLBgSz);
+                }
+            }
+            
+            @if _banner(hasElR) {
+                &:after {
+                    @extend %el;
+                    
+                    bottom: _banner(elRT);
+                    right: _banner(elRR);
+                    width: _banner(elRWSmall);
+                    height: _banner(elRH);
+                    background-image: url(../img/#{_banner(elRI)});
+                    background-position: _banner(elRBgPos);
+                    background-size: _banner(elRBgSz);
+                }
+            }
+        }
+
+        &__text {
+            display: table;
+            width: 100%;
+            margin: 0;
+            color: _banner(c);
+            height: 100%;
+            position: relative;
+            z-index: 3;
+            
+            h1,
+            h2 {
+                margin: 0;
+                line-height: _banner(lh);
+            }
+            
+            h1 {
+                font-size: _banner(fzH1Small);
+                margin-bottom: _banner(h1MbSmall);
+            }
+            
+            h2 {
+                font-size: _banner(fzH2Small);
+                font-family: _banner(ffSec);
+            }
+            
+            .gold,
+            .holiday {
+                color: _banner(cGold);
+            }
+            
+            span {
+                text-transform: uppercase;
+            }
+        }
+
+        &__al-middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+@mixin banner-sm(){
+// banner sm
+    .banner{
+        &__content {
+            @if _banner(hasElR) {
+                &:after {
+                    display: block;
+                }
+            }
+            @if _banner(hasElL) {
+                &:before {
+                    display: block;
+                }
+            }
+        }
+        &__text {
+            @if _banner(hasElR) {
+                padding-right: _banner(elRWSmall);
+            }
+            @if _banner(hasElL) {
+                padding-left: _banner(elLWSmall);
+            }
+        }
+    }
+}
+@mixin banner-md(){
+// banner md
+    .banner{
+        &__content {
+            @if _banner(hasElR) {
+                &:after {
+                    width: _banner(elRW);
+                }
+            }
+            @if _banner(hasElL) {
+                &:before {
+                    width: _banner(elLW);
+                }
+            }
+        }
+        &__text {
+            @if _banner(hasElR) {
+                padding-right: _banner(elRW);
+            }
+            
+            @if _banner(hasElL) {
+                padding-left: _banner(elLW);
+            }
+            
+            h1 {
+                font-size: _banner(fzH1);
+                margin-bottom: _banner(h1Mb);
+            }
+            
+            h2 {
+                font-size: _banner(fzH2);
+            }
+        }
+    }
+}
+@mixin banner-lg(){
+// banner lg
+    .banner{}
+}
+@mixin banner-xl(){
+// banner xl
+    .banner{}
+}
+@mixin banner-dev(){
+// banner dev
+    .banner{}
+}
+@mixin banner-mob(){
+// banner mob
+    .banner{}
+}
+@mixin banner-xso(){
+// banner xso
+    .banner{}
+}
+@mixin banner-smo(){
+// banner smo
+    .banner{}
+}
+@mixin banner-mdo(){
+// banner mdo
+    .banner{}
+}
+@mixin banner-lgo(){
+// banner lgo
+    .banner{}
+}

@@ -1,0 +1,15 @@
+mixin banner_adaptive(data)
+    +b.banner
+        if data.hasTopBd
+            +e.top-bd
+        if data.hasBottomBd
+            +e.bottom-bd
+        +e.content
+            +e.text
+                +e.al-middle
+                    +e.H1 Get 
+                        span.gold 5% off
+                        |  on Holidays! Use 
+                        span.gold 5OFF
+                        |  coupon on billing page!
+                    h2.holiday= data.holiday
