@@ -11,50 +11,56 @@
 // @include banner-lgo();
 
 $e_banner: (
-    h: 172px,
-    ff: ('Boogaloo', cursive),
-    ffSec: ('Permanent Marker', cursive),
-    lh: 1.3,
-    fzH1: 26px,
-    fzH1Small: 24px,
-    h1Mb: 5px,
-    h1MbSmall: 5px,
-    fzH2: 36px,
-    fzH2Small: 30px,
-    c: #fff,
-    cGold: #ffff69,
+    // Base
+    h: 172px,                               // height
+    ff: ('Boogaloo', cursive),              //font-family
+    ffSec: ('Permanent Marker', cursive),   // second font-family
+    lh: 1.3,                                //line-height
+    fzH1: 26px,                             //font-size <h1>
+    fzH1Small: 24px,                        // font-size <h1> for mobile
+    h1Mb: 5px,                              // margin-bottom <h1>
+    h1MbSmall: 5px,                         // margin-bottom <h1> for mobile
+    fzH2: 36px,                             // font-size <h2>
+    fzH2Small: 30px,                        // font-size <h2> for mobile
+    c: #fff,                                // color
+    cGold: #ffff69,                         // color for .gold
     
-    bgI: 'bg.png',
-    bgIRepeat: repeat-x,
-    bg: #fff,
+    // Background
+    bgI: 'bg.png',          // background-image for background
+    bgIRepeat: repeat-x,    // background-repeat for background
+    bg: #fff,               // background-color for background
     
-    hasBdTop: false,
-    bdTopH: 22px,
-    bdTopI: 'bg_top.png',
+    // Top Border
+    hasBdTop: false,        // has border top
+    bdTopH: 22px,           // height border top
+    bdTopI: 'bg_top.png',   // background-image for border top
     
-    hasBdBottom: false,
-    bdBottomH: 22px,
-    bdBottomI: 'bg_bottom.png',
+    // Bottom Border
+    hasBdBottom: false,         // has border bottom
+    bdBottomH: 22px,            // height border bottom
+    bdBottomI: 'bg_bottom.png', // background-image for border bottom
     
-    hasElL: true,
-    elLW: 329px,
-    elLWSmall: 150px,
-    elLH: 100%,
-    elLI: 'el_left.png',
-    elLT: 0,
-    elLL: 0,
-    elLBgPos: (0 100%),
-    elLBgSz: contain,
+    // Left Element
+    hasElL: true,           // has left element
+    elLW: 329px,            // width left element
+    elLWSmall: 150px,       // width left element for mobile
+    elLH: 100%,             // height left element
+    elLI: 'el_left.png',    // background-image for left element
+    elLT: 0,                // offset top for left element
+    elLL: 0,                // offset left for left element
+    elLBgPos: (0 100%),     // background-position left element
+    elLBgSz: contain,       // background-size left element
     
-    hasElR: false,
-    elRW: 112px,
-    elRWSmall: 76px,
-    elRH: 100%,
-    elRI: 'el_right.png',
-    elRT: 0,
-    elRR: 0,
-    elRBgPos: (0 100%),
-    elRBgSz: contain
+    // Right Element
+    hasElR: false,          // has right element
+    elRW: 112px,            // width right element
+    elRWSmall: 76px,        // width right element for mobile
+    elRH: 100%,             // height right element
+    elRI: 'el_right.png',   // background-image for right element
+    elRT: 0,                // offset top for right element
+    elRR: 0,                // offset right for right element
+    elRBgPos: (0 100%),     // background-position right element
+    elRBgSz: contain        // background-size right element
 );
 
 @function _banner($var) {
@@ -79,7 +85,7 @@ $e_banner: (
 }
 
 @mixin banner-xs(){
-// banner xs
+/* banner xs START */
     .banner{
         height: _banner(h);
         margin: 0;
@@ -182,9 +188,10 @@ $e_banner: (
             vertical-align: middle;
         }
     }
+/* banner xs END */
 }
 @mixin banner-sm(){
-// banner sm
+/* banner sm START */
     .banner{
         &__content {
             @if _banner(hasElR) {
@@ -207,9 +214,10 @@ $e_banner: (
             }
         }
     }
+/* banner sm END */
 }
 @mixin banner-md(){
-// banner md
+/* banner md START */
     .banner{
         &__content {
             @if _banner(hasElR) {
@@ -242,36 +250,45 @@ $e_banner: (
             }
         }
     }
+/* banner md END */
 }
 @mixin banner-lg(){
-// banner lg
+/* banner lg START */
     .banner{}
+/* banner lg END */
 }
 @mixin banner-xl(){
-// banner xl
+/* banner xl START */
     .banner{}
+/* banner xl END */
 }
 @mixin banner-dev(){
-// banner dev
+/* banner dev START */
     .banner{}
+/* banner dev END */
 }
 @mixin banner-mob(){
-// banner mob
+/* banner mob START */
     .banner{}
+/* banner mob END */
 }
 @mixin banner-xso(){
-// banner xso
+/* banner xso START */
     .banner{}
+/* banner xso END */
 }
 @mixin banner-smo(){
-// banner smo
+/* banner smo START */
     .banner{}
+/* banner smo END */
 }
 @mixin banner-mdo(){
-// banner mdo
+/* banner mdo START */
     .banner{}
+/* banner mdo END */
 }
 @mixin banner-lgo(){
-// banner lgo
+/* banner lgo START */
     .banner{}
+/* banner lgo END */
 }
