@@ -10,6 +10,79 @@
 // @include text-mdo();
 // @include text-lgo();
 
+$e_text: (
+    // Font
+    ff: ('Helvetica Neue',Helvetica,Arial,sans-serif), // font-family base
+    fz: 16px, // font-size base
+    fw: 400, // font-weight base
+    fw_bold: 700, // font-weight bold
+    fw_light: 300, // font-weight light
+    fs: normal, // font-style base
+    lh: 1.6, // line-height base
+    
+    // Headers
+    h1: 36px, // font-size <h1>
+    h2: 30px, // font-size <h2>
+    h3: 24px, // font-size <h3>
+    h4: 18px, // font-size <h4>
+    h5: 14px, // font-size <h5>
+    h6: 12px, // font-size <h6>
+    
+    // Colors
+    c: black, // color text
+    c_accent: green, // color accent text
+    c_bd: gray, // border-color
+    c_link: blue, // color links
+    
+    // UL
+    ul_pl: 40px,// padding-left <ul>
+    ul_lsi: false,// list-style-image (если доступно изображение - прописываем путь), в противном случае - false
+    // -------------------------------------------------
+    // ul_lst: none,// list-style-type (скрываем)
+    ul_lst: disc,// list-style-type (черный диск) default
+    // ul_lst: circle,// list-style-type (пустой кружочек)
+    // ul_lst: square,// list-style-type (черный квадрат)
+    // -------------------------------------------------
+    ul_lsp: outside,// list-style-position (default)
+    // ul_lsp: inside,// list-style-position (обеспечивает равномерное распределение по ширине)
+    // -------------------------------------------------
+    
+    // OL
+    ol_pl: 40px,// padding-left <ol>
+    // -------------------------------------------------
+    // ol_lst: none,// list-style-type (скрываем)
+    ol_lst: decimal,// list-style-type (десятичные числа, отсчет идет от 1) default
+    // ol_lst: decimal-leading-zero,// list-style-type (десятичные числа, которые предваряются нулем, например, 01, 02, 03, … 98, 99)
+    // ol_lst: lower-roman,// list-style-type (строчные латинские цифры, например, i, ii, iii, iv, v)
+    // ol_lst: upper-roman,// list-style-type (заглавные латинские цифры, например, I, II, III, IV, V…)
+    // ol_lst: lower-alpha,// list-style-type (строчные латинские буквы, например, a, b, c..., z)
+    // ol_lst: upper-alpha,// list-style-type (заглавные латинские буквы, например, A, B, C, … Z)
+    // -------------------------------------------------
+    ol_lsp: outside,// list-style-position (default)
+    // ol_lsp: inside,// list-style-position (обеспечивает равномерное распределение по ширине)
+    // -------------------------------------------------
+    
+    // Blockquote
+    bq_ff: ('Helvetica Neue',Helvetica,Arial,sans-serif),
+    bq_fz: 14px,
+    bq_fs: italic,
+    bq_c: gray,
+    bq_m: 14px 40px,
+    
+    // Tables
+    t_w: 100%,
+	t_bd: 1px solid #ccc,
+	t_bd_h: 1px solid #ccc,
+	t_bdw: 0,
+	t_bdw_h: 0,
+    
+    // Forms
+);
+
+@function _text($var) {
+    @return map-get($e_text, $var);
+}
+
 @mixin text-xs(){
     // text xs
     * {
@@ -22,11 +95,12 @@
     body {
         min-width: _bp(xs);
         background-color: _bg(body);
-        font-size: _f(fz);
-        font-family: _f(ff);
-        color: _c(text);
-        line-height: _f(lh);
-        font-style: _f(fs);
+        font-size: _text(fz);
+        font-family: _text(ff);
+        color: _text(c);
+        line-height: _text(lh);
+        font-style: _text(fs);
+        font-weight: _text(fw);
 
         @include bg_overlay();
     }
@@ -36,28 +110,28 @@
     h4,
     h5,
     h6 {
-        font-weight: _f(fw_bold);
+        font-weight: _text(fw_bold);
     }
     h1 {
-        font-size: _f(fz_h1);
+        font-size: _text(h1);
     }
     h2 {
-        font-size: _f(fz_h2);
+        font-size: _text(h2);
     }
     h3 {
-        font-size: _f(fz_h3);
+        font-size: _text(h3);
     }
     h4 {
-        font-size: _f(fz_h4);
+        font-size: _text(h4);
     }
     h5 {
-        font-size: _f(fz_h5);
+        font-size: _text(h5);
     }
     h6 {
-        font-size: _f(fz_h6);
+        font-size: _text(h6);
     }
     a {
-        color: _c(link);
+        color: _text(c_link);
         text-decoration: underline;
 
         &:hover {
@@ -68,6 +142,39 @@
         max-width: 100%;
         height: auto;
     }
+    blockquote {
+        font-family: _text(bq_ff);
+        font-size: _text(bq_fz);
+        font-style: _text(bq_fs);
+        color: _text(bq_c);
+        margin: _text(bq_m);
+    }
+    ul {
+        padding-left: _text(ul_pl);
+        list-style-type: _text(ul_lst);
+        list-style-position: _text(ul_lsp);
+        
+        @if _text(ul_lsi) {
+            list-style-image: url(#{_text(ul_lsi)});
+        }
+    }
+    ol {
+        padding-left: _text(ol_pl);
+        list-style-type: _text(ol_lst);
+        list-style-position: _text(ol_lsp);
+    }
+    table {
+        width: _text(t_w);
+		border-collapse: collapse;
+    }
+	td {
+		border: _text(t_bd);
+		border-width: _text(t_bdw);
+	}
+	th {
+		border: _text(t_bd_h);
+		border-width: _text(t_bdw_h);
+	}
 }
 @mixin text-sm(){
     // text sm

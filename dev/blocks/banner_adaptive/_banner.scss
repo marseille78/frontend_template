@@ -85,7 +85,7 @@ $e_banner: (
 }
 
 @mixin banner-xs(){
-/* banner xs START */
+// banner xs START
     .banner{
         height: _banner(h);
         margin: 0;
@@ -188,10 +188,9 @@ $e_banner: (
             vertical-align: middle;
         }
     }
-/* banner xs END */
 }
 @mixin banner-sm(){
-/* banner sm START */
+// banner sm START
     .banner{
         &__content {
             @if _banner(hasElR) {
@@ -214,10 +213,9 @@ $e_banner: (
             }
         }
     }
-/* banner sm END */
 }
 @mixin banner-md(){
-/* banner md START */
+// banner md START
     .banner{
         &__content {
             @if _banner(hasElR) {
@@ -250,45 +248,36 @@ $e_banner: (
             }
         }
     }
-/* banner md END */
 }
 @mixin banner-lg(){
-/* banner lg START */
+// banner lg START
     .banner{}
-/* banner lg END */
 }
 @mixin banner-xl(){
-/* banner xl START */
+// banner xl START
     .banner{}
-/* banner xl END */
 }
 @mixin banner-dev(){
-/* banner dev START */
+// banner dev START
     .banner{}
-/* banner dev END */
 }
 @mixin banner-mob(){
-/* banner mob START */
+// banner mob START
     .banner{}
-/* banner mob END */
 }
 @mixin banner-xso(){
-/* banner xso START */
+// banner xso START
     .banner{}
-/* banner xso END */
 }
 @mixin banner-smo(){
-/* banner smo START */
+// banner smo START
     .banner{}
-/* banner smo END */
 }
 @mixin banner-mdo(){
-/* banner mdo START */
+// banner mdo START
     .banner{}
-/* banner mdo END */
 }
 @mixin banner-lgo(){
-/* banner lgo START */
+// banner lgo START
     .banner{}
-/* banner lgo END */
 }
