@@ -14,11 +14,22 @@ $e_text: (
     // Font
     ff: ('Helvetica Neue',Helvetica,Arial,sans-serif), // font-family base
     fz: 16px, // font-size base
+    fz_small: 16px, // font-size base for mobile
     fw: 400, // font-weight base
     fw_bold: 700, // font-weight bold
     fw_light: 300, // font-weight light
     fs: normal, // font-style base
     lh: 1.6, // line-height base
+    lh_small: 1.6, // line-height base for mobile
+	
+	// A
+	a_c: blue,// color <a>
+    // -------------------------------------------------
+	a_td: underline,// text-decotation <a> подчеркнутое
+	a_td_hv: none,// text-decotation <a>:hover нет
+	// a_td: none,// text-decotation <a> нет
+	// a_td_hv: underline,// text-decotation <a>:hover подчеркнутое
+    // -------------------------------------------------
     
     // Headers
     h1: 36px, // font-size <h1>
@@ -27,63 +38,138 @@ $e_text: (
     h4: 18px, // font-size <h4>
     h5: 14px, // font-size <h5>
     h6: 12px, // font-size <h6>
+    h1_small: 36px, // font-size <h1> for mobile
+    h2_small: 30px, // font-size <h2> for mobile
+    h3_small: 24px, // font-size <h3> for mobile
+    h4_small: 18px, // font-size <h4> for mobile
+    h5_small: 14px, // font-size <h5> for mobile
+    h6_small: 12px, // font-size <h6> for mobile
     
     // Colors
     c: black, // color text
     c_accent: green, // color accent text
     c_bd: gray, // border-color
-    c_link: blue, // color links
     
     // UL
-    ul_pl: 40px,// padding-left <ul>
-    ul_lsi: false,// list-style-image (если доступно изображение - прописываем путь), в противном случае - false
+    // ul_fz: 14px,// font-size <ul>
+    // ul_fz_small: 14px,// font-size <ul> for mobile
+	// ul_fs: normal,// font-style <ul>
+	// ul_c: black,// color <ul>
+	// ul_pl: 40px,// padding-left <ul>
+    // ul_lsi: url,// list-style-image (если доступно изображение - прописываем путь)
+	// ul_is_custom: true,// Определяет наличие кастомной стилизации маркерованного списка
     // -------------------------------------------------
     // ul_lst: none,// list-style-type (скрываем)
-    ul_lst: disc,// list-style-type (черный диск) default
+    // ul_lst: disc,// list-style-type (черный диск) default
     // ul_lst: circle,// list-style-type (пустой кружочек)
     // ul_lst: square,// list-style-type (черный квадрат)
     // -------------------------------------------------
-    ul_lsp: outside,// list-style-position (default)
+    // ul_lsp: outside,// list-style-position (default)
     // ul_lsp: inside,// list-style-position (обеспечивает равномерное распределение по ширине)
     // -------------------------------------------------
     
     // OL
-    ol_pl: 40px,// padding-left <ol>
+    // ol_fz: 14px,// font-size <ol>
+    // ol_fz_small: 14px,// font-size <ol> for mobile
+	// ol_fs: normal,// font-style <ol>
+	// ol_c: black,// color <ol>
+	// ol_pl: 40px,// padding-left <ol>
+	// ol_is_custom: true,// Определяет наличие кастомной стилизации нумерованного списка
+    ol_cr: myCounter,// Имя счетчика для кастомного нумерованного списка
     // -------------------------------------------------
     // ol_lst: none,// list-style-type (скрываем)
-    ol_lst: decimal,// list-style-type (десятичные числа, отсчет идет от 1) default
+    // ol_lst: decimal,// list-style-type (десятичные числа, отсчет идет от 1) default
     // ol_lst: decimal-leading-zero,// list-style-type (десятичные числа, которые предваряются нулем, например, 01, 02, 03, … 98, 99)
     // ol_lst: lower-roman,// list-style-type (строчные латинские цифры, например, i, ii, iii, iv, v)
     // ol_lst: upper-roman,// list-style-type (заглавные латинские цифры, например, I, II, III, IV, V…)
     // ol_lst: lower-alpha,// list-style-type (строчные латинские буквы, например, a, b, c..., z)
     // ol_lst: upper-alpha,// list-style-type (заглавные латинские буквы, например, A, B, C, … Z)
     // -------------------------------------------------
-    ol_lsp: outside,// list-style-position (default)
+    // ol_lsp: outside,// list-style-position (default)
     // ol_lsp: inside,// list-style-position (обеспечивает равномерное распределение по ширине)
     // -------------------------------------------------
     
     // Blockquote
-    bq_ff: ('Helvetica Neue',Helvetica,Arial,sans-serif),
-    bq_fz: 14px,
-    bq_fs: italic,
-    bq_c: gray,
-    bq_m: 14px 40px,
+    // bq_ff: ('Helvetica Neue',Helvetica,Arial,sans-serif),// font-family <blockquote>
+    // bq_fz: 14px,// font-size <blockquote>
+    // bq_fz_small: 14px,// font-size <blockquote> for mobile
+    // bq_fs: italic,// font-style <blockquote>
+    // bq_c: gray,// color
+    // bq_m: 14px 40px,// margin <blockquote>
+    // bq_m_small: 14px 40px,// margin <blockquote> for mobile
     
     // Tables
-    t_w: 100%,
-	t_bd: 1px solid #ccc,
-	t_bd_h: 1px solid #ccc,
-	t_bdw: 0,
-	t_bdw_h: 0,
+    // t_w: 100%,// width <table>
+	// t_bd: 1px solid #ccc,// border <td>
+	// t_bd_h: 1px solid #ccc,// border <th>
+	// t_bdw: 0,// border-width <td>
+	// t_bdw_h: 0,// border-width <th>
+	// t_p: 0,// padding <td>
+	// t_p_small: 0,// padding <td> for mobile
+	// t_p_h: 0,// padding <th>
+	// t_p_h_small: 0,// padding <th> for mobile
+	// t_ta: left,// text-align <td>
+	// t_ta_h: center,// text-align <th>
+	// t_fz: 14px,// font-size <td>
+	// t_fz_small: 14px,// font-size <td> for mobile
+	// t_fz_h: 14px,// font-size <th>
+	// t_fz_h_small: 14px,// font-size <th> for mobile
+	// t_fw: 400,// font-weight <td>
+	// t_fw_h: 700,// font-weight <th>
+	// t_fs: normal,// font-style <td>
+	// t_fs_h: normal,// font-style <th>
     
     // Forms
+	// f_bd: 1px solid red,
+	// f_ff: ('Helvetica Neue',Helvetica,Arial,sans-serif),
+	// f_fz: 14px,
+	// f_fz_small: 14px,
+	// f_fs: italic,
+	// f_fw: 300,
+	// f_c: gray,
+	// f_p: 5px,
+	// f_bdrs: 8px,
+	// f_w: 300px,
+	// f_w_small: 300px,
+	// f_maw: 100%,
+	// f_lab_c: yellow,
+	// f_bgc: white,
+	// f_sbm_bd: 1px solid blue,
+	// f_sbm_ff: ('Helvetica Neue',Helvetica,Arial,sans-serif),
+	// f_sbm_fz: 16px,
+	// f_sbm_fz_small: 16px,
+	// f_sbm_fs: normal,
+	// f_sbm_fw: 700,
+	// f_sbm_bgc: yellow,
+	// f_sbm_bgc_hv: #8888a5,
+	// f_sbm_c: blue,
+	// f_sbm_p: 0,
+	// f_sbm_w: auto,
+	// f_sbm_bdrs: 4px,
 );
 
 @function _text($var) {
     @return map-get($e_text, $var);
 }
 
+// Кастомный нумерованный список
+%text_ol_custom {
+    counter-reset: _text(ol_cr);// обнуляет css-счетчик myCounter внутри каждого <ol>.
+    
+    li {
+        list-style: none;
+        
+        // создаем внутри списка псевдоэлемент, который становится на место первого потомка.
+        &:before {
+            counter-increment: _text(ol_cr);// инкрементирует css-счетчик myCounter для каждого псевдоэлемента ::before.
+            content: counter(_text(ol_cr));// выводит текущее значение счетчика myCounter внутри псевдоэлемента ::before
+            display: inline-block;
+        }
+    }
+}
+
 @mixin text-xs(){
+	
     // text xs
     * {
         box-sizing: border-box;
@@ -93,12 +179,12 @@ $e_text: (
         height: 100%;
     }
     body {
-        min-width: _bp(xs);
+//        min-width: _bp(xs);
         background-color: _bg(body);
-        font-size: _text(fz);
+        font-size: _text(fz_small);
         font-family: _text(ff);
         color: _text(c);
-        line-height: _text(lh);
+        line-height: _text(lh_small);
         font-style: _text(fs);
         font-weight: _text(fw);
 
@@ -113,29 +199,30 @@ $e_text: (
         font-weight: _text(fw_bold);
     }
     h1 {
-        font-size: _text(h1);
+        font-size: _text(h1_small);
     }
     h2 {
-        font-size: _text(h2);
+        font-size: _text(h2_small);
     }
     h3 {
-        font-size: _text(h3);
+        font-size: _text(h3_small);
     }
     h4 {
-        font-size: _text(h4);
+        font-size: _text(h4_small);
     }
     h5 {
-        font-size: _text(h5);
+        font-size: _text(h5_small);
     }
     h6 {
-        font-size: _text(h6);
+        font-size: _text(h6_small);
     }
     a {
-        color: _text(c_link);
-        text-decoration: underline;
+        color: _text(a_c);
+        text-decoration: _text(a_td);
+		cursor: pointer;
 
         &:hover {
-            text-decoration: none;
+            text-decoration: _text(a_td_hv);
         }
     }
     img {
@@ -144,24 +231,41 @@ $e_text: (
     }
     blockquote {
         font-family: _text(bq_ff);
-        font-size: _text(bq_fz);
+        font-size: _text(bq_fz_small);
         font-style: _text(bq_fs);
         color: _text(bq_c);
-        margin: _text(bq_m);
+        margin: _text(bq_m_small);
     }
     ul {
-        padding-left: _text(ul_pl);
-        list-style-type: _text(ul_lst);
-        list-style-position: _text(ul_lsp);
-        
+        @if _text(ul_is_custom) {
+            li {
+                position: relative;
+                list-style: none;
+                
+                &:before {
+                    content: '';
+                    display: block;
+                }
+            }
+        }
         @if _text(ul_lsi) {
             list-style-image: url(#{_text(ul_lsi)});
         }
+        padding-left: _text(ul_pl);
+        list-style-type: _text(ul_lst);
+        list-style-position: _text(ul_lsp);
+		font-size: _text(ul_fz_small);
+		font-style: _text(ul_fs);
+		color: _text(ul_c);
     }
     ol {
+        @if _text(ol_is_custom) {
+            @extend %text_ol_custom;
+        }
         padding-left: _text(ol_pl);
         list-style-type: _text(ol_lst);
         list-style-position: _text(ol_lsp);
+		font-size: _text(ul_fz_small);
     }
     table {
         width: _text(t_w);
@@ -170,12 +274,67 @@ $e_text: (
 	td {
 		border: _text(t_bd);
 		border-width: _text(t_bdw);
+		padding: _text(t_p_small);
+		text-align: _text(t_ta);
+		font-size: _text(t_fz_small);
+		font-weight: _text(t_fw);
+		font-style: _text(t_fs);
 	}
 	th {
 		border: _text(t_bd_h);
 		border-width: _text(t_bdw_h);
+		padding: _text(t_p_h_small);
+		text-align: _text(t_ta_h);
+		font-size: _text(t_fz_h_small);
+		font-weight: _text(t_fw_h);
+		font-style: _text(t_fs_h);
+	}
+	input,
+	textarea,
+	select {
+		border: _text(f_bd);
+		font-size: _text(f_fz_small);
+		font-style: _text(f_fs);
+		font-weight: _text(f_fw);
+		color: _text(f_c);
+		padding: _text(f_p);
+		border-radius: _text(f_bdrs);
+		width: _text(f_w_small);
+		max-width: _text(f_maw);
+		outline: none;
+		background-color: _text(f_bgc);
+	}
+	textarea {
+		resize: none;
+	}
+	label {
+		color: _text(f_lab_c);
+	}
+	input[type="radio"],
+	input[type="checkbox"] {
+		width: auto;
+	}
+	input[type="submit"],
+	button {
+		border: _text(f_sbm_bd);
+		font-family: _text(f_sbm_ff);
+		font-size: _text(f_sbm_fz_small);
+		font-style: _text(f_sbm_fs);
+		font-weight: _text(f_sbm_fw);
+		color: _text(f_sbm_c);
+		background-color: _text(f_sbm_bgc);
+		cursor: pointer;
+		display: inline-block;
+		padding: _text(f_sbm_p);
+		width: _text(f_sbm_w);
+		border-radius: _text(f_sbm_bdrs);
+		
+		&:hover {
+			background-color: _text(f_sbm_bgc_hv);
+		}
 	}
 }
+
 @mixin text-sm(){
     // text sm
 }
