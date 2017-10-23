@@ -1,0 +1,6 @@
+mixin table(data)
+    +b.TABLE.table
+        THEAD
+            TR
+                each th in data.thead
+                    TH= th.title
