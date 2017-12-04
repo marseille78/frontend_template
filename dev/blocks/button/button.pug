@@ -1,8 +1,0 @@
-mixin button(data)
-	case data.tag
-		when "button"
-			+b.BUTTON(class= data.class type= data.type)= data.value
-		when "input"
-			+b.INPUT(class= data.class type= data.type value= data.value)
-		when "a"
-			+b.A(class= data.class href= data.href)= data.value

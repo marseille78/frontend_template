@@ -1,0 +1,38 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+
+- var hasLibJs = false
+- var hasLibCss = false
+- var lang = "ru"
+
+include _base/head
+
+doctype html
+html(lang= lang)
+
+	block head
+		head
+			+head({
+				"title": "Workshop",
+				"description": "Workshop",
+				"hasLibCss": hasLibCss
+			})
+
+	body
+
+		block content
+			div content
+
+		block footer
+			footer footer
+
+		block vendors
+			if (hasLibJs)
+				// build:js js/lib.min.js
+				script(src= "js/lib.min.js")
+				// endbuild
+
+		block scripts
+			// build:js js/main.js
+			script(src=" js/main.js")
+			// endbuild

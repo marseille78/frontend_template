@@ -1,6 +1,52 @@
 // Шрифти
+$g_Ff: (
+    base: 'Verdana, sans-serif',
+    second: 'Tahoma, sans-serif',
+);
+
+// Размеры шрифта
+$g_Fz: (
+    base: 16px,
+    base_mob: 16px,
+    large: 18px,
+    small: 12px,
+    h1: 36px,
+    h1_mob: 36px,
+    h2: 30px,
+    h2_mob: 30px,
+    h3: 24px,
+    h3_mob: 24px,
+    h4: 20px,
+    h4_mob: 20px,
+    h5: 18px,
+    h5_mob: 18px,
+    h6: 16px,
+    h6_mob: 16px,
+);
+
+// Вес шрифта
+$g_Fw: (
+    reg: 400,
+    bold: 700,
+);
+
+// Стилизация шрифта
+$g_Fs: (
+    n: normal,
+    i: italic,
+);
+
+// Размер межстрочного интервала
+$g_Lh: (
+    base: 1.4,
+    base_mob: 1.4
+);
 
 // Набор кольорів
+$g_C: (
+    text: black,
+    link: blue,
+);
 
 // Фонові кольори
 $g_Bg:(
@@ -9,6 +55,7 @@ $g_Bg:(
     page: white, // Колір фону сайту
     base_sect: #ededed, // Колір базової секції
     opposite_sect: gray, // Колір протилежної секції
+    accent: blue, // Акцентирующий цвет
     body_overlay: rgba(0,0,0,.7), // Напівпрозорий фон під мобільне меню чи попап
 );
 
@@ -38,6 +85,8 @@ $g_Int:(
     sect_sb_v: 15px,// Вертикальний секційний відступ в сайдбарі
     sect_h: 15px,// Горизонтальний секційний відступ
     sect_sb_h: 15px,// горизонтальний секційний відступ в сайдбарі
+    bq: 15px, // <blockquote> Вертикальный отступ
+    bq_mob: 15px, // <blockquote> Вертикальный отступ (mob)
 );
 
 $g_Points:(
@@ -61,27 +110,47 @@ $g_Points:(
 // Functions
 // ***************************************
 
-// Отримання значень що до шрифтів
-@function _f($var) {
-    @return map_get($g_Font, $var);
+// Получение названия шрифта
+@function _ff($var) {
+    @return map_get($g_Ff, $var);
 }
 
-// Отримання значень що до кольорів
+// Получение размера шрифта
+@function _fz($var) {
+    @return map_get($g_Fz, $var);
+}
+
+// Получение веса шрифта
+@function _fw($var) {
+    @return map_get($g_Fw, $var);
+}
+
+// Получение стилизации шрифта
+@function _fs($var) {
+    @return map_get($g_Fs, $var);
+}
+
+// Получение размера межстрочного интервала
+@function _lh($var) {
+    @return map_get($g_Lh, $var);
+}
+
+// Получение цвета текста
 @function _c($var) {
-    @return map_get($g_Color, $var);
+    @return map_get($g_C, $var);
 }
 
-// Отримання значень що до фонових кольорів
+// Получение фонового цвета
 @function _bg($var) {
     @return map_get($g_Bg, $var);
 }
 
-// Отримання значень що до вищін сайту
+// Получение высот структуры сайта
 @function _h($var) {
     @return map_get($g_Height, $var);
 }
 
-// Отримання значень що до довжин сайту
+// Получение ширин структуры сайта
 @function _w($var) {
     @return map_get($g_Width, $var);
 }

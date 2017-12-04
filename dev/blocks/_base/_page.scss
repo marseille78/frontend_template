@@ -76,40 +76,6 @@
 
 @mixin page-xs(){
     /* page xs */
-    .page-wrapper {
-        min-height: 100%;
-        margin-bottom: -(_h(footer));
-    }
-
-    .page-inner {
-        padding-bottom: _h(footer);
-    }
-
-    .page-header {
-        @include make_block(red);
-        min-height: _h(header);
-    }
-
-    .page-center {
-        padding-bottom: _h(footer);
-    }
-
-    .page-content {
-        @include make_block(lime);
-
-        &__item {
-            @include make_block(purple);
-
-            margin-bottom: _i(sect_v);
-            min-height: _h(sect);
-            padding: 0 _i(sect_h);
-        }
-    }
-
-    .page-footer {
-        @include make_block(blue);
-        min-height: _h(footer);
-    }
 }
 @mixin page-sm(){
     // page sm

@@ -16,6 +16,10 @@ mixin head(data)
 
 	- var hasLibCss = data.hasLibCss
 	if (hasLibCss)
+		// build:css css/lib.min.css
 		link(rel="stylesheet" href="css/lib.min.css")
+		// endbuild
 
+	// build:js js/main.css
 	link(rel="stylesheet" href="css/main.css")
+	// endbuild

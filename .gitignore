@@ -2,3 +2,7 @@
 /.idea
 /dev/libs
 /app
+!/app/fonts
+!/app/img
+/build
+/.DS_Store

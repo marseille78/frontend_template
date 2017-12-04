@@ -16,21 +16,19 @@
 
 
 //  Blocks
-@import "table/table";
+@import "header/header";
 
 
 
 // CATEGORY START (-xs)
 @include text-xs();
 @include page-xs();
-@include table-xs();
 // CATEGORY END
 
 @media only screen and (min-width: _bp(sm)) {
   // CATEGORY START (-sm)
   @include text-sm();
 @include page-sm();
-@include table-sm();
 // CATEGORY END
 }
 
@@ -38,7 +36,6 @@
 // CATEGORY START (-md)
 @include text-md();
 @include page-md();
-@include table-md();
 // CATEGORY END
 }
 
@@ -46,7 +43,6 @@
 // CATEGORY START (-lg)
 @include text-lg();
 @include page-lg();
-@include table-lg();
 // CATEGORY END
 }
 
@@ -54,7 +50,6 @@
 // CATEGORY START (-xl)
 @include text-xl();
 @include page-xl();
-@include table-xl();
 // CATEGORY END
 }
 
@@ -62,7 +57,6 @@
 // CATEGORY START (-dev)
 @include text-dev();
 @include page-dev();
-@include table-dev();
 // CATEGORY END
 }
 
@@ -70,7 +64,6 @@
 // CATEGORY START (-mob)
 @include text-mob();
 @include page-mob();
-@include table-mob();
 // CATEGORY END
 }
 
@@ -78,7 +71,6 @@
 // CATEGORY START (-xso)
 @include text-xso();
 @include page-xso();
-@include table-xso();
 // CATEGORY END
 }
 
@@ -86,7 +78,6 @@
 // CATEGORY START (-smo)
 @include text-smo();
 @include page-smo();
-@include table-smo();
 // CATEGORY END
 }
 
@@ -94,7 +85,6 @@
 // CATEGORY START (-mdo)
 @include text-mdo();
 @include page-mdo();
-@include table-mdo();
 // CATEGORY END
 }
 
@@ -102,6 +92,5 @@
 // CATEGORY START (-lgo)
 @include text-lgo();
 @include page-lgo();
-@include table-lgo();
 // CATEGORY END
 }

@@ -1,96 +1,88 @@
-"use strict";
+'use strict';
 
-/*********************************************
- * 		Variables
- *********************************************/
-
-var gulp = require('gulp'), // сам gulp
-    concatCSS = require('gulp-concat-css'), // объединение CSS-файлов
-    concat = require('gulp-concat'),
-    cleanCSS = require('gulp-clean-css'),
-    notify = require('gulp-notify'),
-    autoprefixer = require('gulp-autoprefixer'),
-    connect = require('gulp-connect'),
-    sass = require('gulp-sass'),
-    uncss = require('gulp-uncss'),
+var gulp = require('gulp'),
     pug = require('gulp-pug'),
-    uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
-	spritesmith = require('gulp.spritesmith');
+    prefix = require('gulp-autoprefixer'),
+    imagemin = require('gulp-imagemin'),
+    browserSync = require('browser-sync').create(),
+    spritesmith = require('gulp.spritesmith');
 
 // var useref = require('gulp-useref'),
-// 	gulpif = require('gulp-if');
-
-var clean = require('gulp-clean'),
-    sftp = require('gulp-sftp');
+var gulpif = require('gulp-if'),
+    cssmin = require('gulp-clean-css'),
+    uglify = require('gulp-uglify'),
+    rimraf = require('rimraf'),
+    notify = require('gulp-notify'),
+    ftp = require('vinyl-ftp');
 
 var paths = {
-    dirApp: 'app/',
-    dirLib: 'app/libs/',
-    appCSS: 'app/css',
-    appJS: 'app/js',
-    dirBlocks: 'dev/blocks/',
-    dirBuild: 'build/'
+    blocks: 'dev/blocks/',
+    devDir: 'app/',
+    libs: 'libs/',
+    outputDir: 'build/'
 };
 
 var libsCSS = [];
 
 var libsJS = [];
 
+/*******************************************
+    Developer tasks
+*******************************************/
 
-
-/**********************************************
- * 		Development
- *********************************************/
-
-// HTML
-gulp.task('html', function() {
-    return gulp.src([paths.dirBlocks + '*.pug',
-        '!' + paths.dirBlocks + 'template.pug',
-        '!' + paths.dirBlocks + 'tpl_example.pug',
-        '!' + paths.dirBlocks + 'tpl_1_col.pug',
-        '!' + paths.dirBlocks + 'tpl_banner_adaptive.pug'])
+// PUG compile
+gulp.task('pug', function() {
+    return gulp.src([
+            paths.blocks + '*.pug',
+            '!' + paths.blocks + 'tpl_example.pug',
+            '!' + paths.blocks + 'typography.pug'
+        ])
         .pipe(plumber())
         .pipe(pug({pretty: true}))
-        .pipe(gulp.dest(paths.dirApp))
-        .pipe(connect.reload());
+        .pipe(gulp.dest(paths.devDir))
+        .pipe(browserSync.stream())
 });
 
-// CSS
-gulp.task('css', function() {
-    return gulp.src(paths.dirBlocks + '**/*.scss')
+// SASS compile
+gulp.task('sass', function() {
+    return gulp.src(paths.blocks + '*.scss')
         .pipe(plumber())
         .pipe(sass({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 15 versions'],
-            cascade: false
+        .pipe(prefix({
+            browsers: ['last 10 versions'],
+            cascade: true
         }))
-        .pipe(gulp.dest(paths.appCSS))
-        .pipe(connect.reload({stream: true}));
+        .pipe(gulp.dest(paths.devDir + 'css/'))
+        .pipe(browserSync.stream());
 });
 
-// JS
-gulp.task('js', function() {
-    return gulp.src(paths.dirBlocks + '**/*.js')
-        .pipe(plumber())
+// JS compile
+gulp.task('scripts', function() {
+    return gulp.src([
+            paths.blocks + '**/*.js',
+            '!' + paths.blocks + '_assets/**/*.js'
+        ])
         .pipe(concat('main.js'))
-        .pipe(gulp.dest(paths.appJS))
-        .pipe(connect.reload());
+        .pipe(gulp.dest(paths.devDir + 'js/'))
+        .pipe(browserSync.stream());
 });
 
 // Concatination CSS-files from libraries
 gulp.task('concatLibCSS', function() {
     return gulp.src(libsCSS)
         .pipe(plumber())
-        .pipe(concatCSS('lib.min.css'))
-        .pipe(autoprefixer({
+        .pipe(concat('lib.min.css'))
+        .pipe(prefix({
             browsers: ['last 15 versions'],
             cascade: false
         }))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest(paths.appCSS));
+        .pipe(cssmin({compatibility: 'ie8'}))
+        .pipe(gulp.dest(paths.devDir + 'css/'));
 });
 
 // Concatination JS-files from libraries
@@ -99,65 +91,95 @@ gulp.task('concatLibJS', function() {
         .pipe(plumber())
         .pipe(concat('lib.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(paths.appJS));
+        .pipe(gulp.dest(paths.devDir + 'js/'));
 });
 
-// Create sprite
+// WATCH
+gulp.task('watch', function() {
+    gulp.watch(paths.blocks + '**/*.pug', ['pug']);
+    gulp.watch(paths.blocks + '**/*.scss', ['sass']);
+    gulp.watch(paths.blocks + '**/*.js', ['scripts']);
+});
+
+// SERVER
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        port: 3000,
+        server: {
+            baseDir: paths.devDir
+        }
+    });
+});
+
+// SPRITES
 gulp.task('sprite', function() {
-    var spriteData = gulp.src('dev/img/icons/*.png')
+    var spriteData = gulp.src(paths.devDir + 'img/icons/*.png')
         .pipe(spritesmith({
             imgName: 'sprite.png',
             cssName: '_sprite.scss'
         }));
-    return spriteData.pipe(gulp.dest(paths.dirBlocks + '_base/'));
+    spriteData.img.pipe(gulp.dest(paths.devDir + 'img/')); // Path to save image
+    spriteData.css.pipe(gulp.dest(paths.blocks + '_base/')); // Path to save styles
 });
 
-// Server connect
-gulp.task('connect', function() {
-    connect.server({
-        root: 'app',
-        // port:3000,
-        livereload: true
+
+
+/*********************************************
+    Production tasks
+*********************************************/
+
+// CLEAN
+gulp.task('clean', function(cb) {
+    rimraf(paths.outputDir, cb);
+});
+
+// CSS + JS
+// gulp.task('buildCSS', ['clean'], function() {
+//     return gulp.src(paths.devDir + '*.html')
+//         .pipe(useref())
+//         .pipe(gulpif('*.js', uglify()))
+//         .pipe(gulpif('*.css', cssmin()))
+//         .pipe(gulp.dest(paths.outputDir));
+// });
+
+// COPY IMAGES TO outputDir
+gulp.task('imgBuild', ['clean'], function() {
+    return gulp.src(paths.devDir + 'img/**/*.*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(paths.outputDir + 'img/'));
+});
+
+// COPY FONTS TO outputDir
+gulp.task('fontsBuild', ['clean'], function() {
+    return gulp.src(paths.devDir + 'fonts/*')
+        .pipe(gulp.dest(paths.outputDir + 'fonts/'));
+});
+
+// FTP
+gulp.task('send', function() {
+    var conn = ftp.create({
+        host: '77.120.110.166',
+        user: 'marseille78',
+        password: '1110',
+        parallel: 5
     });
+
+    // List all files you FTP in the glob variables
+    var globs = [
+        'build/**/*',
+        '!node_modules/**' // if you wish to exclude directories, start the item with an !
+    ];
+
+    return gulp.src(globs, { base: '.', buffer: false })
+        .pipe(conn.newer('/')) // only upload newer files
+        .pipe(conn.dest('/'))
+        .pipe(notify('Dev site updated!'));
 });
 
-// Watcher
-gulp.task('watch', function() {
-    gulp.watch(paths.dirBlocks + '**/*.pug', ['html']);
-    gulp.watch(paths.dirBlocks + '**/*.scss', ['css']);
-    gulp.watch(paths.dirBlocks + '**/*.js', ['js']);
-});
-
-// Default task
-gulp.task('default', ['concatLibCSS', 'concatLibJS', 'connect', 'html', 'css', 'js', 'watch']);
 
 
+// DEFAULT
+gulp.task('default', ['concatLibCSS', 'concatLibJS', 'browser-sync', 'watch', 'pug', 'sass', 'scripts']);
 
-/**********************************************
- * 		Build production
- *********************************************/
-
-// gulp.task('buildHTML', function() {
-// 	return gulp.src(paths.dirApp + '*.html')
-// 		.pipe(gulpif('*.js', uglify()))
-// 		.pipe(gulpif('*.css', cleanCSS()))
-// 		.pipe(useref())
-// 		.pipe(gulp.dest('build'));
-// });
-
-// gulp.task('clean', function() {
-//     return gulp.src(paths.dirBuild, {read: false})
-//         .pipe(clean());
-// });
-//
-// gulp.task('build', ['clean'], function() {});
-//
-// gulp.task('sftp', function() {
-//     return gulp.src(paths.dirBuild + '**/*')
-//         .pipe(sftp({
-//             host: '',
-//             user: '',
-//             pass: '',
-//             remotePath: ''
-//         }));
-// });
+// PRODUCTION
+gulp.task('prod', ['build', 'imgBuild', 'fontsBuild']);
