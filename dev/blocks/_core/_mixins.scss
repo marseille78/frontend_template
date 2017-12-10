@@ -74,3 +74,58 @@
 	display: inline-block;
 	vertical-align: $va;
 }
+
+
+
+
+
+/****************************************
+ * 	Page
+ ***************************************/
+
+// Міксін для підкладання зображення макету для полегшення роботи
+// $img - Шлях до потрібного зображення
+// $width - Довжина фонового зображення
+@mixin bg_maket($img, $width) {
+	background: url(#{$img}) no-repeat 50% 0;
+	background-size: #{$width} auto;
+	min-height: 100%;
+	max-width: $width;
+	margin: 0 auto;
+}
+
+// Міксін для візуалізації блоків при створенні
+// $color - колір залівки поточного блоку
+@mixin make_block($color: #0f0) {
+	position: relative;
+	border: 2px solid $color;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $color;
+		opacity: .3;
+		box-sizing: border-box;
+	}
+}
+
+// Міксін для створення напівпрозорого фону для допоміжних частин сайту (напр. мобільне меню, чи попап)
+@mixin bg_overlay() {
+	&.opened {
+		&:after {
+			content: '';
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			width: 100%;
+			height: 100%;
+			background-color: _bg(body_overlay);
+		}
+	}
+}

@@ -1,0 +1,11 @@
+mixin menu(data)
+    +b.menu
+        +e.NAV.component
+            +e.toggle.js-menuToggle
+                +e.SPAN.toggle-item--top
+                +e.SPAN.toggle-item--middle
+                +e.SPAN.toggle-item--bottom
+            +e.UL.list
+                each item in data
+                    +e.LI.item
+                        +e.A.link(href= item.link)= item.title

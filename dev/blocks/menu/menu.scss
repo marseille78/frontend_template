@@ -1,0 +1,188 @@
+// @include menu-xs();
+// @include menu-sm();
+// @include menu-md();
+// @include menu-lg();
+// @include menu-xl();
+// @include menu-dev();
+// @include menu-mob();
+// @include menu-xso();
+// @include menu-smo();
+// @include menu-mdo();
+// @include menu-lgo();
+
+$e_menu: (
+  is_horisontal: true,
+  align_list: justify,
+);
+
+@function _menu($var) {
+  @return map_get($e_menu, $var);
+}
+
+@mixin menu-xs() {
+  .menu {
+    &__component {
+      position: relative;
+    }
+  }
+  // menu xs start
+  .menu {
+    &__list {
+      margin: 0;
+      padding: 5px 15px;//+
+      display: none;
+      background-color: #ccc;//*
+
+      @if _menu(align_list) == justify {
+        text-align: justify;
+        line-height: 0;
+        font-size: 0;
+
+        &:after {
+          content: '';
+          visibility: hidden;
+          overflow: hidden;
+          width: 100%;
+          display: inline-block;
+          height: 0;
+        }
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+    &__item {
+      @if _menu(is_horisontal) {
+        display: inline-block;
+        vertical-align: top;
+      }
+      list-style-type: none;
+      font-size: 14px;//+
+      line-height: normal;//+
+    }
+    &__link {
+      display: block;
+      line-height: 40px;//+
+      padding: 0 10px;//+
+      text-decoration: none;//+
+      color: #000000;//+
+
+      &:hover {
+        text-decoration: underline;//+
+        background-color: #fff;//+
+      }
+    }
+    &__toggle {
+      position: relative;
+      width: 40px;//+
+      height: 40px;//+
+      background-color: blue;//+
+      cursor: pointer;
+
+      &.active {
+        .menu__toggle-item {
+          &--top {
+            top: 18px;
+            transform: rotate(45deg);
+          }
+          &--middle {
+            display: none;
+          }
+          &--bottom {
+            top: 18px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    &__toggle-item {
+      position: absolute;
+      display: block;
+      width: 80%;//+
+      left: 10%;//+
+      height: 3px;//+
+      background-color: #fff;//+
+      -webkit-border-radius: 3px;//+
+      -moz-border-radius: 3px;//+
+      border-radius: 3px;//+
+
+      &--top {
+        top: 8px;//+
+      }
+
+      &--middle {
+        top: 18px;//+
+      }
+
+      &--bottom {
+        top: 28px;//+
+      }
+    }
+  }
+  // menu xs end
+}
+
+@mixin menu-sm() {
+  // menu sm start
+  .menu {}
+  // menu sm end
+}
+
+@mixin menu-md() {
+  // menu md start
+  .menu {
+    &__list {
+      display: block;
+    }
+  }
+  // menu md end
+}
+
+@mixin menu-lg() {
+  // menu lg start
+  .menu {}
+  // menu lg end
+}
+
+@mixin menu-xl() {
+  // menu xl start
+  .menu {}
+  // menu xl end
+}
+
+@mixin menu-dev() {
+  // menu dev start
+  .menu {}
+  // menu dev end
+}
+
+@mixin menu-mob() {
+  // menu mob start
+  .menu {}
+  // menu mob end
+}
+
+@mixin menu-xso() {
+  // menu xso start
+  .menu {}
+  // menu xso end
+}
+
+@mixin menu-smo() {
+  // menu smo start
+  .menu {}
+  // menu smo end
+}
+
+@mixin menu-mdo() {
+  // menu mdo start
+  .menu {}
+  // menu mdo end
+}
+
+@mixin menu-lgo() {
+  // menu lgo start
+  .menu {}
+  // menu lgo end
+}

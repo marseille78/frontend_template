@@ -7,6 +7,8 @@ include _assets/bemto/bemto
 
 include _base/head
 
+include menu/menu
+
 doctype html
 html(lang= lang)
 
@@ -20,6 +22,31 @@ html(lang= lang)
 
 	body
 
+		.container
+			block menu
+				+menu([
+					{
+					    'title': 'Главная',
+						'link': '#',
+					},
+					{
+					    'title': 'Каталог',
+						'link': '#',
+					},
+					{
+					    'title': 'О компании',
+						'link': '#',
+					},
+					{
+					    'title': 'Контакты',
+						'link': '#',
+					},
+					{
+					    'title': 'Пункт 5',
+						'link': '#',
+					},
+				])
+
 		block content
 			div content
 
@@ -28,11 +55,7 @@ html(lang= lang)
 
 		block vendors
 			if (hasLibJs)
-				// build:js js/lib.min.js
 				script(src= "js/lib.min.js")
-				// endbuild
 
 		block scripts
-			// build:js js/main.js
 			script(src=" js/main.js")
-			// endbuild
