@@ -1,0 +1,293 @@
+// @include menu-xs();
+// @include menu-sm();
+// @include menu-md();
+// @include menu-lg();
+// @include menu-xl();
+// @include menu-dev();
+// @include menu-mob();
+// @include menu-xso();
+// @include menu-smo();
+// @include menu-mdo();
+// @include menu-lgo();
+
+$e_menu: (
+  // Общие настройки
+  is_horisontal: true,// {Boolean} - Является ли меню на десктопе горизонтальным
+        // true: да
+        // false: нет
+  has_active_item: true,// {Boolean} - Указывает имеем ли стили для активного элемента списка <LI>
+        // true: да
+        // false: нет
+  align_list: 'justify',// {String} - Выравнивание меню на десктопе
+        // 'left': по левому краю
+        // 'right': по правому краю
+        // 'center': по центру
+        // 'justify': растянуто по ширине
+  type_mobile: 'simple_show',// {String} - Тип появления мобильного меню
+        // 'simple_show': Простое появление (мгновенно появляется - мгновенно исчезает)
+  size_desktop: 'md',// {String} - Разрешение экрана, при котором переход из мобильного на десктоп
+        // 'md': Middle. При планшетном разрешении
+        // 'lg': Large. При десктопном разрешении
+
+  // Размеры
+  fz: 14px,// font-size <LI>
+  fz_act: 14px,// font-size <LI.active>
+  lh_item: 40px,// line-height <LI>
+  p_list: 0,// padding <UL>
+  p_link: 0 10px,// padding <A>
+  w_toggle: 40px,// width <.menu__toggle> (кнопка гамбургера)
+  h_toggle: 40px,// height <.menu__toggle> (кнопка гамбургера)
+  w_toggle-item: 80%,// width <.menu__toggle-item> (полоска гамбургера)
+  h_toggle-item: 3px,// height <.menu__toggle-item> (полоска гамбургера)
+
+  // Цвета
+  bg_link: #c3c3c3,// background-color <A>
+  bg_link_hv: #d0d0d0,// background-color <A>:hover
+  bg_link_act:  #c3c3c3,// background-color <LI.active A>
+  bg_link_act_hv:  #d0d0d0,// background-color <LI.active A>:hover
+  bg_list: #ccc,// background-color <UL>
+  bg_toggle: #00f,// background-color <.menu__toggle> (кнопка гамбургера)
+  bg_toggle-item: #fff,// background-color <.menu__toggle-item> (полоска гамбургера)
+  c_link: #000,// color <A>
+  c_link_hv: #000,// color <A>:hover
+  c_link_act: #000,// color <A.active>
+  c_link_act_hv: #000,// color <A.active>:hover
+
+  // Другое оформление
+  bdrs_toggle-item: 3px,// border-radius <.menu__toggle-item> (полоска гамбургера)
+  inst_toggle-item: 10px,// Отступ пежду полосками гамбургера
+  td: none,// text-decoration <A>
+  td_hv: underline,// text-decoration <A>:hover
+  td_act: none,// text-decoration <LI.active A>
+  td_act_hv: underline,// text-decoration <LI.active A>:hover
+);
+
+@function _menu($var) {
+  @return map_get($e_menu, $var);
+}
+
+@mixin _menu_drawDesktop($align_list) {
+  font-size: 0;
+  line-height: 0;
+  @if $align_list == 'left' {
+    text-align: left;
+  }
+  @else if $align_list == 'right' {
+    text-align: right;
+  }
+  @else if $align_list == 'center' {
+    text-align: center;
+  }
+  @else if $align_list == 'justify' {
+    text-align: justify;
+
+    &:after {
+      content: '';
+      visibility: hidden;
+      overflow: hidden;
+      width: 100%;
+      display: inline-block;
+      height: 0;
+    }
+  }
+}
+
+@mixin menu-xs() {
+  // menu xs start
+  .menu {
+    &__component {
+      position: relative;
+    }
+    &__list {
+      margin: 0;
+      padding: _menu(p_list);
+      background-color: _menu(bg_list);
+
+      @if _menu(type_mobile) == 'simple_show' {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+    &__item {
+      list-style-type: none;
+      font-size: _menu(fz);
+      display: block;
+
+      @if _menu(has_active_item) {
+        &.active {
+          font-size: _menu(fz_act);
+
+          .menu__link {
+            color: _menu(c_link_act);
+            background-color: _menu(bg_link_act);
+            text-decoration: _menu(td_act);
+
+            &:hover {
+              color: _menu(c_link_act_hv);
+              background-color: _menu(bg_link_act_hv);
+              text-decoration: _menu(td_act_hv);
+            }
+          }
+        }
+      }
+    }
+    &__link {
+      display: block;
+      line-height: _menu(lh_item);
+      padding: _menu(p_link);
+      text-decoration: _menu(td);
+      color: _menu(c_link);
+      background-color: _menu(bg_link);
+
+      &:hover {
+        text-decoration: _menu(td_hv);
+        background-color: _menu(bg_link_hv);
+        color: _menu(c_link_hv);
+      }
+    }
+    &__toggle {
+      position: relative;
+      width: _menu(w_toggle);
+      height: _menu(h_toggle);
+      background-color: _menu(bg_toggle);
+      cursor: pointer;
+
+      &.active {
+        .menu__toggle-item {
+          &--top {
+            top: _menu(h_toggle)/2 - ceil(_menu(h_toggle-item)/2);
+            transform: rotate(45deg);
+          }
+          &--middle {
+            display: none;
+          }
+          &--bottom {
+            top: _menu(h_toggle)/2 - ceil(_menu(h_toggle-item)/2);
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    &__toggle-item {
+      position: absolute;
+      display: block;
+      width: _menu(w_toggle-item);
+      left: (100% - _menu(w_toggle-item))/2;
+      height: _menu(h_toggle-item);
+      background-color: _menu(bg_toggle-item);
+      -webkit-border-radius: _menu(bdrs_toggle-item);
+      -moz-border-radius: _menu(bdrs_toggle-item);
+      border-radius: _menu(bdrs_toggle-item);
+
+      &--top {
+        top: _menu(h_toggle)/2 - ceil(_menu(h_toggle-item)/2) - _menu(inst_toggle-item);
+      }
+
+      &--middle {
+        top: _menu(h_toggle)/2 - ceil(_menu(h_toggle-item)/2);
+      }
+
+      &--bottom {
+        top: _menu(h_toggle)/2 - ceil(_menu(h_toggle-item)/2) + _menu(inst_toggle-item);
+      }
+    }
+  }
+  // menu xs end
+}
+
+@mixin menu-sm() {
+  // menu sm start
+  .menu {}
+  // menu sm end
+}
+
+@mixin menu-md() {
+  // menu md start
+  .menu {
+    @if _menu(size_desktop) == 'md' {
+      &__list {
+        display: block;
+
+        @include _menu_drawDesktop(_menu(align_list));
+      }
+      &__item {
+        @if _menu(is_horisontal) {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+      &__toggle {
+        display: none;
+      }
+    }
+  }
+  // menu md end
+}
+
+@mixin menu-lg() {
+  // menu lg start
+  .menu {
+      @if _menu(size_desktop) == 'lg' {
+        &__list {
+          display: block;
+
+          @include _menu_drawDesktop(_menu(align_list));
+        }
+        &__item {
+          @if _menu(is_horisontal) {
+            display: inline-block;
+            vertical-align: top;
+          }
+        }
+        &__toggle {
+          display: none;
+        }
+      }
+  }
+  // menu lg end
+}
+
+@mixin menu-xl() {
+  // menu xl start
+  .menu {}
+  // menu xl end
+}
+
+@mixin menu-dev() {
+  // menu dev start
+  .menu {}
+  // menu dev end
+}
+
+@mixin menu-mob() {
+  // menu mob start
+  .menu {}
+  // menu mob end
+}
+
+@mixin menu-xso() {
+  // menu xso start
+  .menu {}
+  // menu xso end
+}
+
+@mixin menu-smo() {
+  // menu smo start
+  .menu {}
+  // menu smo end
+}
+
+@mixin menu-mdo() {
+  // menu mdo start
+  .menu {}
+  // menu mdo end
+}
+
+@mixin menu-lgo() {
+  // menu lgo start
+  .menu {}
+  // menu lgo end
+}

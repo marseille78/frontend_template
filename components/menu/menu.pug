@@ -1,0 +1,15 @@
+// data {Array}
+// item.title {String} - Содержимое тега <A>
+// item.href {String} - Содержимое атрибута 'href' тега <A>
+// item.isActive {Boolean} - Устанавливает класс 'active' на активный элемент списка <LI>
+mixin menu(data)
+    +b.menu
+        +e.NAV.component
+            +e.toggle.js-menuToggle
+                +e.SPAN.toggle-item--top
+                +e.SPAN.toggle-item--middle
+                +e.SPAN.toggle-item--bottom
+            +e.UL.list
+                each item in data
+                    +e.LI.item(class= item.isActive ? 'active' : '')
+                        +e.A.link(href= item.href)= item.title

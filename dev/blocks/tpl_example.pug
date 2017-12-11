@@ -7,8 +7,6 @@ include _assets/bemto/bemto
 
 include _base/head
 
-include menu/menu
-
 doctype html
 html(lang= lang)
 
@@ -21,31 +19,6 @@ html(lang= lang)
 			})
 
 	body
-
-		.container
-			block menu
-				+menu([
-					{
-					    'title': 'Главная',
-						'link': '#',
-					},
-					{
-					    'title': 'Каталог',
-						'link': '#',
-					},
-					{
-					    'title': 'О компании',
-						'link': '#',
-					},
-					{
-					    'title': 'Контакты',
-						'link': '#',
-					},
-					{
-					    'title': 'Пункт 5',
-						'link': '#',
-					},
-				])
 
 		block content
 			div content

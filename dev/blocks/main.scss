@@ -16,21 +16,18 @@
 
 
 //  Blocks
-@import "menu/menu";
 
 
 
 // CATEGORY START (-xs)
 @include text-xs();
 @include page-xs();
-@include menu-xs();
 // CATEGORY END (-xs)
 
 @media only screen and (min-width: _bp(sm)) {
 // CATEGORY START (-sm)
 @include text-sm();
 @include page-sm();
-@include menu-sm();
 // CATEGORY END (-sm)
 }
 
@@ -38,7 +35,6 @@
 // CATEGORY START (-md)
 @include text-md();
 @include page-md();
-@include menu-md();
 // CATEGORY END (-md)
 }
 
@@ -46,7 +42,6 @@
 // CATEGORY START (-lg)
 @include text-lg();
 @include page-lg();
-@include menu-lg();
 // CATEGORY END (-lg)
 }
 
@@ -54,7 +49,6 @@
 // CATEGORY START (-xl)
 @include text-xl();
 @include page-xl();
-@include menu-xl();
 // CATEGORY END (-xl)
 }
 
@@ -62,7 +56,6 @@
 // CATEGORY START (-dev)
 @include text-dev();
 @include page-dev();
-@include menu-dev();
 // CATEGORY END (-dev)
 }
 
@@ -70,7 +63,6 @@
 // CATEGORY START (-mob)
 @include text-mob();
 @include page-mob();
-@include menu-mob();
 // CATEGORY END (-mob)
 }
 
@@ -78,7 +70,6 @@
 // CATEGORY START (-xso)
 @include text-xso();
 @include page-xso();
-@include menu-xso();
 // CATEGORY END (-xso)
 }
 
@@ -86,7 +77,6 @@
 // CATEGORY START (-smo)
 @include text-smo();
 @include page-smo();
-@include menu-smo();
 // CATEGORY END (-smo)
 }
 
@@ -94,7 +84,6 @@
 // CATEGORY START (-mdo)
 @include text-mdo();
 @include page-mdo();
-@include menu-mdo();
 // CATEGORY END (-mdo)
 }
 
@@ -102,6 +91,5 @@
 // CATEGORY START (-lgo)
 @include text-lgo();
 @include page-lgo();
-@include menu-lgo();
 // CATEGORY END (-lgo)
 }
