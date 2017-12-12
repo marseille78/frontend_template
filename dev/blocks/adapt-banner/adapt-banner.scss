@@ -1,0 +1,257 @@
+// @include banner-xs();
+// @include banner-sm();
+// @include banner-md();
+// @include banner-lg();
+// @include banner-xl();
+// @include banner-dev();
+// @include banner-mob();
+// @include banner-xso();
+// @include banner-smo();
+// @include banner-mdo();
+// @include banner-lgo();
+
+$e_banner: (
+  // Общие настройки
+
+  // Размеры (Общие)
+  h: 172px,// height <.banner> баннера
+  m: 0,// margin <.banner> баннера
+
+  // Блок контента
+  p_content: 0 15px,// padding <.banner__content>
+  ff_content: 'Arial',
+  ta_content: center,
+  h_content: 100%,
+  bgi_content: "../img/bg.png",
+  bgr_content: repeat-x,
+  bgp_content: 50% 0,
+  bgc_content: #fefefe,
+
+  // Блок текста
+  txt_c: #783C3C,
+  txt_h1_fz: 20px,
+  txt_h1_mb: 15px,
+  txt_h2_fz: 24px,
+  txt_ff: 'Verdana',
+  txt_c_gold: #ec1c24,
+
+  // Другое оформление (Верхний бордер)
+  has_bd_top: true,
+  bd_top_src: "../img/bg_top.png",
+  bd_top_left: 0,
+  bd_top_h: 20px,
+  bd_top_bgr: repeat-x,
+  bd_top_bgp: 0 0,
+  bd_top_w: 100%,
+
+  // Другое оформление (Нижний бордер)
+  has_bd_bottom: true,
+  bd_bottom_src: "../img/bg_bottom.png",
+  bd_bottom_left: 0,
+  bd_bottom_h: 20px,
+  bd_bottom_bgr: repeat-x,
+  bd_bottom_bgp: 0 100%,
+  bd_bottom_w: 100%,
+
+  // Другое оформление (Левый элемент)
+  has_el_left: true,
+  el_left_t: 8px,
+  el_left_l: 8px,
+  el_left_w: 198px,
+  el_left_h: 152px,
+  el_left_bgi: "../img/el_left.png",
+
+  // Другое оформление (Правый элемент)
+  has_el_right: true,
+  el_right_t: 8px,
+  el_right_l: 8px,
+  el_right_w: 198px,
+  el_right_h: 152px,
+  el_right_bgi: "../img/el_right.png",
+);
+
+@function _banner($var) {
+  @return map_get($e_banner, $var);
+}
+
+@mixin banner-xs() {
+  // banner xs start
+  %border {
+    position: absolute;
+    height: _banner(bd_top_h);
+    background-repeat: _banner(bd_top_bgr);
+    z-index: 1;
+    width: _banner(bd_top_w);
+    left: _banner(bd_top_left);
+  }
+
+  %element {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    display: none;
+    z-index: 2;
+  }
+
+  .banner {
+    height: _banner(h);
+    margin: _banner(m);
+    position: relative;
+
+    h1,
+    h2,
+    span {
+      margin: 0;
+    }
+
+    @if _banner(has_bd_top) {
+      &__top-bd {
+        @extend %border;
+
+        background-image: url("#{_banner(bd_top_src)}");
+        background-position: _banner(bd_top_bgp);
+        top: 0;
+      }
+    }
+
+    @if _banner(has_bd_bottom) {
+      &__bottom-bd {
+        @extend %border;
+
+        background-image: url("#{_banner(bd_bottom_src)}");
+        background-position: _banner(bd_bottom_bgp);
+        bottom: 0;
+      }
+    }
+
+    &__content {
+      margin-left: 0;
+      margin-right: 0;
+      padding: _banner(p_content);
+      font-family: _banner(ff_content);
+      text-align: _banner(ta_content);
+      height: _banner(h_content);
+      position: relative;
+      background-color: _banner(bgc_content);
+      @if _banner(bgi_content) {
+        background-image: url("#{_banner(bgi_content)}");
+      }
+      background-repeat: _banner(bgr_content);
+      background-position: _banner(bgp_content);
+
+      @if _banner(has_el_left) {
+        &:before {
+          @extend %element;
+
+          top: _banner(el_left_t);
+          left: _banner(el_left_l);
+          width: _banner(el_left_w);
+          height: _banner(el_left_h);
+          background-image: url("#{_banner(el_left_bgi)}");
+        }
+      }
+
+      @if _banner(has_el_right) {
+        &:after {
+          @extend %element;
+
+          top: _banner(el_right_t);
+          right: _banner(el_right_l);
+          width: _banner(el_right_w);
+          height: _banner(el_right_h);
+          background-image: url("#{_banner(el_right_bgi)}");
+        }
+      }
+    }
+
+    &__text {
+      display: table;
+      width: 100%;
+      margin: 0;
+      color: _banner(txt_c);
+      height: 100%;
+      z-index: 3;
+
+      h1 {
+        font-size: _banner(txt_h1_fz);
+        margin-bottom: _banner(txt_h1_mb);
+      }
+
+      h2 {
+        font-size: _banner(txt_h2_fz);
+        font-family: _banner(txt_ff);
+      }
+
+      .gold,
+      .holiday {
+        color: _banner(txt_c_gold);
+      }
+    }
+
+    &__text-inner {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  // banner xs end
+}
+
+@mixin banner-sm() {
+  // banner sm start
+  .banner {}
+  // banner sm end
+}
+
+@mixin banner-md() {
+  // banner md start
+  .banner {}
+  // banner md end
+}
+
+@mixin banner-lg() {
+  // banner lg start
+  .banner {}
+  // banner lg end
+}
+
+@mixin banner-xl() {
+  // banner xl start
+  .banner {}
+  // banner xl end
+}
+
+@mixin banner-dev() {
+  // banner dev start
+  .banner {}
+  // banner dev end
+}
+
+@mixin banner-mob() {
+  // banner mob start
+  .banner {}
+  // banner mob end
+}
+
+@mixin banner-xso() {
+  // banner xso start
+  .banner {}
+  // banner xso end
+}
+
+@mixin banner-smo() {
+  // banner smo start
+  .banner {}
+  // banner smo end
+}
+
+@mixin banner-mdo() {
+  // banner mdo start
+  .banner {}
+  // banner mdo end
+}
+
+@mixin banner-lgo() {
+  // banner lgo start
+  .banner {}
+  // banner lgo end
+}

@@ -7,8 +7,16 @@ include _assets/bemto/bemto
 
 include _base/head
 
+include adapt-banner/adapt-banner
+
 doctype html
 html(lang= lang)
+
+	+adapt-banner({
+        "hasTopBd": true,
+		"hasBottomBd": true,
+		"text": "Merry Christmas & Happy New Year!"
+	})
 
 	block head
 		head
