@@ -37,8 +37,9 @@ var libsJS = [];
 gulp.task('pug', function() {
     return gulp.src([
             paths.blocks + '*.pug',
-            '!' + paths.blocks + 'tpl_example.pug',
-            '!' + paths.blocks + 'typography.pug'
+            '!' + paths.blocks + 'tpl_example.pug',// Примерный шаблон
+            '!' + paths.blocks + 'tpl_test.pug',// Шаблон для тестирования компонентов
+            '!' + paths.blocks + 'tbl_typography.pug'// Шаблон для типографики
         ])
         .pipe(plumber())
         .pipe(pug({pretty: true}))

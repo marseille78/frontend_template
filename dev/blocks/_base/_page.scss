@@ -10,7 +10,9 @@
 // @include page-mdo();
 // @include page-lgo();
 
-$e_page: ();
+$e_page: (
+    bg_header: #fff,
+);
 
 @function _page($var) {
     @return map_get($e_page, $var);
@@ -18,6 +20,15 @@ $e_page: ();
 
 @mixin page-xs(){
     // page xs start
+    .page-container {
+        position: relative;
+        width: 100%;
+        max-width: _w(container);
+        margin: 0 auto;
+    }
+    .page-header {
+        background-color: _page(bg_header);
+    }
     // page xs end
 }
 @mixin page-sm(){
@@ -30,11 +41,6 @@ $e_page: ();
 }
 @mixin page-lg(){
     // page lg start
-    .container {
-        width: 100%;
-        max-width: _w(container);
-        margin: 0 auto;
-    }
     // page lg end
 }
 @mixin page-xl(){

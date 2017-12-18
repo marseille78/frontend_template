@@ -11,13 +11,6 @@ include adapt-banner/adapt-banner
 
 doctype html
 html(lang= lang)
-
-	+adapt-banner({
-        "hasTopBd": true,
-		"hasBottomBd": true,
-		"text": "Merry Christmas & Happy New Year!"
-	})
-
 	block head
 		head
 			+head({
@@ -27,12 +20,16 @@ html(lang= lang)
 			})
 
 	body
+		block header
+			+b.HEADER.page-header
+				.page-container Header
 
 		block content
 			div content
 
 		block footer
-			footer footer
+			+b.FOOTER.page-footer
+				.page-container Footer
 
 		block vendors
 			if (hasLibJs)
