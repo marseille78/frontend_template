@@ -1,7 +1,7 @@
-function TopMenu(el) {
+function MainMenu(el) {
     this.el = document.querySelector(el);
-    this.btnToggle = this.el.querySelector('.js-menuToggle');
-    this.list = this.el.querySelector('.menu__list');
+    this.btnToggle = this.el.querySelector('.js-mainMenuToggle');
+    this.list = this.el.querySelector('.main-menu__list');
 
     var clearActive = this.clearActive.bind(this);
     var toggleMenu = this.toggleMenu.bind(this);
@@ -9,11 +9,11 @@ function TopMenu(el) {
     this.btnToggle.addEventListener('click', toggleMenu);
     window.addEventListener('resize', clearActive);
 }
-TopMenu.prototype.toggleMenu = function() {
+MainMenu.prototype.toggleMenu = function() {
     this.btnToggle.classList.toggle('active');
     this.list.classList.toggle('active');
 };
-TopMenu.prototype.clearActive = function() {
+MainMenu.prototype.clearActive = function() {
     this.btnToggle.classList.remove('active');
     this.list.classList.remove('active');
 }

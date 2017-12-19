@@ -2,10 +2,11 @@
 // item.title {String} - Содержимое тега <A>
 // item.href {String} - Содержимое атрибута 'href' тега <A>
 // item.isActive {Boolean} - Устанавливает класс 'active' на активный элемент списка <LI>
-mixin menu(data)
-    +b.menu
+// data.textBtn {String} - Текст кнопки управления мобильным меню
+mixin main-menu(data)
+    +b.main-menu
         +e.NAV.component
-            +e.toggle.js-menuToggle
+            +b.BUTTON.toggle.js-mainMenuToggle= data.textBtn
                 +e.SPAN.toggle-item--top
                 +e.SPAN.toggle-item--middle
                 +e.SPAN.toggle-item--bottom

@@ -39,7 +39,8 @@ gulp.task('pug', function() {
             paths.blocks + '*.pug',
             '!' + paths.blocks + 'tpl_example.pug',// Примерный шаблон
             '!' + paths.blocks + 'tpl_test.pug',// Шаблон для тестирования компонентов
-            '!' + paths.blocks + 'tbl_typography.pug'// Шаблон для типографики
+            '!' + paths.blocks + 'tbl_typography.pug',// Шаблон для тестирования компонентов
+            '!' + paths.blocks + 'tbl_col_1.pug'// Одноколоночный шаблон
         ])
         .pipe(plumber())
         .pipe(pug({pretty: true}))
