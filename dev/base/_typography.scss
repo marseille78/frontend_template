@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $c_bgBody;
+    font-family: ($ff_base, sans-serif);
+    font-size: $fz;
+    line-height: $lh;
+    color: $c_text;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: $fz_h1;
+    font-family: $ff_second;
+}
+
+h2 {
+    font-size: $fz_h2;
+    font-family: $ff_second;
+}
+
+h3 {
+    font-size: $fz_h3;
+}
+
+a {
+    color: $c_brand;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p {
+    margin: 0 0 0.8em 0;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input,
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=search],
+input[type=password],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=color],
+select,
+textarea {
+    color: #000;
+    border: 1px solid $c_gray_light;
+    padding: 5px 10px;
+    background-color: #fff;
+    outline: none;
+
+    &::-webkit-input-placeholder {color:$c_gray_light;}
+    &::-moz-placeholder          {color:$c_gray_light;}/* Firefox 19+ */
+    &:-moz-placeholder           {color:$c_gray_light;}/* Firefox 18- */
+    &:-ms-input-placeholder      {color:$c_gray_light;}
+}
+
+input,
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=search],
+input[type=password],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=color],
+select {
+    height: 32px;
+}
+
+button,
+input[type=submit] {
+    background-color: #fff;
+    border: 1px solid $c_gray_light;
+}
+
+legend {
+    font-size: 0.875em;
+    color: $c_text;
+}
+
+fieldset {
+    border: 1px solid $c_gray_light;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: none;
+    padding: 5px;
+}
