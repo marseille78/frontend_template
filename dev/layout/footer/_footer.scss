@@ -1,0 +1,28 @@
+.footer {
+    padding-bottom: 15px;
+    
+    &__icons {
+        margin-bottom: 15px;
+    }
+
+    @media #{$md} {
+        &__top-row {
+            background-color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+            margin-bottom: 24px;
+
+            .page__container {
+                display: flex;
+            }
+        }
+
+        &__nav {
+            display: flex;
+            align-items: center;
+        }
+
+        &__phones {
+            display: none;
+        }
+    }
+}
