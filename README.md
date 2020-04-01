@@ -1,54 +1,61 @@
-* `gulp-svgmin` - для минификации SVG
-* `gulp-cheerio` - находит в нашем SVG атрибуты `fill`, `stroke`, `style` и удаляет их (т.к. SVG может прийти уже установленными этими стилями)
-* `gulp-replace` - предыдущий плагин `gulp-cheerio` может заменять `>` на `&gt;`, здесь мы их возвращаем обратно
-* `gulp-svg-sprite` - объединяет все найденные `SVG`-файлы в один спрайт
-
 ## Структура проекта
 
 ```
-sass/
+dev/
 |
 |– abstracts/ (or utilities/)
-|   |– _variables.scss    // Sass Variables
-|   |– _functions.scss    // Sass Functions
-|   |– _mixins.scss       // Sass Mixins
+|   |– bemto/               // PUG-миксин для работы с БЭМ
+|   |– vars.less           // Less-переменные
 |
 |– base/
-|   |– _reset.scss        // Reset/normalize
-|   |– _typography.scss   // Typography rules
+|   |– fonts.less          // Подключение шрифтов
+|   |– icons.less          // Подключение иконок
+|   |– normalize.less
+|   |– sprite.less         // Настройки спрайта (генерируется в случае необходимости)
+|   |– typography.less     // типографика
+|   |– head.pug            // Pug-миксин тега <head>
 |
-|– components/ (or modules/)
-|   |– _buttons.scss      // Buttons
-|   |– _carousel.scss     // Carousel
-|   |– _slider.scss       // Slider
+|– components/              // Директория компонентов. Каждый лежит в своей папке
 |
-|– layout/
-|   |– _navigation.scss   // Navigation
-|   |– _grid.scss         // Grid system
-|   |– _header.scss       // Header
-|   |– _footer.scss       // Footer
-|   |– _sidebar.scss      // Sidebar
-|   |– _forms.scss        // Forms
+|- img/
+|   |
+|   |- icons/               // Директория для иконок, из которых делают спрайт
+|   |- svg/                 // Директория для SVG-файлов, из которых делают SVG-спрайт
 |
-|– pages/
-|   |– _home.scss         // Home specific styles
-|   |– _about.scss        // About specific styles
-|   |– _contact.scss      // Contact specific styles
+|– layout/                  // Компоненты отвечающие за структуру (header, footer, ...)
 |
-|– themes/
-|   |– _theme.scss        // Default theme
-|   |– _admin.scss        // Admin theme
+|– pages/                   // Pug-файлы отвечающие за отрисовку одноименных HTML-страниц (index.pug => index.html, ...)
 |
-|– vendors/
-|   |– _bootstrap.scss    // Bootstrap
-|   |– _jquery-ui.scss    // jQuery UI
+|– themes/                  // Компоненты шаблонов
 |
-`– main.scss              // Main Sass file
+|– main.js                  // Основной JS-файл, в который подключаются JS-файлы компонентов посредством ООП
+|- main.less                // Основной Less-файл, в который подключаются все необходимые Less-файлы
 ```
 
-## Сторонние библиотеки
+## Получаемый результат
 
-* `bootstrap ^4.4.1`
-* `jquery ^3.4.1`
-* `select2 ^4.0.13` - для стилизации `select`, включая `option`
-* `slick-carousel ^1.8.1` - слайдер
+```
+app/
+|
+|- index.html               // HTML-страницы
+|
+|- js/
+|   |
+|   |- main.js              // JS-файл со скриптами пользователя
+|   |- libs.min.js          // минифицированный JS-файл со скриптами подключенных библиотек (по необходимости)
+|
+|- css/
+|   |
+|   |- main.css             // CSS-файл со стилями пользователя
+|   |- libs.min.css         // минифицированный CSS-файл со стилями подключенных библиотек (по необходимости)
+|
+|- img/                     // Изображения
+|   |
+|   |- svg/                 // SVG-файлы (по необходимости)
+|       |
+|       |- symbol/          // SVG-спрайт (по необходимости)
+|
+|- pic/                     // Контентные изображения
+|
+|- fonts/                   // Шрифты (по необходимости)
+```

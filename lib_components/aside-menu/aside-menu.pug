@@ -1,0 +1,43 @@
+//- Пример передачи данных
+//- ----------------------------------------
+//- -
+//-     const dataAsideMenu = {
+//-         //- cls: ['cls-1', 'cls-2'],
+//-         list: [
+//-             {
+//-                 href: "#",
+//-                 label: "Item 1",
+//-             },
+//-             {
+//-                 href: "#",
+//-                 label: "Item 2",
+//-             },
+//-             {
+//-                 href: "#",
+//-                 label: "Item 3",
+//-             },
+//-             {
+//-                 href: "#",
+//-                 label: "Item 4",
+//-             },
+//-             {
+//-                 href: "#",
+//-                 label: "Item 5",
+//-             },
+//-         ],
+//-     }
+
+mixin aside-menu(data)
+    - const cls = data.cls || [];
+    - const list = data.list || [];
+
+    // aside-menu
+    +b.aside-menu(class= cls.join(' '))
+        +e.NAV.inner
+            +e.toggle(class="js-asideMenuToggle") Toggle
+            +e.UL.list
+                each item in list
+                    - const {href, label} = item
+                    +e.LI.item
+                        +e.A.link(href= href)= label
+    // //aside-menu

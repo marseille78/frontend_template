@@ -1,0 +1,30 @@
+include ../../abstracts/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+
+include ../../base/head
+
+//- include ../../components/example/example
+
+-
+    const dataHead = {
+        "title": "Title",
+        "description": "Description",
+        "hasCssLibs": false //- Включаем, если есть сторонние CSS-библиотеки
+    }
+
+doctype html
+html(lang="ru")
+
+    block head
+        head
+            +head(dataHead)
+
+    +b.BODY.page
+
+        +e.wrapper
+            block content
+                h1 Content
+
+        block scripts
+            //- script(src="js/libs.min.js") //- Включаем, если есть сторонние JS-библиотеки
+            script(src="js/main.js")

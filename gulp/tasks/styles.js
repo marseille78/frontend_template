@@ -13,12 +13,12 @@ module.exports = () => {
         if (libCSS.length > 0) {
             return $.gulp.src(libCSS)
                 .pipe($.gp.plumber())
-                .pipe($.gp.sass({outputStyle: 'compress'}).on('error', $.gp.sass.logError))
+                .pipe($.gp.less())
                 .pipe($.gp.concat('libs.min.css'))
                 .pipe($.gp.autoprefixer())
                 .on("error", $.gp.notify.onError({
                     message: "Error: <%= error.message %>",
-                    title: "Error running Sass"
+                    title: "Error running Less"
                 }))
                 .pipe($.gp.csso())
                 .pipe($.gulp.dest(`${$.paths.app}/css`));
@@ -28,10 +28,10 @@ module.exports = () => {
 
     // Сборка стилей из блоков
     $.gulp.task('styles', () => {
-        return $.gulp.src(`${$.paths.dev}/main.scss`)
+        return $.gulp.src(`${$.paths.dev}/main.less`)
             .pipe($.gp.sourcemaps.init())
             .pipe($.gp.plumber())
-            .pipe($.gp.sass({outputStyle: 'expanded'}).on('error', $.gp.sass.logError))
+            .pipe($.gp.less())
             .pipe($.gp.autoprefixer())
             .on("error", $.gp.notify.onError({
                 message: "Error: <%= error.message %>",

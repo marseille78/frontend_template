@@ -18,16 +18,13 @@ $.paths.tasks.forEach(taskPath => {
 });
 
 // Default
-// Если сторонних библиотек или SVG-спрайта нет, комментируем соответственно задачи 'styles:lib', 'scripts:lib' и 'svg:sprite'
+// Необходимую задачу включаем в 1-м $.gulp.parallel
 $.gulp.task('default', $.gulp.series(
-    $.gulp.parallel(
+    // $.gulp.parallel(
         // 'styles:lib',
         // 'scripts:lib',
-        'scripts',
-        'relocateStaticFiles',
-        'svg:sprite',
-        'svg'
-    ),
+        // 'scripts',
+    // ),
     $.gulp.parallel('pug', 'styles'),
     $.gulp.parallel('watch', 'serve')
 ));

@@ -1,0 +1,50 @@
+//- Передаваемые данные
+//- -------------------------------------------
+//- cls - массив дополнительных классов
+//- name - атрибут input[name]
+//- tabs - массив объектов содержимого табов
+//- tabs.id - id конкретного таба
+//- tabs.label - label конкретного таба
+//- tabs.content - содержимое таба
+
+//- Пример передачи данных
+//- -------------------------------------------
+//- -
+//-     const dataTabs = {
+//-         //- cls: ['cls_a', 'cls_b'],
+//-         //- name: 'tabs',
+//-         tabs: [
+//-             {
+//-                 id: "tab-1",
+//-                 label: "Tab-1",
+//-                 checked: true,
+//-                 content: "Tab 1. Suspendisse eu ligula. Curabitur at lacus ac velit ornare lobortis. Etiam ut purus mattis mauris sodales aliquam. Quisque ut nisi. Pellentesque auctor neque nec urna.",
+//-             },
+//-             {
+//-                 id: "tab-2",
+//-                 label: "Tab-2",
+//-                 content: "Tab 2. Fusce neque. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Cras sagittis. Proin magna. Fusce vel dui.",
+//-             },
+//-             {
+//-                 id: "tab-3",
+//-                 label: "Tab-3",
+//-                 content: "Tab 3. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Curabitur turpis. Etiam vitae tortor. Etiam sit amet orci eget eros faucibus tincidunt. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros.",
+//-             },
+//-         ],
+//-     }
+
+mixin tabs(data)
+    - const cls = data.cls || [];
+    - const name = data.name || 'tabs';
+    - const tabs = data.tabs || [];
+    
+    // tabs
+    +b.tabs(class= cls.join(' '))
+        each item in tabs
+            +e.INPUT.radio(type="radio" name= name id= item.id checked= item.checked)
+            +e.LABEL.label(for= item.id)= item.label
+        
+        +e.body
+            each item in tabs
+                +e.item= item.content
+    // //tabs

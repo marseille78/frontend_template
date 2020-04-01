@@ -1,4 +1,6 @@
 module.exports = () => {
+
+    // Сборка SVG-спрайта
     $.gulp.task('svg:sprite', () => {
         return $.gulp.src(`${$.paths.dev}/img/svg/*.svg`)
             .pipe($.gp.svgmin({
@@ -22,9 +24,10 @@ module.exports = () => {
                     }
                 }
             }))
-            .pipe($.gulp.dest(`${$.paths.dev}/img/svg`));
+            .pipe($.gulp.dest(`${$.paths.app}/img/svg`));
     });
 
+    // Обработка SVG-файлов
     $.gulp.task('svg', () => {
         return $.gulp.src(`${$.paths.dev}/img/svg/*.svg`)
             .pipe($.gp.svgmin({

@@ -1,0 +1,27 @@
+.tabs {
+    display: block;
+
+    &__radio {
+        display: none;
+    }
+
+    &__label {
+        cursor: pointer;
+        display: inline-block;
+
+        .tabs__radio:checked + & {
+            background-color: #eee;
+        }
+    }
+
+    &__item {
+        display: none;
+    }
+
+    // #tab-1, #tab-2, #tab-3 - Значения input[id]
+    #tab-1:checked ~ .tabs__body > div:nth-child(1),
+    #tab-2:checked ~ .tabs__body > div:nth-child(2),
+    #tab-3:checked ~ .tabs__body > div:nth-child(3) {
+        display: block;
+    }
+}

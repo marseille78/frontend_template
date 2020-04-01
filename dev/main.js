@@ -4,13 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
         [].slice.call(document.querySelectorAll('.opened'))
             .forEach(el => {el.classList.remove('opened')});
     });
-    
-    // Catalog
-    (function() {
-        const els = document.querySelectorAll('.catalog');
-        if (els.length === 0) return;
-        new Catalog(els[0]);
-    })();
+
+
+
+    // example (пример подключения)
+    // (function() {
+    //     const example = document.querySelectorAll('.example');
+    //     if (example.length === 0) return;
+    //     new Example(example[0]);
+    // })();
 });
 
 
